@@ -168,9 +168,11 @@ const LighterThemeFooter: React.FC = () => {
                 key={item.name}
                 href={item.href}
                 className="transition-all hover:text-accent"
+                target="_blank"
+                rel="noreferrer"
               >
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-7 w-7" aria-hidden={true} title={item.name}/>
+                <item.icon className="h-7 w-7" aria-hidden={true} title={item.name} />
               </a>
             ))}
           </div>
