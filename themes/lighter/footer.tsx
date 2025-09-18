@@ -69,13 +69,20 @@ const LighterThemeFooter: React.FC = () => {
       },
       {
         name: "instagram",
-        href: "https://www.facebook.com/tercersector.cat",
+        href: "https://www.instagram.com/taula3sector/",
         // eslint-disable-next-line
         icon: (props: IconProps) => (
           <RiInstagramFill {...props} />
         ),
       },
-      
+      {
+        name: "flickr",
+        href: "https://www.flickr.com/photos/tercersector/",
+        // eslint-disable-next-line
+        icon: (props: IconProps) => (
+          <RiFlickrFill {...props} />
+        ),
+      },
       {
         name: "linkedin",
         href: "https://www.linkedin.com/company/taula-d%27entitats-del-tercer-sector-social-de-catalunya",
@@ -85,16 +92,8 @@ const LighterThemeFooter: React.FC = () => {
         ),
       },
       {
-        name: "flickr",
-        href: "https://www.linkedin.com/company/taula-d%27entitats-del-tercer-sector-social-de-catalunya",
-        // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiFlickrFill {...props} />
-        ),
-      },
-      {
         name: "youtube",
-        href: "https://www.linkedin.com/company/taula-d%27entitats-del-tercer-sector-social-de-catalunya",
+        href: "https://www.youtube.com/user/tercersectorcat",
         // eslint-disable-next-line
         icon: (props: IconProps) => (
           <RiYoutubeFill {...props} />
