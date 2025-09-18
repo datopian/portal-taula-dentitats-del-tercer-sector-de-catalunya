@@ -102,7 +102,7 @@ const LighterThemeFooter: React.FC = () => {
     ],
   };
 
-  const portalLogo = process?.env?.NEXT_PUBLIC_PORTAL_LOGO || '/images/logos/taula.svg';
+  const portalLogo = process.env.NEXT_PUBLIC_PORTAL_LOGO ?? '/images/logos/taula.svg';
 
   return (
     <footer className="bg-accent-50  mt-[155px]">
