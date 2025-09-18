@@ -11,7 +11,7 @@ export default function LighterThemeHeader() {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
-  const portalLogo = process?.env?.NEXT_PUBLIC_PORTAL_LOGO;
+  const portalLogo = process?.env?.NEXT_PUBLIC_PORTAL_LOGO || '/images/logos/taula.svg';
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -34,7 +34,7 @@ export default function LighterThemeHeader() {
           <span className="sr-only">Portal</span>
           {portalLogo ? (
             <Link href="/">
-              <Image src={portalLogo} alt="logo" height={55} width={55} />
+              <Image src={portalLogo} alt="logo" height={75} width={230} />
             </Link>
           ) : (
             <PortalDefaultLogo />
