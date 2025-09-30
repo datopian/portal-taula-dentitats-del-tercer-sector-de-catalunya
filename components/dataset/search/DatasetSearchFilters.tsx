@@ -45,7 +45,7 @@ export default function DatasetSearchFilters() {
         )}
       </a>
       <div className={` ${showFilters ? "block" : "hidden"} lg:block`}>
-        <FacetCard title="Type">
+        <FacetCard title={t("type")}>
           <div className="text-[#5F5F5F] space-y-[10px]">
             <DatasetTypeOption
               title={t("datasets")}
@@ -102,7 +102,7 @@ export default function DatasetSearchFilters() {
                 type="button"
                 className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
               >
-                See {seeMoreOrgs ? "Less" : "More"}
+                {seeMoreOrgs ? t("showLess") : t("showMore")}
               </button>
             )}
           </div>
@@ -111,7 +111,7 @@ export default function DatasetSearchFilters() {
           <FacetCard
             title={
               <>
-                Refine by <span className="text-accent">Theme</span>
+                {t("refineBy")} <span className="text-accent">{t("theme")}</span>
               </>
             }
             showClear={options.groups.length > 0}
@@ -149,7 +149,7 @@ export default function DatasetSearchFilters() {
                   type="button"
                   className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
                 >
-                  See {seeMoreGroups ? "Less" : "More"}
+                  {seeMoreGroups ? t("showLess") : t("showMore")}
                 </button>
               )}
             </div>
@@ -159,7 +159,7 @@ export default function DatasetSearchFilters() {
           <FacetCard
             title={
               <>
-                Refine by <span className="text-accent">Tags</span>
+                {t("refineBy")} <span className="text-accent">{t("tags")}</span>
               </>
             }
             showClear={options.tags.length > 0}
@@ -189,7 +189,7 @@ export default function DatasetSearchFilters() {
           <FacetCard
             title={
               <>
-                Refine by <span className="text-accent">Format</span>
+                {t("refineBy")} <span className="text-accent">{t("format")}</span>
               </>
             }
             showClear={options.resFormat.length > 0}

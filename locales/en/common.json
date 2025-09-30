@@ -1,6 +1,6 @@
 {
   "dataset": "Dataset",
-  "datasets": "Dataset",
+  "datasets": "Datasets",
   "group": "Group",
   "groups": "Groups",
   "organization": "Organization",
@@ -22,6 +22,14 @@
   "titleDesc": "Title (Z-A)",
   "appliedFilters": "Applied Filters",
   "clearAll": "Clear All",
+  "clear": "Clear",
+
+  "type": "Type",
+  "theme": "Theme",
+  "tags": "Tags",
+  "format": "Format",
+  "showMore": "Show more",
+  "showLess": "Show less",
 
   "home": {
     "hero": {
@@ -38,7 +46,7 @@
     "popularDatasets": "Popular Datasets",
     "highlights": "Highlights"
   },
-  
+
   "footer": {
     "about": "About",
     "links": "Useful Links",
