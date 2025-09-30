@@ -22,6 +22,7 @@
   "titleDesc": "Title (Z-A)",
   "appliedFilters": "Applied Filters",
   "clearAll": "Clear All",
+  "clearFilters": "Clear Filters",
   "clear": "Clear",
   "type": "Type",
   "theme": "Theme",
@@ -29,6 +30,8 @@
   "format": "Format",
   "showMore": "Show more",
   "showLess": "Show less",
+  "noDatasetsFound": "No datasets found",
+  "noDatasetsFoundDescription": "It looks like no datasets match your current search criteria. Try adjusting your filters or clearing them all to see more datasets.",
   "home": {
     "hero": {
       "title1": "Find and Share",

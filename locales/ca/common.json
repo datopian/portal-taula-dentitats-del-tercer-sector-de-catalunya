@@ -22,6 +22,7 @@
   "titleDesc": "Títol (Z-A)",
   "appliedFilters": "Filtres aplicats",
   "clearAll": "Esborra-ho tot",
+  "clearFilters": "Esborra els filtres",
   "clear" : "Esborra",
   "type": "Tipus",
   "theme": "Tema",
@@ -29,6 +30,8 @@
   "format": "Format",
   "showMore": "Mostra més",
   "showLess": "Mostra menys",
+  "noDatasetsFound": "No s'han trobat conjunts de dades",
+  "noDatasetsFoundDescription": "Sembla que cap conjunt de dades coincideix amb els criteris de cerca actuals. Prova d'ajustar els filtres o d'esborrar-los tots per veure més conjunts de dades.",
   "home": {
     "hero": {
       "title1": "Troba i comparteix",

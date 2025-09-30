@@ -22,7 +22,7 @@ export default function DatasetSearchForm() {
       <div className="min-h-[70px] flex flex-col lg:flex-row bg-white pr-5 py-3 rounded-xl">
         <input
           type="text"
-          placeholder="Type in keyword..."
+          placeholder={t("searchTypeInPlaceholder")}
           className="mx-4 grow py-3 border-0 placeholder:text-neutral-400 outline-0"
           name="query"
           value={q}

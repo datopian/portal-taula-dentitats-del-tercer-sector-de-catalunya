@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useSearchState } from "./SearchContext";
 import { XMarkIcon } from "@heroicons/react/20/solid";
 import DatasetItem from "./DatasetItem";
+import useTranslation from "next-translate/useTranslation";
 
 export default function ListOfDatasets() {
   return (
@@ -19,6 +20,7 @@ function ListItems() {
   const { options, setOptions, searchResults, isLoading } = useSearchState();
 
   const [subsetOfPages, setSubsetOfPages] = useState(0);
+  const { t } = useTranslation("common");
 
   return (
     <>
@@ -26,24 +28,24 @@ function ListItems() {
         <div className="flex gap-2">
           <h2 className="text-[23px] leading-[28px] capitalize font-bold  ">
             {searchResults?.count}{" "}
-            {options.type === "visualization" ? "Visualizations" : "Datasets"}
+            {options.type === "visualization" ? t("visualizations") : t("datasets")}
           </h2>
         </div>
         <div className="flex gap-2 cursor-pointer">
           <div className="font-normal text-[14px]">
-            Sort by:{" "}
+            {t("sortBy")}:{" "}
             <select
-              aria-label="Sort datasets by"
+              aria-label={t("sortBy")}
               value={options.sort ?? "score desc"}
               onChange={(e) => {
                 const value = e.target.value;
                 setOptions({ sort: value });
               }}
             >
-              <option value="score desc">Most relevant</option>
-              <option value="title_string asc">Name ascending</option>
-              <option value="title_string desc">Name descending </option>
-              <option value="metadata_modified desc">Last updated</option>
+              <option value="score desc">{t("relevance")}</option>
+              <option value="title_string asc">{t("titleAsc")}</option>
+              <option value="title_string desc">{t("titleDesc")}</option>
+              <option value="metadata_modified desc">{t("lastUpdated")}</option>
             </select>
           </div>
         </div>
@@ -69,7 +71,9 @@ function ListItems() {
 }
 
 function FilterBadges() {
+  const { t } = useTranslation("common");
   const { options, setOptions, searchFacets } = useSearchState();
+  
 
   const getActiveFilters = (optionKey: string, facetKey: string) => {
     if (
@@ -103,7 +107,7 @@ function FilterBadges() {
     <div className="border-b border-gray-100 pb-2">
       {!!activeFiltersCount && (
         <span className="text-xs  text-gray-800 mb-2 inline-block">
-          Applied Filters{" "}
+          {t("appliedFilters")}{" "}
           <span className="font-[600]">
             ({activeFiltersCount}
             ):
@@ -178,7 +182,7 @@ function FilterBadges() {
             }}
             className="inline-flex h-fit w-fit cursor-pointer ml-auto items-center gap-x-0.5 rounded-md bg-gray-900 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-gray-500/10"
           >
-            clear all
+            {t("clearAll")}
             <button
               type="button"
               className="group relative -mr-1 size-3.5 rounded-sm hover:bg-gray-500/20"
@@ -209,46 +213,30 @@ function PackagePagination({
         count={count}
       />
     );
-
-    return <ResultsNotFound />;
   }
-
-  // make a pagination component once insights are added
-  return null;
+  return (
+    <ResultsNotFound/>
+  )
 }
 
 function ResultsNotFound() {
+  const { t } = useTranslation("common");
   const router = useRouter();
 
   const clearFilters = () => {
     router.push("/search", undefined, { shallow: true });
   };
   return (
-    <div className="mt-5 flex flex-col items-center rounded-[20px] border border-[#F7F7F7] bg-white gap-4 px-20">
-      <Image
-        src={"/images/search/noDatasets.svg"}
-        height={269}
-        width={358}
-        alt="no datasets found"
-      />
+    <div className="mt-5 flex flex-col items-center rounded-[20px] bg-white gap-4 px-20">
       <div className="flex flex-col items-center gap-2">
         <span className="text-[#313131] font-medium text-[18px] leading-[23px]">
-          No datasets found.
+          {t("noDatasetsFound")}
         </span>
         <span className="text-[#4C4C4C] text-center font-normal text-[15px] leading-[20px]">
-          It looks like no datasets match your current search criteria. Try
-          reducing the number of filters or broadening your search terms and
-          give it another go.
+          {t("noDatasetsFoundDescription")}
         </span>
       </div>
-      <div
-        onClick={clearFilters}
-        className="cursor-pointer rounded-[20px] w-[118px] h-[41px] bg-[linear-gradient(90deg,_#489FA9_0%,_#803D6E_100%)] flex items-center justify-center"
-      >
-        <span className="text-white font-medium text-[16px] leading-normal">
-          Clear fitlers
-        </span>
-      </div>
+
     </div>
   );
 }
