@@ -12,6 +12,7 @@ import {
   RiUploadCloud2Line,
 } from "react-icons/ri";
 import { Dataset } from "@/schemas/dataset.interface";
+import useTranslation from "next-translate/useTranslation";
 
 
 export default function MainSection({
@@ -21,31 +22,32 @@ export default function MainSection({
   groups: Array<Group>;
   datasets: Array<Dataset>;
 }) {
+   const { t } = useTranslation('common')
   return (
     <section className="custom-container homepage-padding bg-white">
       <div className="flex flex-col md:flex-row md:items-start gap-8 mb-[100px]">
         {[
           {
-            title: "Find Data",
-            description: "Find, share, use and gain insights from data.",
+            title: t("home.findData"),
+            description: t("home.findDataDescription"),
             href: "/search",
             icon: <RiSearch2Line width={48} />,
           },
           {
-            title: "Add Data",
-            description: "Make your dataset available on Portal.",
+            title: t("home.addData"),
+            description: t("home.addDataDescription"),
             href: "#",
             icon: <RiUploadCloud2Line width={48} />,
           },
           {
-            title: "Request Data",
-            description: "Send us a request for the data you didn’t find.",
+            title: t("home.requestData"),
+            description: t("home.requestDataDescription"),
             href: "#",
             icon: <RiQuestionnaireLine width={48} />,
           },
-        ].map((item, i) => (
-          <ActionCard {...item} key={i} />
-        ))}
+        ].map((item, i): JSX.Element => {
+          return <ActionCard key={i} {...item} />;
+        })}
       </div>
       <section className="grid grid-cols-1 md:grid-cols-2 gap-y-10">
         {datasets.length > 0 && (
@@ -59,7 +61,7 @@ export default function MainSection({
               href="/groups"
               className={`font-montserrat font-semibold flex items-center gap-1 uppercase hover:text-darkaccent ml-auto w-fit absolute right-0 top-[-30px]`}
             >
-              View all categories
+              {t("seeAllGroups")}
               <ArrowLongRightIcon width={16} />
             </Link>
           )}

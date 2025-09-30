@@ -13,6 +13,7 @@ import {
 } from "@/components/dataset/search/SearchContext";
 import { PackageSearchOptions } from "@portaljs/ckan";
 import { SearchPageStructuredData } from "@/components/schema/SearchPageStructuredData";
+import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps() {
   // TODO: this doesn't work properly. It must read the params from the URL.
@@ -62,10 +63,12 @@ function SearchPageContent() {
     theme: { styles },
   } = useTheme();
 
+  const { t } = useTranslation("common");
+
   return (
     <Layout>
       <div className="grid grid-rows-searchpage-hero">
-        <HeroSection title="Search" titleAccent={`${options.type}s`} />
+        <HeroSection title={t("search")} titleAccent={t(`${options.type}s`)} />
         <section className={`grid row-start-3 row-span-2 col-span-full pt-4 `}>
           <div className={`custom-container bg-white ${styles.shadowMd}`}>
             <DatasetSearchForm />

@@ -1,0 +1,48 @@
+{
+  "dataset": "Dataset",
+  "datasets": "Dataset",
+  "group": "Group",
+  "groups": "Groups",
+  "organization": "Organization",
+  "organizations": "Organizations",
+  "visualization": "Visualization",
+  "visualizations": "Visualizations",
+  "search": "Search",
+  "searchTypeInPlaceholder": "Type in keyword...",
+  "searchDatasets": "Search datasets",
+  "seeAllGroups": "View collection",
+  "lastUpdated": "Last updated",
+  "show": "Show",
+  "hide": "Hide",
+  "filters": "Filters",
+  "sortBy": "Sort by",
+  "refineBy": "Refine by",
+  "relevance": "Relevance",
+  "titleAsc": "Title (A-Z)",
+  "titleDesc": "Title (Z-A)",
+  "appliedFilters": "Applied Filters",
+  "clearAll": "Clear All",
+
+  "home": {
+    "hero": {
+      "title1": "Find and Share",
+      "title2": "Quality Data.",
+      "description": "At Portal, we have over thousands of datasets for free and a Premium Data Service for additional or customised data with guaranteed updates."
+    },
+    "findData": "Find Data",
+    "findDataDescription": "Find, share, use and gain insights from data.",
+    "addData": "Add Data",
+    "addDataDescription": "Make your dataset available on Portal.",
+    "requestData": "Request Data",
+    "requestDataDescription": "Send us a request for the data you didn’t find.",
+    "popularDatasets": "Popular Datasets",
+    "highlights": "Highlights"
+  },
+  
+  "footer": {
+    "about": "About",
+    "links": "Useful Links",
+    "getStarted": "Get Started",
+    "socials": "Stay up to date with the news"
+  }
+}

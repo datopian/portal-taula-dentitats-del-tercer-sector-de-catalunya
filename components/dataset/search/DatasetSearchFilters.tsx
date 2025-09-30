@@ -13,6 +13,7 @@ import {
   CircleStackIcon,
 } from "@heroicons/react/20/solid";
 import { classNames } from "primereact/utils";
+import useTranslation from "next-translate/useTranslation";
 
 export default function DatasetSearchFilters() {
   const [showFilters, setShowFilters] = useState(true);
@@ -27,6 +28,8 @@ export default function DatasetSearchFilters() {
   } = useSearchState();
   const maxPerView = 6;
 
+  const { t } = useTranslation("common");
+
   return (
     <div className="flex flex-col ">
       <a
@@ -34,7 +37,7 @@ export default function DatasetSearchFilters() {
         className="text-xs flex items-center gap-1 lg:hidden  mb-4"
         onClick={() => setShowFilters(!showFilters)}
       >
-        {showFilters ? "Hide" : "Show"} Filters
+        {showFilters ? t("hide") : t("show")} {t("filters")}
         {showFilters ? (
           <ChevronUpIcon width={14} />
         ) : (
@@ -45,13 +48,13 @@ export default function DatasetSearchFilters() {
         <FacetCard title="Type">
           <div className="text-[#5F5F5F] space-y-[10px]">
             <DatasetTypeOption
-              title="Datasets"
+              title={t("datasets")}
               Icon={CircleStackIcon}
               type="dataset"
               count={packageSearchResults?.count}
             />
             <DatasetTypeOption
-              title="Visualizations"
+              title={t("visualizations")}
               Icon={ChartBarIcon}
               type="visualization"
               count={visualizationsSearchResults?.count}
@@ -62,7 +65,7 @@ export default function DatasetSearchFilters() {
         <FacetCard
           title={
             <>
-              Refine by <span className="text-accent">Organization</span>
+              {t("refineBy")} <span className="text-accent">{t("organization")}</span>
             </>
           }
           showClear={options.orgs.length > 0}

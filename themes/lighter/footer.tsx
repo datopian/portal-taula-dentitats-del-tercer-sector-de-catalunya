@@ -1,5 +1,6 @@
 import PortalDefaultLogo from "@/components/_shared/PortalDefaultLogo";
 import { useTheme } from "@/components/theme/theme-provider";
+import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -19,6 +20,7 @@ interface IconProps {
 
 const LighterThemeFooter: React.FC = () => {
   const { theme } = useTheme();
+  const {t} = useTranslation('common');
   const navigation = {
     about: [
       { name: "About Us", href: "https://www.datopian.com/about/" },
@@ -111,7 +113,7 @@ const LighterThemeFooter: React.FC = () => {
       >
         <div className="justify-between w-full text-center md:text-left lg:flex">
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black">ABOUT DATOPIAN</h2>
+            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">{t("footer.about")}</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.about.map((item) => (
                 <li key={item.name}>
@@ -127,7 +129,7 @@ const LighterThemeFooter: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black">USEFUL LINKS</h2>
+            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">{t("footer.links")}</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.useful.map((item) => (
                 <li key={item.name}>
@@ -143,7 +145,7 @@ const LighterThemeFooter: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black">GET STARTED</h2>
+            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">{t("footer.getStarted")}</h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.getStarted.map((item) => (
                 <li key={item.name}>
@@ -159,8 +161,8 @@ const LighterThemeFooter: React.FC = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
-          <h2 className="mt-4 mb-4 font-roboto font-black">
-            STAY UP TO DATE WITH THE NEWS
+          <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
+            {t("footer.socials")}
           </h2>
           <div className="flex mt-5 space-x-5 justify-center md:justify-start">
             {navigation.social.map((item) => (
