@@ -23,14 +23,12 @@
   "appliedFilters": "Applied Filters",
   "clearAll": "Clear All",
   "clear": "Clear",
-
   "type": "Type",
   "theme": "Theme",
   "tags": "Tags",
   "format": "Format",
   "showMore": "Show more",
   "showLess": "Show less",
-
   "home": {
     "hero": {
       "title1": "Find and Share",
@@ -46,7 +44,6 @@
     "popularDatasets": "Popular Datasets",
     "highlights": "Highlights"
   },
-
   "footer": {
     "about": "About",
     "links": "Useful Links",
