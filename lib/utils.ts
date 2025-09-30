@@ -1,6 +1,11 @@
-import { format } from "timeago.js";
+import { format, register } from "timeago.js";
+import ca from "timeago.js/lib/lang/ca";
+import en from "timeago.js/lib/lang/en_US";
 import clsx, {type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+
+register("en", en);
+register("ca", ca);
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -14,17 +19,17 @@ export function getDatasetName(name: string) {
   return datasetName;
 }
 
-export function getTimeAgo(timestamp: string) {
+export function getTimeAgo(timestamp: string, locale: string = "ca") {
   const trimmed = timestamp.trim();
   const hasTZ = /Z$|[+-]\d{2}:\d{2}$/.test(trimmed);
-  const normalised = hasTZ ? trimmed : `${trimmed}Z`;
+  const normalized = hasTZ ? trimmed : `${trimmed}Z`;
 
-  const date = new Date(normalised);
+  const date = new Date(normalized);
   if (isNaN(date.getTime())) {
     return timestamp;
   }
 
-  return format(date);
+  return format(date, locale);
 }
 
 export function capitalizeFirstLetter(str: string) {

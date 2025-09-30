@@ -1,10 +1,12 @@
 import { Activity } from "@portaljs/ckan";
 import { getTimeAgo } from "@/lib/utils";
+import { useRouter } from "next/router";
 
 interface ActivityStreamProps {
   activities: Array<Activity>;
 }
 export default function ActivityStream({ activities }: ActivityStreamProps) {
+  const { locale } = useRouter();
   return (
     <div className="py-8 w-full h-[50vh]">
       {activities.map((activity: Activity) => (
@@ -41,7 +43,7 @@ export default function ActivityStream({ activities }: ActivityStreamProps) {
                 : "A user"}{" "}
               {activity.activity_type}{" "}
               <a href="#">{activity.data?.package?.title}</a>{" "}
-              <span className="text-xs">{getTimeAgo(activity.timestamp)}</span>
+              <span className="text-xs">{getTimeAgo(activity.timestamp, locale)}</span>
             </p>
           </div>
         </div>

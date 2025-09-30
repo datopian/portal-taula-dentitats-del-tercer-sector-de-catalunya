@@ -51,7 +51,7 @@ export default function LighterThemeHeader() {
                   router.pathname === "/search" ? "text-accent" : ""
                 }`}
               >
-                {t("search")}
+                {t("datasets")}
               </Link>
               <Link
                 href="/organizations"

@@ -7,6 +7,7 @@ import Layout from "../components/_shared/Layout";
 import { Organization } from "@portaljs/ckan";
 import { getAllOrganizations } from "@/lib/queries/orgs";
 import { OrganizationPageStructuredData } from "@/components/schema/OrganizationPageStructuredData";
+import useTranslation from "next-translate/useTranslation";
 
 export async function getServerSideProps() {
   const orgs = await getAllOrganizations({ detailed: true });
@@ -39,11 +40,12 @@ function Main({
   orgs: Array<Organization>;
 }) {
   const [searchString, setSearchString] = useState("");
+  const {t} = useTranslation('common') ;
   return (
     <>
       <Layout>
         <SearchHero
-          title="Organizations"
+          title={t("organizations")}
           searchValue={searchString}
           onChange={setSearchString}
         />

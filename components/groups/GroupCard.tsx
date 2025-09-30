@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Group } from "@portaljs/ckan";
 import { useTheme } from "../theme/theme-provider";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
+import useTranslation from "next-translate/useTranslation";
 
 type GroupCardProps = Pick<
   Group,
@@ -18,6 +19,7 @@ export default function GroupCard({
 }: GroupCardProps) {
   const { theme } = useTheme();
   const url = image_display_url ? new URL(image_display_url) : undefined;
+  const { t } = useTranslation("common");
   return (
     <Link
       href={`/groups/${name}`}
@@ -46,7 +48,7 @@ export default function GroupCard({
       <span
         className={` font-inter font-medium text-sm flex items-center gap-2`}
       >
-        View collection
+        {t("seeAllGroups")}
         <ArrowRightIcon width={16} />
       </span>
     </Link>

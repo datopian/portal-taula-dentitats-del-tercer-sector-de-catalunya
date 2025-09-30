@@ -38,13 +38,13 @@ export default function HeroSectionLight({
               Icon={RiFileCopy2Line}
               href="/search"
               count={stats.datasetCount}
-              label={t("dataset")}
+              label={t("datasets")}
             />
             {!!stats.visualizationCount && <Stat
               Icon={RiBarChartLine}
               href="/search?type=visualization"
               count={stats.visualizationCount}
-              label={t("visualization")}
+              label={t("visualizations")}
             />}
             <Stat
               Icon={RiFunctionLine}

@@ -12,6 +12,7 @@ import { publicToPrivateDatasetName } from "@/lib/queries/utils";
 import { getDataset } from "@/lib/queries/dataset";
 import HeroSection from "@/components/_shared/HeroSection";
 import { DatasetPageStructuredData } from "@/components/schema/DatasetPageStructuredData";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const ckan = new CKAN(process.env.NEXT_PUBLIC_DMS);
@@ -58,6 +59,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default function DatasetPage({ dataset }): JSX.Element {
+  const {t}  = useTranslation("common");
   const tabs = [
     ...(dataset.type != "visualization"
       ? [
@@ -70,14 +72,14 @@ export default function DatasetPage({ dataset }): JSX.Element {
                 datasetName={dataset.name}
               />
             ),
-            title: "Resources",
+            title: t("resources"),
           },
         ]
       : []),
     {
       id: "information",
       content: <DatasetOverview dataset={dataset} />,
-      title: "Info",
+      title: t("info"),
     },
     {
       id: "activity-stream",
@@ -86,7 +88,7 @@ export default function DatasetPage({ dataset }): JSX.Element {
           activities={dataset?.activity_stream ? dataset.activity_stream : []}
         />
       ),
-      title: "Activity Stream",
+      title: t("activityStream"),
     },
   ];
   return (

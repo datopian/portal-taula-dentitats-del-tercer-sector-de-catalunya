@@ -9,6 +9,7 @@ import {
 import { getDatasetName, getTimeAgo } from "@/lib/utils";
 import { useTheme } from "@/components/theme/theme-provider";
 import { TagIcon } from "@heroicons/react/20/solid";
+import { useRouter } from "next/router";
 
 export default function DatasetItem({
   dataset,
@@ -20,6 +21,8 @@ export default function DatasetItem({
   const {
     theme: { styles },
   } = useTheme();
+
+  const { locale } = useRouter();
 
   return (
     <Link
@@ -44,7 +47,7 @@ export default function DatasetItem({
             <RiMapPinTimeLine className="text-accent" />
             <span className=" text-gray-500">
               {dataset.metadata_modified &&
-                getTimeAgo(dataset.metadata_modified)}
+                getTimeAgo(dataset.metadata_modified,locale)}
             </span>
           </div>
           {!!dataset.tags?.length && (

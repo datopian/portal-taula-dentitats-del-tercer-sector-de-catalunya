@@ -23,7 +23,6 @@ export function Stat({
         <span className="font-bold text-[32px] leading-[40px]">{count}</span>
         <span className="text-[16px] leading-[24px]">
           {label}
-          {count > 1 ? "s" : ""}
         </span>
       </div>
     </Link>

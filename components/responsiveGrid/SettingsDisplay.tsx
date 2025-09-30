@@ -3,9 +3,11 @@ import { useResourceData } from "./DataProvider";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import { RiSettings2Line } from "react-icons/ri";
 import { PinButton } from "./TableHeadCell";
+import useTranslation from "next-translate/useTranslation";
 
 export function SettingsDisplayButton() {
   const { toggleSettingsDropdown, isSettingsDropdownOpen } = useResourceData();
+  const {t} = useTranslation("common");
   return (
     <div className="relative inline-block mb-4">
       <button
@@ -15,7 +17,7 @@ export function SettingsDisplayButton() {
         aria-expanded={isSettingsDropdownOpen}
       >
         <RiSettings2Line className="text-[20px]" />
-        Settings
+        {t("settings")}
       </button>
     </div>
   );
@@ -33,6 +35,8 @@ export function SettingsDisplayPanel() {
     setRowsPerPage,
     setVisibleColumns,
   } = useResourceData();
+
+  const {t} = useTranslation("common");
 
   const cols = Object.keys(data[0] || {});
 
@@ -69,13 +73,13 @@ export function SettingsDisplayPanel() {
         <div>
           <div className="px-4 mb-4">
             <span className="text-gray-600 uppercase text-xs mb-2 block font-bold">
-              Columns ({columns.length})
+              {t("columns")} ({columns.length})
             </span>
             <div className="mt-2 grid grid-cols-1">
               <input
                 className="col-start-1 row-start-1 block w-full rounded-md bg-white py-1.5 pl-3 pr-10 sm:pr-9 "
-                placeholder="Search columns..."
-                aria-label="Search for columns matching they keywords "
+                placeholder={t("searchColumnsPlaceholder")}
+                aria-label={t("searchColumnsPlaceholder")}
                 value={columnSearchValue}
                 onChange={(e) => {
                   searchColumn(e.target.value);
@@ -84,7 +88,7 @@ export function SettingsDisplayPanel() {
               {columnSearchValue?.length > 0 && (
                 <button
                   className="col-start-1 row-start-1 mr-1 self-center justify-self-end "
-                  aria-label="Clear column search input"
+                  aria-label={t("clearColumnSearch")}
                   onClick={() => setColumnSearchValue("")}
                 >
                   <XMarkIcon width={24} />
@@ -127,7 +131,7 @@ export function SettingsDisplayPanel() {
                 onClick={() => handleCheckAll()}
                 className="ml-3  text-gray-900 cursor-pointer flex gap-1 w-full"
               >
-                Check All
+                {t("checkAll")}
               </span>
             </div>
           )}
@@ -135,7 +139,7 @@ export function SettingsDisplayPanel() {
           <div className="max-h-[320px] overflow-y-auto">
             {filteredCols?.length === 0 && (
               <div className="italic text-sm px-4">
-                0 results found matching{" "}
+                {t("noResultsFound")}{" "}
                 <span className="underline">{columnSearchValue}</span>
               </div>
             )}
@@ -195,11 +199,11 @@ export function SettingsDisplayPanel() {
         <div className="">
           <div className="px-4 ">
             <span className="text-gray-600 uppercase text-xs mb-2 block font-bold">
-              Pagination
+              {t("pagination")}
             </span>
           </div>
           <div className="flex justify-between px-4">
-            <span>Rows per page</span>
+            <span>{t("rowsPerPage")}</span>
             <select
               className="p-1 shadow-sm rounded"
               value={rowsPerPage}
