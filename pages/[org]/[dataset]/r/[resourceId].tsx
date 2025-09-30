@@ -72,7 +72,7 @@ export default function ResourcePage({
   resource,
   orgName,
 }: {
-  resource: Resource & { iframe: boolean };
+  resource: Resource & { iframe?: boolean };
   orgName: string;
 }): JSX.Element {
   const resourceFormat = resource.format.toLowerCase();

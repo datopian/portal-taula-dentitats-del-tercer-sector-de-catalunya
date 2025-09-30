@@ -73,7 +73,7 @@ export default function OrgPage({ org }): JSX.Element {
       ) : (
         ""
       ),
-      title: t("Datasets") 
+      title: t("datasets") 
     },
     {
       id: "activity-stream",

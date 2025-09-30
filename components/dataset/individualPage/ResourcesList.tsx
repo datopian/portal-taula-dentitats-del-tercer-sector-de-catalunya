@@ -2,7 +2,6 @@ import { Resource } from "@/schemas/resource.interface";
 import Link from "next/link";
 import { RiDownload2Fill, RiEyeLine } from "react-icons/ri";
 import ResourcesBadges from "../_shared/ResourcesBadges";
-import { use } from "chai";
 import useTranslation from "next-translate/useTranslation";
 
 interface ResourcesListProps {
