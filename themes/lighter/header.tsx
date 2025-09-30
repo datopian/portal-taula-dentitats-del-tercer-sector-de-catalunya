@@ -2,6 +2,7 @@ import PortalDefaultLogo from "@/components/_shared/PortalDefaultLogo";
 import { useTheme } from "@/components/theme/theme-provider";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
+import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +13,8 @@ export default function LighterThemeHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
   const portalLogo = process.env.NEXT_PUBLIC_PORTAL_LOGO ?? '/images/logos/taula.svg';
+
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -44,27 +47,27 @@ export default function LighterThemeHeader() {
             <div className="flex gap-x-8 align-center">
               <Link
                 href="/search"
-                className={`font-semibold my-auto ${
+                className={`font-semibold my-auto uppercase ${
                   router.pathname === "/search" ? "text-accent" : ""
                 }`}
               >
-                SEARCH
+                {t("search")}
               </Link>
               <Link
                 href="/organizations"
-                className={`font-semibold my-auto ${
+                className={`font-semibold my-auto uppercase ${
                   router.pathname === "/organizations" ? "text-accent" : ""
                 }`}
               >
-                ORGANIZATIONS
+                {t("organizations")}
               </Link>
               <Link
                 href="/groups"
-                className={`font-semibold my-auto ${
+                className={`font-semibold my-auto uppercase ${
                   router.pathname === "/groups" ? "text-accent" : ""
                 }`}
               >
-                GROUPS
+                {t("groups")}
               </Link>
             </div>
           </div>
