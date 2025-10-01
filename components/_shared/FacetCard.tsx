@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import { useTheme } from "../theme/theme-provider";
 
 export default function FacetCard({
@@ -15,6 +16,8 @@ export default function FacetCard({
     theme: { styles },
   } = useTheme();
 
+  const { t } = useTranslation("common");
+
   return (
     <section className={`bg-white rounded-[10px] p-5 mb-4  ${styles.shadowMd}`}>
       <div className="flex items-center pb-4 ">
@@ -28,7 +31,7 @@ export default function FacetCard({
             className="text-sm cursor-pointer hover:underline"
             onClick={() => clearAction && clearAction()}
           >
-            Clear
+            {t("clear")}
           </span>
         </div>
       )}

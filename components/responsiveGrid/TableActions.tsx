@@ -1,6 +1,8 @@
+import useTranslation from "next-translate/useTranslation";
 import { useResourceData } from "./DataProvider";
 
 export default function TableActions() {
+  const { t } = useTranslation("common");
   const { dataUrl, data } = useResourceData();
   const handleDownload = () => {
     const jsonString = JSON.stringify(data, null, 2);
@@ -20,7 +22,7 @@ export default function TableActions() {
             onClick={handleDownload}
             className="cursor-pointer bg-accent hover:bg-accent-600 text-white transition-all inline-flex w-full justify-center gap-x-1.5 rounded-md px-4 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-accent "
           >
-            Export
+            {t("export")}
           </a>
         </div>
       </div>

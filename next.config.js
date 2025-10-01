@@ -1,5 +1,7 @@
 // const { withContentlayer } = require("next-contentlayer");
 
+const nextTranslate = require('next-translate-plugin')
+
 /** @type {import('next').NextConfig} */
 const domains = [
   "demo.dev.datopian.com",
@@ -25,4 +27,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = nextTranslate(nextConfig);

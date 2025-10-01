@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import { RiHome2Line, RiHome3Line } from "react-icons/ri";
 
@@ -6,6 +7,7 @@ export default function OrgNavCrumbs({
 }: {
   org: { name?: string; title?: string };
 }) {
+  const {t} = useTranslation("common");
   return (
     <nav>
       <ul className="flex gap-x-8 mx-auto custom-container bg-white">
@@ -16,7 +18,7 @@ export default function OrgNavCrumbs({
             style={{ minWidth: "fit-content" }}
           >
             <RiHome3Line />
-            <span className="sr-only">Home</span>
+            <span className="sr-only">{t("homepage")}</span>
           </Link>
           <Link
             href="/organizations"
@@ -37,7 +39,7 @@ export default function OrgNavCrumbs({
                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
-            Organizations
+            {t("organizations")}
           </Link>
           {org.name && org.title && (
             <Link href={`/@${org.name}`} className="font-semibold ">

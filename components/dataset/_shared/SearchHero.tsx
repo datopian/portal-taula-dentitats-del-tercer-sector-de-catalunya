@@ -1,4 +1,5 @@
 import { useTheme } from "@/components/theme/theme-provider";
+import useTranslation from "next-translate/useTranslation";
 import { Dispatch, SetStateAction } from "react";
 
 export default function SearchHero({
@@ -13,6 +14,7 @@ export default function SearchHero({
   const {
     theme: { styles },
   } = useTheme();
+  const {t} = useTranslation('common') ;
   return (
     <>
       <section className="row-start-1 row-span-3 col-span-full">
@@ -33,7 +35,7 @@ export default function SearchHero({
             <form className="min-h-[70px] flex flex-col lg:flex-row bg-white pr-5 py-3 rounded-xl">
               <input
                 type="text"
-                placeholder={`Search for ${title}`}
+                placeholder={`${t("search")}: ${title}...`}
                 className="mx-4 grow py-3 border-0 placeholder:text-neutral-400 outline-0"
                 id="search2"
                 name="search"

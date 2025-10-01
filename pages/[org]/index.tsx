@@ -13,6 +13,7 @@ import { getDataset } from "@/lib/queries/dataset";
 
 import HeroSection from "@/components/_shared/HeroSection";
 import { OrganizationIndividualPageStructuredData } from "@/components/schema/OrganizationIndividualPageStructuredData";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const DMS = process.env.NEXT_PUBLIC_DMS;
@@ -63,6 +64,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default function OrgPage({ org }): JSX.Element {
+  const {t} = useTranslation("common");
   const tabs = [
     {
       id: "datasets",
@@ -71,7 +73,7 @@ export default function OrgPage({ org }): JSX.Element {
       ) : (
         ""
       ),
-      title: "Datasets",
+      title: t("datasets") 
     },
     {
       id: "activity-stream",
@@ -80,7 +82,7 @@ export default function OrgPage({ org }): JSX.Element {
           activities={org?.activity_stream ? org.activity_stream : []}
         />
       ),
-      title: "Activity Stream",
+      title: t("activityStream"),
     },
   ];
   return (

@@ -13,6 +13,7 @@ import {
   CircleStackIcon,
 } from "@heroicons/react/20/solid";
 import { classNames } from "primereact/utils";
+import useTranslation from "next-translate/useTranslation";
 
 export default function DatasetSearchFilters() {
   const [showFilters, setShowFilters] = useState(true);
@@ -27,6 +28,8 @@ export default function DatasetSearchFilters() {
   } = useSearchState();
   const maxPerView = 6;
 
+  const { t } = useTranslation("common");
+
   return (
     <div className="flex flex-col ">
       <a
@@ -34,7 +37,7 @@ export default function DatasetSearchFilters() {
         className="text-xs flex items-center gap-1 lg:hidden  mb-4"
         onClick={() => setShowFilters(!showFilters)}
       >
-        {showFilters ? "Hide" : "Show"} Filters
+        {showFilters ? t("hide") : t("show")} {t("filters")}
         {showFilters ? (
           <ChevronUpIcon width={14} />
         ) : (
@@ -42,16 +45,16 @@ export default function DatasetSearchFilters() {
         )}
       </a>
       <div className={` ${showFilters ? "block" : "hidden"} lg:block`}>
-        <FacetCard title="Type">
+        <FacetCard title={t("type")}>
           <div className="text-[#5F5F5F] space-y-[10px]">
             <DatasetTypeOption
-              title="Datasets"
+              title={t("datasets")}
               Icon={CircleStackIcon}
               type="dataset"
               count={packageSearchResults?.count}
             />
             <DatasetTypeOption
-              title="Visualizations"
+              title={t("visualizations")}
               Icon={ChartBarIcon}
               type="visualization"
               count={visualizationsSearchResults?.count}
@@ -62,7 +65,7 @@ export default function DatasetSearchFilters() {
         <FacetCard
           title={
             <>
-              Refine by <span className="text-accent">Organization</span>
+              {t("refineBy")} <span className="text-accent">{t("organization")}</span>
             </>
           }
           showClear={options.orgs.length > 0}
@@ -99,7 +102,7 @@ export default function DatasetSearchFilters() {
                 type="button"
                 className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
               >
-                See {seeMoreOrgs ? "Less" : "More"}
+                {seeMoreOrgs ? t("showLess") : t("showMore")}
               </button>
             )}
           </div>
@@ -108,7 +111,7 @@ export default function DatasetSearchFilters() {
           <FacetCard
             title={
               <>
-                Refine by <span className="text-accent">Theme</span>
+                {t("refineBy")} <span className="text-accent">{t("theme")}</span>
               </>
             }
             showClear={options.groups.length > 0}
@@ -146,7 +149,7 @@ export default function DatasetSearchFilters() {
                   type="button"
                   className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
                 >
-                  See {seeMoreGroups ? "Less" : "More"}
+                  {seeMoreGroups ? t("showLess") : t("showMore")}
                 </button>
               )}
             </div>
@@ -156,7 +159,7 @@ export default function DatasetSearchFilters() {
           <FacetCard
             title={
               <>
-                Refine by <span className="text-accent">Tags</span>
+                {t("refineBy")} <span className="text-accent">{t("tags")}</span>
               </>
             }
             showClear={options.tags.length > 0}
@@ -186,7 +189,7 @@ export default function DatasetSearchFilters() {
           <FacetCard
             title={
               <>
-                Refine by <span className="text-accent">Format</span>
+                {t("refineBy")} <span className="text-accent">{t("format")}</span>
               </>
             }
             showClear={options.resFormat.length > 0}

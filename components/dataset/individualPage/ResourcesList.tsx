@@ -2,6 +2,7 @@ import { Resource } from "@/schemas/resource.interface";
 import Link from "next/link";
 import { RiDownload2Fill, RiEyeLine } from "react-icons/ri";
 import ResourcesBadges from "../_shared/ResourcesBadges";
+import useTranslation from "next-translate/useTranslation";
 
 interface ResourcesListProps {
   resources: Array<Resource>;
@@ -13,6 +14,7 @@ export default function ResourcesList({
   orgName,
   datasetName,
 }: ResourcesListProps) {
+  const {t} = useTranslation("common");
   return (
     <div className="py-8 w-full max-h-[600px] flex flex-col gap-4 ">
       {resources.map((resource: Resource) => (
@@ -42,8 +44,8 @@ export default function ResourcesList({
                 href={`/@${orgName}/${datasetName}/r/${resource.id}`}
                 className="px-2 py-1 border  h-fit shadow hover:shadow-lg transition-all text-sm  text-center text-dark rounded font-roboto font-bold border-accent-50 hover:border-accent-100 hover:bg-accent-100  duration-150 flex items-center justify-center gap-1"
               >
-                <RiEyeLine />
-                <span>Preview</span>
+                <RiEyeLine width={18} className="min-w-[18px]"/>
+                <span>{t("preview")}</span>
               </Link>
             )}
             {resource.url && (
@@ -51,8 +53,8 @@ export default function ResourcesList({
                 href={resource.url}
                 className="bg-accent px-2 py-1 h-fit shadow hover:shadow-lg transition-all text-sm  text-center text-white rounded font-roboto font-bold hover:bg-darkaccent hover:text-white duration-150 flex items-center justify-center gap-1"
               >
-                <RiDownload2Fill />
-                <span>Download</span>
+                <RiDownload2Fill width={18} className="min-w-[18px]"/>
+                <span>{t("download")}</span>
               </Link>
             )}
           </div>

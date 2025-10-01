@@ -2,6 +2,7 @@ import PortalDefaultLogo from "@/components/_shared/PortalDefaultLogo";
 import { useTheme } from "@/components/theme/theme-provider";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
+import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +13,8 @@ export default function LighterThemeHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
   const portalLogo = process.env.NEXT_PUBLIC_PORTAL_LOGO ?? '/images/logos/taula.svg';
+
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -44,27 +47,27 @@ export default function LighterThemeHeader() {
             <div className="flex gap-x-8 align-center">
               <Link
                 href="/search"
-                className={`font-semibold my-auto ${
+                className={`font-semibold my-auto uppercase ${
                   router.pathname === "/search" ? "text-accent" : ""
                 }`}
               >
-                SEARCH
+                {t("datasets")}
               </Link>
               <Link
                 href="/organizations"
-                className={`font-semibold my-auto ${
+                className={`font-semibold my-auto uppercase ${
                   router.pathname === "/organizations" ? "text-accent" : ""
                 }`}
               >
-                ORGANIZATIONS
+                {t("organizations")}
               </Link>
               <Link
                 href="/groups"
-                className={`font-semibold my-auto ${
+                className={`font-semibold my-auto uppercase ${
                   router.pathname === "/groups" ? "text-accent" : ""
                 }`}
               >
-                GROUPS
+                {t("groups")}
               </Link>
             </div>
           </div>
@@ -89,7 +92,7 @@ export default function LighterThemeHeader() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <span className="sr-only">Datopian</span>
+            
             <Link href="/" className="-m-1.5 p-1.5 inline-block md:hidden">
               <Image
                 src="/images/logos/logo.svg"
@@ -111,13 +114,13 @@ export default function LighterThemeHeader() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6 flex flex-col">
                 <Link href="/search" className="font-semibold my-auto">
-                  DATASETS
+                  {t("datasets")}
                 </Link>
                 <Link href="/organizations" className="font-semibold my-auto">
-                  ORGS
+                  {t("organizations")}
                 </Link>
                 <Link href="/groups" className="font-semibold my-auto">
-                  GROUPS
+                  {t("groups")}
                 </Link>
               </div>
             </div>

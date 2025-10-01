@@ -1,4 +1,5 @@
 import { Organization } from "@portaljs/ckan";
+import useTranslation from "next-translate/useTranslation";
 import getConfig from "next/config";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +18,7 @@ export default function GroupCard({
   name,
 }: OrgCardProps) {
   const url = image_display_url ? new URL(image_display_url) : undefined;
+  const {t} = useTranslation('common') ;
   return (
     <Link
       href={`/@${name}`}
@@ -45,7 +47,7 @@ export default function GroupCard({
         </p>
 
         <span className="font-inter mt-auto font-medium text-sm text-accent cursor-pointer flex items-center gap-1">
-          View <RiArrowRightLine />
+          {t("view")} <RiArrowRightLine />
         </span>
       </div>
     </Link>

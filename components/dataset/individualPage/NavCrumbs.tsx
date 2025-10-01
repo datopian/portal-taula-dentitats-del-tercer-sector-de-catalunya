@@ -1,4 +1,5 @@
 import { capitalizeFirstLetter } from "@/lib/utils";
+import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
 import { RiHome3Line } from "react-icons/ri";
 
@@ -9,10 +10,11 @@ export default function DatasetNavCrumbs({
   dataset,
 }: {
   datasetType: string;
-  datasetsLinkHref: string,
+  datasetsLinkHref: string;
   org: { name?: string; title?: string };
   dataset: { name: string; title: string };
 }) {
+  const { t } = useTranslation("common");
   return (
     <nav>
       <ul className="flex gap-x-8 mx-auto custom-container">
@@ -23,7 +25,7 @@ export default function DatasetNavCrumbs({
             style={{ minWidth: "fit-content" }}
           >
             <RiHome3Line />
-            <span className="sr-only">Home</span>
+            <span className="sr-only">{t("homepage")}</span>
           </Link>
           <Link
             href={datasetsLinkHref}
@@ -45,7 +47,7 @@ export default function DatasetNavCrumbs({
               />
             </svg>
             <span className="first-letter:uppercase">
-                {capitalizeFirstLetter(datasetType)}s
+              {t(`${datasetType}s`)}
             </span>
           </Link>
           <Link href={`/@${org.name}`} passHref className="font-semibold ">

@@ -1,10 +1,12 @@
 import { Dataset } from "@portaljs/ckan";
+import useTranslation from "next-translate/useTranslation";
 
 export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
+  const {t} = useTranslation("common");
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-10">
       <div className=" pb-5">
-        <h4 className="pb-2 text-xs label-txt tracking-wider">AUTHOR</h4>
+        <h4 className="pb-2 text-xs label-txt tracking-wider">{t("author")}</h4>
         <p className="font-semibold">
           {dataset.author
             ? dataset.author
@@ -14,13 +16,13 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
         </p>
       </div>
       <div className="  pb-5">
-        <h4 className="pb-1 text-xs label-txt tracking-wider">AUTHOR EMAIL</h4>
+        <h4 className="pb-1 text-xs label-txt tracking-wider">{t("authorEmail")}</h4>
         <p className="font-semibold">
           {dataset.author_email ? dataset.author_email : ""}
         </p>
       </div>
       <div className="  pb-5">
-        <h4 className="pb-1 text-xs label-txt tracking-wider">GROUP</h4>
+        <h4 className="pb-1 text-xs label-txt tracking-wider">{t("group")}</h4>
         <p className="font-semibold">
           {dataset.groups.length > 0
             ? dataset.groups.map((group) => group.title).join(", ")
@@ -28,7 +30,7 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
         </p>
       </div>
       <div className="  pb-5">
-        <h4 className="pb-1 text-xs label-txt tracking-wider">DATASET DATE</h4>
+        <h4 className="pb-1 text-xs label-txt tracking-wider">{t("datasetDate")}</h4>
         <p className="font-semibold">
           {dataset.metadata_created
             ? new Intl.DateTimeFormat("en-GB", {
@@ -40,7 +42,7 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
         </p>
       </div>
       <div className="  pb-5">
-        <h4 className="pb-1 text-xs label-txt tracking-wider">VERSION</h4>
+        <h4 className="pb-1 text-xs label-txt tracking-wider">{t("version")}</h4>
         <p className="font-semibold">
           {dataset.version ? dataset.version : "1.0"}
         </p>
