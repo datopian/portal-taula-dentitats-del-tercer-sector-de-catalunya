@@ -20,7 +20,7 @@ interface IconProps {
 
 const LighterThemeFooter: React.FC = () => {
   const { theme } = useTheme();
-  const {t} = useTranslation('common');
+  const { t } = useTranslation("common");
   const navigation = {
     about: [
       { name: "About Us", href: "https://www.datopian.com/about/" },
@@ -57,54 +57,43 @@ const LighterThemeFooter: React.FC = () => {
         name: "x",
         href: "https://x.com/taula3sector",
         // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiTwitterXFill {...props} />
-        ),
+        icon: (props: IconProps) => <RiTwitterXFill {...props} />,
       },
       {
         name: "facebook",
         href: "https://www.facebook.com/tercersector.cat",
         // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiFacebookFill {...props} />
-        ),
+        icon: (props: IconProps) => <RiFacebookFill {...props} />,
       },
       {
         name: "instagram",
         href: "https://www.instagram.com/taula3sector/",
         // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiInstagramFill {...props} />
-        ),
+        icon: (props: IconProps) => <RiInstagramFill {...props} />,
       },
       {
         name: "flickr",
         href: "https://www.flickr.com/photos/tercersector/",
         // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiFlickrFill {...props} />
-        ),
+        icon: (props: IconProps) => <RiFlickrFill {...props} />,
       },
       {
         name: "linkedin",
         href: "https://www.linkedin.com/company/taula-d%27entitats-del-tercer-sector-social-de-catalunya",
         // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiLinkedinFill {...props} />
-        ),
+        icon: (props: IconProps) => <RiLinkedinFill {...props} />,
       },
       {
         name: "youtube",
         href: "https://www.youtube.com/user/tercersectorcat",
         // eslint-disable-next-line
-        icon: (props: IconProps) => (
-          <RiYoutubeFill {...props} />
-        ),
+        icon: (props: IconProps) => <RiYoutubeFill {...props} />,
       },
     ],
   };
 
-  const portalLogo = process.env.NEXT_PUBLIC_PORTAL_LOGO ?? '/images/logos/taula.svg';
+  const portalLogo =
+    process.env.NEXT_PUBLIC_PORTAL_LOGO ?? "/images/logos/taula.svg";
 
   return (
     <footer className="bg-accent-50  mt-[155px]">
@@ -113,7 +102,9 @@ const LighterThemeFooter: React.FC = () => {
       >
         <div className="justify-between w-full text-center md:text-left lg:flex">
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">{t("footer.about")}</h2>
+            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
+              {t("footer.about")}
+            </h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.about.map((item) => (
                 <li key={item.name}>
@@ -129,7 +120,9 @@ const LighterThemeFooter: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">{t("footer.links")}</h2>
+            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
+              {t("footer.links")}
+            </h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.useful.map((item) => (
                 <li key={item.name}>
@@ -145,7 +138,9 @@ const LighterThemeFooter: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">{t("footer.getStarted")}</h2>
+            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
+              {t("footer.getStarted")}
+            </h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.getStarted.map((item) => (
                 <li key={item.name}>
@@ -174,23 +169,39 @@ const LighterThemeFooter: React.FC = () => {
                 rel="noreferrer"
               >
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-7 w-7" aria-hidden={true} title={item.name} />
+                <item.icon
+                  className="h-7 w-7"
+                  aria-hidden={true}
+                  title={item.name}
+                />
               </a>
             ))}
           </div>
         </div>
       </div>
+
       <div
-        className={`custom-container flex flex-col flex-wrap py-6 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap`}
+        className={`custom-container flex flex-col items-center flex-wrap py-6 mx-auto md:flex-row md:items-center   md:flex-nowrap`}
       >
-        {portalLogo ? (
-          <Link href="/">
-            <Image src={portalLogo} alt="logo" height={75} width={230} />
-          </Link>
-        ) : (
-          <PortalDefaultLogo />
-        )}
+        <Link href="/">
+          <Image src={portalLogo} alt="logo" height={75} width={230} />
+        </Link>
+
+        <div className="md:ml-auto mt-4 md:mt-0">
+          <a
+            className="flex flex-col md:flex-row items-center gap-1"
+            href="https://portaljs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="text-sm">Built with</span>
+            <span className="font-extrabold text-[#1f2937] text-xl sm:text-lg font-roboto ">
+              🌀 PortalJS
+            </span>
+          </a>
+        </div>
       </div>
+
     </footer>
   );
 };
