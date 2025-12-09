@@ -165,6 +165,36 @@ const DefaultTheme = {
 - **Data:** [CKAN API](https://docs.ckan.org/en/2.10/api/) via [@portaljs/ckan](https://www.npmjs.com/package/@portaljs/ckan)
 - **Deployment:** [Vercel](https://vercel.com/)
 
+## Data ingestion
+
+Use `scripts/ingest-master.js` to push the rows from `scripts/Espai de Dades - MASTER.csv` to PortalJS Cloud. The script reads the Dictionary, Àmbits, and Col·lectius spreadsheets so that metadata and groups stay in sync with the Google Sheet.
+
+### Required environment
+
+Create `scripts/.env` (see `scripts/.env.example`) with the following keys:
+
+- `CKAN_URL` – e.g. `https://api.cloud.portaljs.com/@taula-dentitats-del-tercer-sector-de-catalunya/api/3/action`
+- `CKAN_API_KEY` – PortalJS Cloud API key with dataset/org/group permissions
+
+The ingestion script loads this file automatically; it does not look at system-wide environment variables.
+
+### Running the importer
+
+```bash
+# Preview changes without hitting the API (default behaviour)
+npm run ingest -- --dry-run
+
+# Push everything to the API (creates/updates orgs, groups, and datasets)
+npm run ingest -- --apply
+```
+
+Useful flags:
+
+- `--dataset <slug>` – only ingest the dataset whose slug matches the Master sheet row
+- `--skip-groups` / `--groups-only` – control whether Àmbits are synced as CKAN groups
+
+The script creates/updates both Àmbits and Col·lectius groups, ensures organizations exist, and then creates or updates each dataset with tags, coverage, and a resource pointing to the `Enllaç` URL. Run in `--dry-run` mode first to review the planned operations.
+
 ## Deployment
 
 ### Vercel (Recommended)
