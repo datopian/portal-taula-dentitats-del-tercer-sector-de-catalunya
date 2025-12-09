@@ -14,15 +14,12 @@ const DEFAULT_FILES = {
   ambits: path.join(ROOT_DIR, "scripts", "Espai de Dades - Àmbits.csv"),
   collectives: path.join(ROOT_DIR, "scripts", "Espai de Dades - Col·lectius.csv"),
 };
-const ENV_FILE = path.join(__dirname, ".env");
-
 const DEFAULT_ORGANIZATION =
   "taula-dentitats-del-tercer-sector-de-catalunya";
 
 const MAX_GROUP_NAME_LENGTH = 50;
 
 async function main() {
-  loadEnvFile(ENV_FILE);
   const args = parseArgs(process.argv.slice(2));
   if (args.help) {
     printHelp();
@@ -210,7 +207,10 @@ main().catch((error) => {
 });
 
 function buildConfig(args) {
-  const baseUrl = process.env.CKAN_URL || "https://api.cloud.portaljs.com";
+  const baseUrl =
+    args.apiUrl ||
+    process.env.API_URL ||
+    "https://api.cloud.portaljs.com/@taula-dentitats-del-tercer-sector-de-catalunya";
   const datasetSlugFilter = args.dataset ? slugify(args.dataset) : undefined;
 
   return {
@@ -219,7 +219,7 @@ function buildConfig(args) {
     onlyGroups: args.onlyGroups,
     datasetSlugFilter,
     ckanUrl: baseUrl,
-    apiKey: process.env.CKAN_API_KEY || undefined,
+    apiKey: args.apiKey || process.env.API_KEY || undefined,
     ownerOrgFallback: DEFAULT_ORGANIZATION,
     masterPath: DEFAULT_FILES.master,
     dictionaryPath: DEFAULT_FILES.dictionary,
@@ -240,8 +240,11 @@ function parseArgs(argv) {
     skipGroups: false,
     onlyGroups: false,
     dataset: undefined,
+    apiKey: undefined,
+    apiUrl: undefined,
     help: false,
   };
+  const positional = [];
 
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -269,18 +272,28 @@ function parseArgs(argv) {
         break;
       default:
         if (!arg.startsWith("--")) {
-          args.dataset = arg;
+          positional.push(arg);
         } else {
           console.warn(`Unknown argument "${arg}" – ignoring.`);
         }
     }
   }
 
+  if (positional.length && !args.apiKey) {
+    args.apiKey = positional.shift();
+  }
+  if (positional.length && !args.apiUrl) {
+    args.apiUrl = positional.shift();
+  }
+  if (positional.length && !args.dataset) {
+    args.dataset = positional.shift();
+  }
+
   return args;
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/ingest-master.js [options]
+  console.log(`Usage: node scripts/ingest-master.js <apiKey> [apiUrl] [options]
 
 Options:
   --apply                 Persist changes to the PortalJS Cloud CKAN instance.
@@ -966,36 +979,4 @@ function isNotFoundError(error) {
 
 function normalizeKey(value) {
   return slugify(value).replace(/-/g, "");
-}
-
-function loadEnvFile(filePath) {
-  try {
-    if (!fs.existsSync(filePath)) {
-      return;
-    }
-    const content = fs.readFileSync(filePath, "utf8");
-    content
-      .split(/\r?\n/)
-      .map((line) => line.trim())
-      .forEach((line) => {
-        if (!line || line.startsWith("#")) {
-          return;
-        }
-        const idx = line.indexOf("=");
-        if (idx === -1) {
-          return;
-        }
-        const key = line.slice(0, idx).trim();
-        let value = line.slice(idx + 1).trim();
-        if (
-          (value.startsWith('"') && value.endsWith('"')) ||
-          (value.startsWith("'") && value.endsWith("'"))
-        ) {
-          value = value.slice(1, -1);
-        }
-        process.env[key] = value;
-      });
-  } catch (error) {
-    console.warn(`⚠️  Failed to load env file at ${filePath}: ${error.message}`);
-  }
 }
