@@ -24,17 +24,20 @@ export async function getServerSideProps() {
     type: "visualization"
   });
   const groups = await getAllGroups({ detailed: true });
+  const ambits = groups.filter(g => !g.name.includes("col--"))
+  const collectius = groups.filter(g => g.name.includes("col--"))
   const orgs = await getAllOrganizations({ detailed: true });
   const stats = {
     datasetCount: datasets.count,
-    groupCount: groups.length,
+    groupCount: ambits.length,
+    collectiusCount: collectius.length,
     orgCount: orgs.length,
     visualizationCount: visualizations.count
   };
   return {
     props: {
       datasets: datasets.datasets,
-      groups,
+      groups: ambits,
       orgs,
       stats,
     },

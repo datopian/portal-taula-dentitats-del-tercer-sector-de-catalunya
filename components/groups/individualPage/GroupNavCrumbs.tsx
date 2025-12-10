@@ -6,6 +6,7 @@ export default function GroupNavCrumbs({
 }: {
   group: { name?: string; title?: string };
 }) {
+  const isAmbit = !group.name.includes("col--");
   return (
     <nav>
       <ul className="flex gap-x-8 mx-auto custom-container">
@@ -18,7 +19,7 @@ export default function GroupNavCrumbs({
             <RiHome3Line />
           </Link>
           <Link
-            href="/groups"
+            href={`/${isAmbit ? "groups" : "col-lectius"}`}
             className="font-semibold "
             style={{ minWidth: "fit-content" }}
           >
@@ -36,10 +37,10 @@ export default function GroupNavCrumbs({
                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
-            Groups
+            {isAmbit ? "Àmbits" : "Col·lectius"}
           </Link>
           {group.name && group.title && (
-            <Link href={`/groups/${group.name}`} className="font-semibold ">
+            <Link href={`/${isAmbit ? "groups" : "col-lectius"}/${group.name}`} className="font-semibold ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

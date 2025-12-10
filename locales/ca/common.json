@@ -1,10 +1,10 @@
 {
   "dataset": "Conjunt de dades",
   "datasets": "Conjunts de dades",
-  "group": "Grup",
-  "groups": "Grups",
-  "organization": "Organització",
-  "organizations": "Organitzacions",
+  "group": "Àmbit",
+  "groups": "Àmbits",
+  "organization": "Entitat",
+  "organizations": "Entitats de la Taula",
   "visualization": "Visualització",
   "visualizations": "Visualitzacions",
   "search": "Cerca",
@@ -38,9 +38,9 @@
     "highlights": "Destacats"
   },
   "footer": {
-    "about": "Sobre",
+    "about": "EL PROJECTE",
     "links": "Enllaços d’interès",
-    "getStarted": "Comença",
+    "getStarted": "AJUDA",
     "socials": "Estigues al dia de les novetats"
   },
   "homepage" : "Inici",
@@ -48,7 +48,7 @@
   "searchTypeInPlaceholder": "Escriu una paraula clau...",
   "clear" : "Esborra",
   "type": "Tipus",
-  "theme": "Tema",
+  "theme": "Àmbit",
   "tags": "Etiquetes",
   "format": "Format",
   "showMore": "Mostra més",

@@ -18,7 +18,8 @@ import useTranslation from "next-translate/useTranslation";
 export default function DatasetSearchFilters() {
   const [showFilters, setShowFilters] = useState(true);
   const [seeMoreOrgs, setSeeMoreOrgs] = useState(false);
-  const [seeMoreGroups, setSeeMoreGroups] = useState(false);
+  const [seeMoreAmbits, setSeeMoreAmbits] = useState(false);
+  const [seeMoreCollectius, setSeeMoreCollectius] = useState(false);
   const {
     searchFacets,
     options,
@@ -29,6 +30,11 @@ export default function DatasetSearchFilters() {
   const maxPerView = 6;
 
   const { t } = useTranslation("common");
+
+  const ambits = searchFacets.groups?.items.filter(i => !i.name.includes("col--"))
+  const selectedAmbits = options.groups.filter(i => !i.includes("col--"))
+  const collectius = searchFacets.groups?.items.filter(i => i.name.includes("col--"))
+  const selectedCollectius = options.groups.filter(i => i.includes("col--"))
 
   return (
     <div className="flex flex-col ">
@@ -107,28 +113,28 @@ export default function DatasetSearchFilters() {
             )}
           </div>
         </FacetCard>
-        {searchFacets.groups?.items.length > 0 && (
+        {ambits?.length > 0 && (
           <FacetCard
             title={
               <>
                 {t("refineBy")} <span className="text-accent">{t("theme")}</span>
               </>
             }
-            showClear={options.groups.length > 0}
+            showClear={selectedAmbits.length > 0}
             clearAction={() => {
               setOptions({
-                groups: [],
+                groups: options.groups.filter(o => o.includes("col--")),
                 offset: 0,
               });
             }}
           >
             <div>
               <div className="max-h-[400px] overflow-y-auto">
-                {searchFacets.groups?.items
+                {ambits
                   ?.slice(
                     0,
-                    seeMoreGroups
-                      ? searchFacets.groups?.items?.length
+                    seeMoreAmbits
+                      ? ambits.length
                       : maxPerView
                   )
                   .map((group: PackageFacetOptions) => {
@@ -143,13 +149,61 @@ export default function DatasetSearchFilters() {
                     );
                   })}
               </div>
-              {searchFacets.groups?.items?.length > maxPerView && (
+              {ambits.length > maxPerView && (
                 <button
-                  onClick={() => setSeeMoreGroups(!seeMoreGroups)}
+                  onClick={() => setSeeMoreAmbits(prev => !prev)}
                   type="button"
                   className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
                 >
-                  {seeMoreGroups ? t("showLess") : t("showMore")}
+                  {seeMoreAmbits ? t("showLess") : t("showMore")}
+                </button>
+              )}
+            </div>
+          </FacetCard>
+        )}
+        {collectius?.length > 0 && (
+          <FacetCard
+            title={
+              <>
+                {t("refineBy")} <span className="text-accent">Col·lectiu</span>
+              </>
+            }
+            showClear={selectedCollectius.length > 0}
+            clearAction={() => {
+              setOptions({
+                groups: options.groups.filter(o => !o.includes("col--")),
+                offset: 0,
+              });
+            }}
+          >
+            <div>
+              <div className="max-h-[400px] overflow-y-auto">
+                {collectius
+                  ?.slice(
+                    0,
+                    seeMoreCollectius
+                      ? collectius.length
+                      : maxPerView
+                  )
+                  .map((group: PackageFacetOptions) => {
+                    return (
+                      <MultiCheckbox
+                        name={"groups"}
+                        value={group.name}
+                        label={group.display_name}
+                        count={group.count}
+                        key={group.name}
+                      />
+                    );
+                  })}
+              </div>
+              {collectius.length > maxPerView && (
+                <button
+                  onClick={() => setSeeMoreCollectius(prev => !prev)}
+                  type="button"
+                  className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
+                >
+                  {seeMoreCollectius ? t("showLess") : t("showMore")}
                 </button>
               )}
             </div>

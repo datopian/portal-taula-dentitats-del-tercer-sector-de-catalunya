@@ -69,6 +69,7 @@ function SearchPageContent() {
     <Layout>
       <div className="grid grid-rows-searchpage-hero">
         <HeroSection title={t("search")} titleAccent={t(`${options.type}s`)} />
+
         <section className={`grid row-start-3 row-span-2 col-span-full pt-4 `}>
           <div className={`custom-container bg-white ${styles.shadowMd}`}>
             <DatasetSearchForm />

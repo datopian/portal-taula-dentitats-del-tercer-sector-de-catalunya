@@ -10,11 +10,11 @@ import { GroupPageStructuredData } from "@/components/schema/GroupPageStructured
 export async function getServerSideProps() {
   const groups = await getAllGroups({ detailed: true });
 
-  const ambits = groups.filter(g => !g.name.includes("col--"))
+  const collectius = groups.filter(g => g.name.includes("col--"))
   
   return {
     props: {
-      groups: ambits,
+      groups: collectius,
     },
   };
 }
@@ -44,7 +44,7 @@ function Main({
   return (
     <Layout>
       <SearchHero
-        title="Àmbits"
+        title="Col·lectius"
         searchValue={searchString}
         onChange={setSearchString}
       />

@@ -11,6 +11,7 @@ export default function HeroSectionLight({
   stats: {
     orgCount: number;
     groupCount: number;
+    collectiusCount: number;
     datasetCount: number;
     visualizationCount: number;
   };
@@ -51,6 +52,12 @@ export default function HeroSectionLight({
               href="/groups"
               count={stats.groupCount}
               label={t("groups")}
+            />
+            <Stat
+              Icon={RiFunctionLine}
+              href="/col-lectius"
+              count={stats.collectiusCount}
+              label={"Col·lectius"}
             />
             <Stat
               Icon={RiTeamLine}
