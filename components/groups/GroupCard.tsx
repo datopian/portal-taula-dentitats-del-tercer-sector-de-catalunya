@@ -19,7 +19,6 @@ export default function GroupCard({
 }: GroupCardProps) {
   const { theme } = useTheme();
   const url = image_display_url ? new URL(image_display_url) : undefined;
-  const { t } = useTranslation("common");
   return (
     <Link
       href={`/groups/${name}`}
@@ -48,7 +47,7 @@ export default function GroupCard({
       <span
         className={` font-inter font-medium text-sm flex items-center gap-2`}
       >
-        {t("seeAllGroups")}
+      Veure
         <ArrowRightIcon width={16} />
       </span>
     </Link>

@@ -17,14 +17,9 @@ export const getAllGroups = async ({
   detailed: boolean;
 }) => {
   if (!mainOrg) {
-    const organizations = await CkanRequest.get<CkanResponse<Group[]>>(
-      `group_list?all_fields=True`,
-      {
-        ckanUrl: DMS,
-      }
-    );
+    const organizations = await fetchAllGroups();
 
-    return organizations.result.map((o) => {
+    return organizations.map((o) => {
       return { ...o, _name: o.name };
     });
   }
@@ -87,3 +82,25 @@ export const getGroup = async ({
 
   return { ...group.result, name: publicName, _name: group.result.name };
 };
+
+async function fetchAllGroups(limit = 25) {
+  let offset = 0;
+  let hasMore = true;
+  const groups: Group[] = [];
+
+  while (hasMore) {
+    const response = await CkanRequest.get<CkanResponse<Group[]>>(
+      `group_list?all_fields=true&limit=${limit}&offset=${offset}`,
+      {
+        ckanUrl: DMS,
+      }
+    );
+
+    const batch = response.result || [];
+    groups.push(...batch);
+    offset += 25;
+    hasMore = batch.length === limit;
+  }
+
+  return groups;
+}

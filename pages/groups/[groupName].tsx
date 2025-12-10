@@ -12,6 +12,7 @@ import { getGroup } from "@/lib/queries/groups";
 import { getDataset } from "@/lib/queries/dataset";
 import HeroSection from "@/components/_shared/HeroSection";
 import { GroupIndividualPageStructuredData } from "@/components/schema/GroupIndividualPageStructuredData";
+import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const DMS = process.env.NEXT_PUBLIC_DMS;
@@ -47,6 +48,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 export default function GroupPage({ group }): JSX.Element {
+  const { t } = useTranslation("common");
   const tabs = [
     {
       id: "datasets",
@@ -55,7 +57,7 @@ export default function GroupPage({ group }): JSX.Element {
       ) : (
         ""
       ),
-      title: "Datasets",
+      title: t("datasets"),
     },
     {
       id: "activity-stream",
@@ -64,7 +66,7 @@ export default function GroupPage({ group }): JSX.Element {
           activities={group?.activity_stream ? group.activity_stream : []}
         />
       ),
-      title: "Activity Stream",
+      title: t("activityStream")
     },
   ];
 

@@ -36,7 +36,7 @@ export default function GroupNavCrumbs({
                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
-            Groups
+            Àmbits
           </Link>
           {group.name && group.title && (
             <Link href={`/groups/${group.name}`} className="font-semibold ">
