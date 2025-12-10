@@ -12,7 +12,8 @@ export default function LighterThemeHeader() {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
-  const portalLogo = process.env.NEXT_PUBLIC_PORTAL_LOGO ?? '/images/logos/taula.svg';
+  const portalLogo =
+    process.env.NEXT_PUBLIC_PORTAL_LOGO ?? "/images/logos/taula.svg";
 
   const { t } = useTranslation("common");
 
@@ -69,6 +70,14 @@ export default function LighterThemeHeader() {
               >
                 {t("groups")}
               </Link>
+              <Link
+                href="/col-lectius"
+                className={`font-semibold my-auto uppercase ${
+                  router.pathname === "/col-lectius" ? "text-accent" : ""
+                }`}
+              >
+                Col·lectius
+              </Link>
             </div>
           </div>
         </div>
@@ -92,7 +101,6 @@ export default function LighterThemeHeader() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            
             <Link href="/" className="-m-1.5 p-1.5 inline-block md:hidden">
               <Image
                 src="/images/logos/logo.svg"
@@ -121,6 +129,9 @@ export default function LighterThemeHeader() {
                 </Link>
                 <Link href="/groups" className="font-semibold my-auto">
                   {t("groups")}
+                </Link>
+                <Link href="/col-lectius" className="font-semibold my-auto">
+                  Col·lectius
                 </Link>
               </div>
             </div>
