@@ -23,34 +23,30 @@ const LighterThemeFooter: React.FC = () => {
   const { t } = useTranslation("common");
   const navigation = {
     about: [
-      { name: "About Us", href: "https://www.datopian.com/about/" },
       {
-        name: "Our Technology",
-        href: "https://portaljs.com",
+        name: "Què es l’Espai de Dades",
+        href: "#",
       },
       {
-        name: "Playbook",
-        href: "https://www.datopian.com/playbook",
+        name: "Sobre la Taula del Tercer Sector",
+        href: "https://www.tercersector.cat/qui-som/la-taula-del-tercer-sector",
+        target: "_blank",
       },
     ],
     useful: [
-      { name: "Organizations", href: "/organizations" },
-      { name: "Request data", href: "/request" },
-      { name: "Login", href: "https://cloud.portaljs.com/auth/signin" },
+      { name: "Entitats de la Taula", href: "/organizations" },
+      { name: "Col·lectius", href: "/groups" },
+      { name: "Àmbits", href: "/groups" },
     ],
     getStarted: [
       {
-        name: "Find data",
-        href: "/search",
+        name: "Afegeix dades",
+        href: "https://cloud.portaljs.com/auth/signin",
       },
       {
-        name: "Publish data",
-        href: "#",
-      },
-      {
-        name: "Get help",
-        href: "#",
-      },
+        name: "Sol·licita dades",
+        href: "https://m4social.org/contacte/",
+      }
     ],
     social: [
       {
@@ -201,7 +197,6 @@ const LighterThemeFooter: React.FC = () => {
           </a>
         </div>
       </div>
-
     </footer>
   );
 };

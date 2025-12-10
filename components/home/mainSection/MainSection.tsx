@@ -32,18 +32,21 @@ export default function MainSection({
             description: t("home.findDataDescription"),
             href: "/search",
             icon: <RiSearch2Line width={48} />,
+            target: ""
           },
           {
             title: t("home.addData"),
             description: t("home.addDataDescription"),
-            href: "#",
+            href: "https://cloud.portaljs.com/auth/signin",
             icon: <RiUploadCloud2Line width={48} />,
+            target: "_blank"
           },
           {
             title: t("home.requestData"),
             description: t("home.requestDataDescription"),
-            href: "#",
+            href: "https://m4social.org/contacte/",
             icon: <RiQuestionnaireLine width={48} />,
+            target: "_blank"
           },
         ].map((item, i): JSX.Element => {
           return <ActionCard key={i} {...item} />;
