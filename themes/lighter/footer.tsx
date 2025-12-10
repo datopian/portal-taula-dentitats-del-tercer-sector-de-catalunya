@@ -35,7 +35,7 @@ const LighterThemeFooter: React.FC = () => {
     ],
     useful: [
       { name: "Entitats de la Taula", href: "/organizations" },
-      { name: "Col·lectius", href: "/groups" },
+      { name: "Col·lectius", href: "/col-lectius" },
       { name: "Àmbits", href: "/groups" },
     ],
     getStarted: [
