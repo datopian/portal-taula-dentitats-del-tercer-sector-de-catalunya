@@ -17,7 +17,7 @@ const DEFAULT_FILES = {
 const DEFAULT_ORGANIZATION =
   "taula-dentitats-del-tercer-sector-de-catalunya";
 
-const MAX_GROUP_NAME_LENGTH = 50;
+const MAX_GROUP_NAME_LENGTH = 45;
 
 async function main() {
   const args = parseArgs(process.argv.slice(2));
@@ -200,6 +200,7 @@ async function main() {
 main().catch((error) => {
   console.error("\n❌ Failed to ingest datasets.");
   console.error(error.message || error);
+  console.error(error)
   if (error && error.stack) {
     console.error(error.stack);
   }
@@ -508,8 +509,8 @@ async function syncGroups({ groups, ckanOptions, config, remoteAvailable }) {
     }
 
     try {
-      await CkanRequest.post("group_show", {
-        json: { id: group.name },
+      console.log(group.name)
+      await CkanRequest.get(`group_show?id=${group.name}`, {
         ...ckanOptions,
       });
 
@@ -701,8 +702,7 @@ async function resolveOrganization({
   }
 
   try {
-    await CkanRequest.post("organization_show", {
-      json: { id: privateName },
+    await CkanRequest.post(`organization_show?id=${privateName}`, {
       ...ckanOptions,
     });
     cache.set(privateName, true);
@@ -725,9 +725,7 @@ async function resolveOrganization({
       json: {
         name: privateName,
         title: requestedTitle || privateName,
-        description: requestedTitle
-          ? `Dades proporcionades per ${requestedTitle}`
-          : undefined,
+        description: "",
         state: "active",
       },
       ...ckanOptions,
@@ -748,8 +746,7 @@ async function upsertDataset({ payload, ckanOptions, dryRun, hasApi }) {
 
   let exists = false;
   try {
-    await CkanRequest.post("package_show", {
-      json: { id: payload.name },
+    await CkanRequest.post(`package_show?id=${payload.name}`, {
       ...ckanOptions,
     });
     exists = true;
