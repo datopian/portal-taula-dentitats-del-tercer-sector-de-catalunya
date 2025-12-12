@@ -24,8 +24,8 @@ const LighterThemeFooter: React.FC = () => {
   const navigation = {
     about: [
       {
-        name: "Què es l’Espai de Dades",
-        href: "#",
+        name: "Què és l’Espai de Dades",
+        href: "/about",
       },
       {
         name: "Sobre la Taula del Tercer Sector",

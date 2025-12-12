@@ -6,7 +6,7 @@ interface IconProps {
 const Footer: React.FC = () => {
   const navigation = {
     about: [
-      { name: "Què es l’Espai de Dades", href: "https://www.datopian.com/about/" },
+      { name: "Què és l’Espai de Dades", href: "https://www.datopian.com/about/" },
       {
         name: "Our Technology",
         href: "https://portaljs.com",
