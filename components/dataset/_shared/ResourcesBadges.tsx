@@ -26,6 +26,14 @@ export default function ResourcesBadges({
           resourceFormatColors[
             res.format?.toUpperCase() as keyof typeof resourceBgColors
           ];
+
+        if (
+          (res.format == "HTML" || !res.format) &&
+          !res.url.startsWith("https://blob.datopian")
+        ) {
+          res.format = "Link";
+        }
+
         return (
           <span
             key={index}
