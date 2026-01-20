@@ -23,6 +23,9 @@ export default function DatasetInfo({
     { format: "ttl", label: "TTL" },
   ];
 
+  const dms = process.env.NEXT_PUBLIC_DMS
+  const [apiUrl, mainOrgName] = dms.split("/@");
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-col gap-y-3">
@@ -134,7 +137,7 @@ export default function DatasetInfo({
           {metaFormats.map((item) => (
             <div key={item.format}>
               <Link
-                href={`${process.env.NEXT_PUBLIC_DMS}/dataset/${dataset._name}.${item.format}`}
+                href={`${apiUrl}/dataset/${mainOrgName}--${dataset._name}.${item.format}`}
                 className="font-semibold group flex gap-0.5 hover:text-darkaccent"
               >
                 <div className="text-accent group-hover:text-darkaccent transition flex items-center justify-center">
