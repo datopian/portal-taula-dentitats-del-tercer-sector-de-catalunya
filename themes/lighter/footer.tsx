@@ -46,7 +46,7 @@ const LighterThemeFooter: React.FC = () => {
       {
         name: "Sol·licita dades",
         href: "https://m4social.org/contacte/",
-      }
+      },
     ],
     social: [
       {
@@ -190,10 +190,18 @@ const LighterThemeFooter: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="text-sm">Built with</span>
+            {/*<span className="text-sm">Built with</span>
             <span className="font-extrabold text-[#1f2937] text-xl sm:text-lg font-roboto ">
               🌀 PortalJS
-            </span>
+            </span>*/}
+            <Link href={"https://www.barcelona.cat/ca"} target="_blank">
+              <Image
+                alt="Barcelona"
+                width={180}
+                height={50}
+                src={"/images/logos/barcelona.jpg"}
+              />
+            </Link>
           </a>
         </div>
       </div>
