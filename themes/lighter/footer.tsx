@@ -179,30 +179,32 @@ const LighterThemeFooter: React.FC = () => {
       <div
         className={`custom-container flex flex-col items-center flex-wrap py-6 mx-auto md:flex-row md:items-center   md:flex-nowrap`}
       >
-        <Link href="/">
-          <Image src={portalLogo} alt="logo" height={75} width={230} />
+        <Link
+          href="https://portaljs.com"
+          className="flex gap-1 items-center"
+          target={"_blank"}
+          rel="noopener noreferrer"
+        >
+          <span className="text-sm">Built with</span>
+          <span className="font-extrabold text-[#1f2937] text-xl sm:text-lg font-roboto ">
+            🌀 PortalJS
+          </span>
         </Link>
 
         <div className="md:ml-auto mt-4 md:mt-0">
-          <a
-            className="flex flex-col md:flex-row items-center gap-1"
-            href="https://portaljs.com"
+          <Link
+            href={"https://www.barcelona.cat/ca"}
             target="_blank"
             rel="noopener noreferrer"
+            className="flex flex-col md:flex-row items-center gap-1"
           >
-            {/*<span className="text-sm">Built with</span>
-            <span className="font-extrabold text-[#1f2937] text-xl sm:text-lg font-roboto ">
-              🌀 PortalJS
-            </span>*/}
-            <Link href={"https://www.barcelona.cat/ca"} target="_blank">
-              <Image
-                alt="Barcelona"
-                width={180}
-                height={50}
-                src={"/images/logos/barcelona.jpg"}
-              />
-            </Link>
-          </a>
+            <Image
+              alt="Barcelona"
+              width={180}
+              height={50}
+              src={"/images/logos/barcelona.jpg"}
+            />
+          </Link>
         </div>
       </div>
     </footer>
