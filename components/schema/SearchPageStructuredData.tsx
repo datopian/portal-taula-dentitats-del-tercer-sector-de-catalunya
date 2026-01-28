@@ -3,8 +3,8 @@ import { BreadcrumbJsonLd, LogoJsonLd, NextSeo, SiteLinksSearchBoxJsonLd } from 
 import Script from "next/script";
 
 export function SearchPageStructuredData() {
-  const title = "Search datasets"
-  const description = "Browse through multiple datasets available on " + siteTitle
+  const title = "Cerca"
+  const description = "Cerca conjunts de dades disponibles a " + siteTitle
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DataCatalog",
@@ -42,12 +42,12 @@ export function SearchPageStructuredData() {
         itemListElements={[
           {
             position: 1,
-            name: 'Home',
+            name: 'Inici',
             item: url,
           },
           {
             position: 2,
-            name: 'Search',
+            name: 'Cerca',
             item: `${url}/search`,
           },
         ]}

@@ -6,7 +6,7 @@ export function DatasetPageStructuredData({ dataset }: { dataset: Dataset }) {
   const title = dataset.title || dataset.name
   const ownerOrg = dataset?.organization?.name || "Organization"
   const datasetUrl = `${url}/@${ownerOrg}/${dataset.name}`
-  const description = dataset.notes || "Dataset page of " + title
+  const description = dataset.notes || "Pàgina del conjunt de dades " + title
 
   return (
     <>
@@ -38,7 +38,7 @@ export function DatasetPageStructuredData({ dataset }: { dataset: Dataset }) {
         itemListElements={[
           {
             position: 1,
-            name: 'Home',
+            name: 'Inici',
             item: url,
           },
           {

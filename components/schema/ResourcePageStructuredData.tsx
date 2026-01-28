@@ -6,7 +6,7 @@ import Script from "next/script";
 export function ResourcePageStructuredData({ resource, orgName, dataset }: { resource: Resource, orgName: string, dataset: string }) {
   const title = resource.name || "Resource"
   const resourceUrl = `${url}/@${orgName}/${dataset}/r/${resource.id}`
-  const description = resource.description || "Resource page of " + title
+  const description = resource.description || "Pàgina del recurs " + title
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -47,7 +47,7 @@ export function ResourcePageStructuredData({ resource, orgName, dataset }: { res
         itemListElements={[
           {
             position: 1,
-            name: 'Home',
+            name: 'Inici',
             item: url,
           },
           {

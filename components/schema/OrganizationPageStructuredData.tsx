@@ -2,8 +2,8 @@ import nextSeoConfig, { imageUrl, siteTitle, url } from "@/next-seo.config";
 import { BreadcrumbJsonLd, LogoJsonLd, NextSeo, WebPageJsonLd, SiteLinksSearchBoxJsonLd } from "next-seo";
 
 export function OrganizationPageStructuredData() {
-  const title = "Organizations"
-  const description = "Organizations page of " + siteTitle
+  const title = "Entitats de la Taula"
+  const description = "Entitats de la Taula de " + siteTitle
   return (
     <>
       <LogoJsonLd
@@ -34,12 +34,12 @@ export function OrganizationPageStructuredData() {
         itemListElements={[
           {
             position: 1,
-            name: 'Home',
+            name: 'Inici',
             item: url,
           },
           {
             position: 2,
-            name: 'Organizations Page',
+            name: title,
             item: `${url}/organizations`,
           },
         ]}
