@@ -149,6 +149,46 @@ export default function DatasetInfo({
           ))}
         </div>
       </span>
+      <div className="mt-4 pt-4 border-t">
+        <span className="font-medium text-gray-500 inline">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5 h-5 text-accent inline mr-1"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M16.5 10.5V7.875a4.5 4.5 0 10-9 0V10.5M6 10.5h12A1.5 1.5 0 0119.5 12v6A1.5 1.5 0 0118 19.5H6A1.5 1.5 0 014.5 18v-6A1.5 1.5 0 016 10.5z"
+            />
+          </svg>
+          Llicència:{" "}
+          <a
+            href="https://creativecommons.org/licenses/by/4.0/"
+            className="text-accent hover:text-darkaccent transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Creative Commons Attribution 4.0
+          </a>
+          <a
+            href="https://opendefinition.org/od/2.1/en/"
+            className="inline-flex items-center ml-2"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://opendata-ajuntament.barcelona.cat/data/base/images/od_80x15_blue.png"
+              alt="Open Definition"
+              width="80"
+              height="15"
+            />
+          </a>
+        </span>
+      </div>
     </div>
   );
 }
