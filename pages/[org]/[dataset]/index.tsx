@@ -98,7 +98,7 @@ export default function DatasetPage({ dataset }): JSX.Element {
         <HeroSection title={dataset.title} cols="6" />
         <DatasetNavCrumbs
           datasetType={dataset.type}
-          datasetsLinkHref={dataset.type === "visualization" ? "/search?type=visualization" : "/search"}
+          datasetsLinkHref={dataset.type === "visualization" ? "/cerca?type=visualization" : "/cerca"}
           org={{
             name: dataset.organization?.name,
             title: dataset.organization?.title,

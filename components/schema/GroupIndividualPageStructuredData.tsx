@@ -5,7 +5,7 @@ import { BreadcrumbJsonLd, LogoJsonLd, NextSeo, WebPageJsonLd } from "next-seo";
 export function GroupIndividualPageStructuredData({ group }: { group: Group }) {
   const title = group.title || group.name
   const isCollectiu = group?.name?.includes("col--");
-  const basePath = isCollectiu ? "/col-lectius" : "/groups";
+  const basePath = isCollectiu ? "/collectius" : "/ambits";
   const baseLabel = isCollectiu ? "Col·lectius" : "Àmbits";
   const groupUrl = `${url}${basePath}/${group.name}`
   const description = group.description || `Pàgina de ${title}`

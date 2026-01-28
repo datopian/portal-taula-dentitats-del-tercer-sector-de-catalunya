@@ -27,7 +27,7 @@ export default function GroupsPage({ groups }): JSX.Element {
   miniSearch.addAll(groups);
   return (
     <>
-      <GroupPageStructuredData title="Col·lectius" path="/col-lectius" />
+      <GroupPageStructuredData title="Col·lectius" path="/collectius" />
       <Main miniSearch={miniSearch} groups={groups} />
     </>
   );

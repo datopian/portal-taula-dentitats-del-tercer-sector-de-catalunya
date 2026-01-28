@@ -3,7 +3,7 @@ import { BreadcrumbJsonLd, LogoJsonLd, NextSeo, WebPageJsonLd, SiteLinksSearchBo
 
 export function GroupPageStructuredData({
   title = "Àmbits",
-  path = "/groups",
+  path = "/ambits",
 }: {
   title?: string;
   path?: string;

@@ -19,7 +19,7 @@ export default function GroupNavCrumbs({
             <RiHome3Line />
           </Link>
           <Link
-            href={`/${isAmbit ? "groups" : "col-lectius"}`}
+            href={`/${isAmbit ? "ambits" : "collectius"}`}
             className="font-semibold "
             style={{ minWidth: "fit-content" }}
           >
@@ -40,7 +40,7 @@ export default function GroupNavCrumbs({
             {isAmbit ? "Àmbits" : "Col·lectius"}
           </Link>
           {group.name && group.title && (
-            <Link href={`/${isAmbit ? "groups" : "col-lectius"}/${group.name}`} className="font-semibold ">
+            <Link href={`/${isAmbit ? "ambits" : "collectius"}/${group.name}`} className="font-semibold ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

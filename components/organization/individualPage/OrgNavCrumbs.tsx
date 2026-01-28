@@ -21,7 +21,7 @@ export default function OrgNavCrumbs({
             <span className="sr-only">{t("homepage")}</span>
           </Link>
           <Link
-            href="/organizations"
+            href="/entitats"
             className="font-semibold "
             style={{ minWidth: "fit-content" }}
           >

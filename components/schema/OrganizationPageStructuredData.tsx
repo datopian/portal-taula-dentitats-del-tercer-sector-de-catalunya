@@ -7,15 +7,15 @@ export function OrganizationPageStructuredData() {
   return (
     <>
       <LogoJsonLd
-        url={`${url}/organizations`}
+        url={`${url}/entitats`}
         logo={`${url}/favicon.ico`}
       />
       <NextSeo
-        canonical={`${url}/organizations`}
+        canonical={`${url}/entitats`}
         title={`${title} | ${siteTitle}`}
         description={description}
         openGraph={{
-          url: `${url}/organizations`,
+          url: `${url}/entitats`,
           title: `${title} | ${siteTitle}`,
           description: description,
           images: [
@@ -40,21 +40,21 @@ export function OrganizationPageStructuredData() {
           {
             position: 2,
             name: title,
-            item: `${url}/organizations`,
+            item: `${url}/entitats`,
           },
         ]}
       />
       <WebPageJsonLd
-        id={`${url}/organizations#webpage`}
-        url={`${url}/organizations`}
+        id={`${url}/entitats#webpage`}
+        url={`${url}/entitats`}
         name={title}
         description={description}
       />
       <SiteLinksSearchBoxJsonLd
-        url={`${url}/organizations`}
+        url={`${url}/entitats`}
         potentialActions={[
           {
-            target: `${url}/organizations`,
+            target: `${url}/entitats`,
             queryInput: "search_term_string"
           },
         ]}

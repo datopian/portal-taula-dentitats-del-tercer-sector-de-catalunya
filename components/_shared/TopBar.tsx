@@ -24,16 +24,16 @@ export default function Example() {
           </Link>
           <div className="hidden lg:flex lg:gap-x-12">
             <li className="flex gap-x-8 align-center">
-              <Link href="/search" className="font-semibold text-white my-auto">
+              <Link href="/cerca" className="font-semibold text-white my-auto">
                 DATASETS
               </Link>
               <Link
-                href="/organizations"
+                href="/entitats"
                 className="font-semibold text-white my-auto"
               >
                 ORGS
               </Link>
-              <Link href="/groups" className="font-semibold text-white my-auto">
+              <Link href="/ambits" className="font-semibold text-white my-auto">
                 GROUPS
               </Link>
             </li>
@@ -81,19 +81,19 @@ export default function Example() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6 flex flex-col">
                 <Link
-                  href="/search"
+                  href="/cerca"
                   className="font-semibold text-white my-auto"
                 >
                   DATASETS
                 </Link>
                 <Link
-                  href="/organizations"
+                  href="/entitats"
                   className="font-semibold text-white my-auto"
                 >
                   ORGS
                 </Link>
                 <Link
-                  href="/groups"
+                  href="/ambits"
                   className="font-semibold text-white my-auto"
                 >
                   GROUPS

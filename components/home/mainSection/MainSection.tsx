@@ -30,7 +30,7 @@ export default function MainSection({
           {
             title: t("home.findData"),
             description: t("home.findDataDescription"),
-            href: "/search",
+            href: "/cerca",
             icon: <RiSearch2Line width={48} />,
             target: ""
           },
@@ -61,7 +61,7 @@ export default function MainSection({
         <section className="relative">
           {groups.length > 4 && (
             <Link
-              href="/groups"
+              href="/ambits"
               className={`font-montserrat font-semibold flex items-center gap-1 uppercase hover:text-darkaccent ml-auto w-fit absolute right-0 top-[-30px]`}
             >
               {t("seeAllGroups")}

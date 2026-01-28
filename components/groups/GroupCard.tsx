@@ -19,9 +19,10 @@ export default function GroupCard({
 }: GroupCardProps) {
   const { theme } = useTheme();
   const url = image_display_url ? new URL(image_display_url) : undefined;
+  const isCollectiu = name?.includes("col--");
   return (
     <Link
-      href={`/groups/${name}`}
+      href={`/${isCollectiu ? "collectius" : "ambits"}/${name}`}
       className={`bg-white hover:bg-accent-50 group border-b-[4px] border-white hover:border-accent p-8 col-span-3 rounded-lg block h-full text-accent  ${theme.styles.shadowSm}`}
     >
       <Image

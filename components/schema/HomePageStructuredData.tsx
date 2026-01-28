@@ -13,7 +13,7 @@ export function HomePageStructuredData() {
         itemListElements={[
           {
             position: 1,
-            name: 'Home',
+            name: 'Inici',
             item: url,
           },
         ]}
@@ -28,7 +28,7 @@ export function HomePageStructuredData() {
         url={url}
         potentialActions={[
           {
-            target: `${url}/search?q={search_term_string}`,
+            target: `${url}/cerca?q={search_term_string}`,
             queryInput: "required name=search_term_string",
           },
         ]}

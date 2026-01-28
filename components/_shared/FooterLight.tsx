@@ -17,14 +17,14 @@ const Footer: React.FC = () => {
       },
     ],
     useful: [
-      { name: "Organizations", href: "/organizations" },
+      { name: "Organizations", href: "/entitats" },
       { name: "Request data", href: "/request" },
       { name: "Login", href: "https://cloud.portaljs.com/auth/signin" },
     ],
     getStarted: [
       {
         name: "Find data",
-        href: "/search",
+        href: "/cerca",
       },
       {
         name: "Publish data",

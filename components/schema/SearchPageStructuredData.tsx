@@ -10,20 +10,20 @@ export function SearchPageStructuredData() {
     "@type": "DataCatalog",
     "name": title,
     "description": description,
-    "url": url + "/search",
+    "url": url + "/cerca",
   };
   return (
     <>
       <LogoJsonLd
-        url={`${url}/search`}
+        url={`${url}/cerca`}
         logo={`${url}/favicon.ico`}
       />
       <NextSeo
-        canonical={`${url}/search`}
+        canonical={`${url}/cerca`}
         title={`${title} | ${siteTitle}`}
         description={description}
         openGraph={{
-          url: `${url}/search`,
+          url: `${url}/cerca`,
           title: `${title} | ${siteTitle}`,
           description: description,
           images: [
@@ -48,7 +48,7 @@ export function SearchPageStructuredData() {
           {
             position: 2,
             name: 'Cerca',
-            item: `${url}/search`,
+            item: `${url}/cerca`,
           },
         ]}
       />
@@ -59,10 +59,10 @@ export function SearchPageStructuredData() {
         {JSON.stringify(jsonLd)}
       </Script>
       <SiteLinksSearchBoxJsonLd
-        url={`${url}/search`}
+        url={`${url}/cerca`}
         potentialActions={[
           {
-            target: `${url}/search?q={search_term_string}`,
+            target: `${url}/cerca?q={search_term_string}`,
             queryInput: "search_term_string"
           },
         ]}

@@ -224,7 +224,7 @@ function ResultsNotFound() {
   const router = useRouter();
 
   const clearFilters = () => {
-    router.push("/search", undefined, { shallow: true });
+    router.push("/cerca", undefined, { shallow: true });
   };
   return (
     <div className="mt-5 flex flex-col items-center rounded-[20px] bg-white gap-4 px-20">

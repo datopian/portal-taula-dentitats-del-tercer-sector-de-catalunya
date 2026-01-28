@@ -37,31 +37,31 @@ export default function HeroSectionLight({
           >
             <Stat
               Icon={RiFileCopy2Line}
-              href="/search"
+              href="/cerca"
               count={stats.datasetCount}
               label={t("datasets")}
             />
             {!!stats.visualizationCount && <Stat
               Icon={RiBarChartLine}
-              href="/search?type=visualization"
+              href="/cerca?type=visualization"
               count={stats.visualizationCount}
               label={t("visualizations")}
             />}
             <Stat
               Icon={RiFunctionLine}
-              href="/groups"
+              href="/ambits"
               count={stats.groupCount}
               label={t("groups")}
             />
             <Stat
               Icon={RiFunctionLine}
-              href="/col-lectius"
+              href="/collectius"
               count={stats.collectiusCount}
               label={"Col·lectius"}
             />
             <Stat
               Icon={RiTeamLine}
-              href="/organizations"
+              href="/entitats"
               count={stats.orgCount}
               label={t("organizations")}
           />

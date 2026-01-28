@@ -47,33 +47,33 @@ export default function LighterThemeHeader() {
           <div className="hidden lg:flex lg:gap-x-12">
             <div className="flex gap-x-8 align-center">
               <Link
-                href="/search"
+                href="/cerca"
                 className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/search" ? "text-accent" : ""
+                  router.pathname === "/cerca" ? "text-accent" : ""
                 }`}
               >
                 {t("datasets")}
               </Link>
               <Link
-                href="/organizations"
+                href="/entitats"
                 className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/organizations" ? "text-accent" : ""
+                  router.pathname === "/entitats" ? "text-accent" : ""
                 }`}
               >
                 {t("organizations")}
               </Link>
               <Link
-                href="/groups"
+                href="/ambits"
                 className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/groups" ? "text-accent" : ""
+                  router.pathname === "/ambits" ? "text-accent" : ""
                 }`}
               >
                 {t("groups")}
               </Link>
               <Link
-                href="/col-lectius"
+                href="/collectius"
                 className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/col-lectius" ? "text-accent" : ""
+                  router.pathname === "/collectius" ? "text-accent" : ""
                 }`}
               >
                 Col·lectius
@@ -121,16 +121,16 @@ export default function LighterThemeHeader() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6 flex flex-col">
-                <Link href="/search" className="font-semibold my-auto">
+                <Link href="/cerca" className="font-semibold my-auto">
                   {t("datasets")}
                 </Link>
-                <Link href="/organizations" className="font-semibold my-auto">
+                <Link href="/entitats" className="font-semibold my-auto">
                   {t("organizations")}
                 </Link>
-                <Link href="/groups" className="font-semibold my-auto">
+                <Link href="/ambits" className="font-semibold my-auto">
                   {t("groups")}
                 </Link>
-                <Link href="/col-lectius" className="font-semibold my-auto">
+                <Link href="/collectius" className="font-semibold my-auto">
                   Col·lectius
                 </Link>
               </div>
