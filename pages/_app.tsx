@@ -13,6 +13,8 @@ import ThemeProvider from "../components/theme/theme-provider";
 
 import { Inter, Montserrat, Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,6 +34,28 @@ const inter = Inter({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = pageProps.theme || "lighter";
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      if (typeof window === "undefined") return;
+      const w = window as Window & { dataLayer?: Array<Record<string, unknown>> };
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({
+        event: "page_view",
+        page_path: url,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    };
+
+    handleRouteChange(window.location.pathname);
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <div className={cn(poppins.variable, montserrat.variable, inter.variable)}>
       <ThemeProvider themeName={theme}>
