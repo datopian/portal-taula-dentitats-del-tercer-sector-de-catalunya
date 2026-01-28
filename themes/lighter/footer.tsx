@@ -40,6 +40,10 @@ const LighterThemeFooter: React.FC = () => {
     ],
     getStarted: [
       {
+        name: "Contacte",
+        href: "/contacte",
+      },
+      {
         name: "Afegeix dades",
         href: "https://cloud.portaljs.com/auth/signin",
       },
