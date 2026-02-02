@@ -46,11 +46,7 @@ const LighterThemeFooter: React.FC = () => {
       {
         name: "Afegeix dades",
         href: "https://cloud.portaljs.com/auth/signin",
-      },
-      {
-        name: "Sol·licita dades",
-        href: "https://m4social.org/contacte/",
-      },
+      }
     ],
     social: [
       {

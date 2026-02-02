@@ -44,9 +44,9 @@ export default function MainSection({
           {
             title: t("home.requestData"),
             description: t("home.requestDataDescription"),
-            href: "https://m4social.org/contacte/",
+            href: "/contacte",
             icon: <RiQuestionnaireLine width={48} />,
-            target: "_blank"
+            target: ""
           },
         ].map((item, i): JSX.Element => {
           return <ActionCard key={i} {...item} />;
