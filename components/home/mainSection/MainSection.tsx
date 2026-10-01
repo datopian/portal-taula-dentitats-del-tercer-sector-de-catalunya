@@ -37,9 +37,9 @@ export default function MainSection({
           {
             title: t("home.addData"),
             description: t("home.addDataDescription"),
-            href: "https://cloud.portaljs.com/auth/signin",
+            href: "/contacte",
             icon: <RiUploadCloud2Line width={48} />,
-            target: "_blank"
+            target: ""
           },
           {
             title: t("home.requestData"),
