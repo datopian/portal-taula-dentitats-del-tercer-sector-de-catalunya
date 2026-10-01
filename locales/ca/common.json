@@ -47,6 +47,11 @@
     "line1": "Espai de Dades Obertes",
     "line2": "del Tercer Sector Social"
   },
+  "addDataBanner": {
+    "title": "Vols afegir dades?",
+    "description": "Ajuda’ns a fer créixer l’Espai de Dades Obertes del Tercer Sector Social!",
+    "cta": "Contacta amb nosaltres"
+  },
   "homepage" : "Inici",
   "clearFilters": "Esborra els filtres",
   "searchTypeInPlaceholder": "Escriu una paraula clau...",

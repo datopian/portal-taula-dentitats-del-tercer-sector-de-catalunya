@@ -32,10 +32,6 @@ const LighterThemeFooter: React.FC = () => {
         name: "Contacta amb nosaltres",
         href: "/contacte",
       },
-      {
-        name: "Afegeix dades",
-        href: "https://cloud.portaljs.com/auth/signin",
-      },
     ],
     social: [
       {
@@ -81,7 +77,7 @@ const LighterThemeFooter: React.FC = () => {
     process.env.NEXT_PUBLIC_PORTAL_LOGO ?? "/images/logos/taula.svg";
 
   return (
-    <footer className="bg-accent-50  mt-[155px]">
+    <footer className="bg-accent-50 mt-16">
       <div
         className={`custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap`}
       >

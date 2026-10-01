@@ -47,6 +47,11 @@
     "line1": "Open Data Space",
     "line2": "of the Third Social Sector"
   },
+  "addDataBanner": {
+    "title": "Do you want to add data?",
+    "description": "Help us grow the Third Social Sector Open Data Space!",
+    "cta": "Contact us"
+  },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",
