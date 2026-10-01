@@ -69,7 +69,7 @@ export default function LighterThemeHeader() {
       >
         {siteName}
 
-        <div className="hidden lg:flex items-center gap-x-6 xl:gap-x-8 mr-auto ml-6 xl:ml-10">
+        <div className="hidden lg:flex items-center gap-x-6 xl:gap-x-8 ml-auto">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -83,7 +83,7 @@ export default function LighterThemeHeader() {
           ))}
         </div>
 
-        <div className="hidden md:block ml-auto lg:ml-0">{taulaLogo}</div>
+        <div className="hidden md:block ml-auto lg:ml-4 xl:ml-6">{taulaLogo}</div>
 
         <div className="flex lg:hidden">
           <button
