@@ -31,7 +31,19 @@ export async function getServerSideProps() {
     datasetCount: datasets.count,
     groupCount: ambits.length,
     collectiusCount: collectius.length,
-    orgCount: orgs.length,
+    // One entry per organization ("Tercer sector" and "Altres organismes"),
+    // with "Altres organismes" always last
+    orgs: [...orgs]
+      .sort(
+        (a, b) =>
+          Number(a.name.endsWith("altres-organismes")) -
+          Number(b.name.endsWith("altres-organismes"))
+      )
+      .map((o) => ({
+        name: o.name,
+        title: o.display_name ?? o.title,
+        datasetCount: o.package_count ?? 0,
+      })),
     visualizationCount: visualizations.count
   };
   return {
