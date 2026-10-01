@@ -63,5 +63,8 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "overrides": {
+    "next-mdx-remote": "^6.0.0"
   }
 }
