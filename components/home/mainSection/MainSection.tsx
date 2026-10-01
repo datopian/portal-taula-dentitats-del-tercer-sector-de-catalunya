@@ -68,7 +68,7 @@ export default function MainSection({
               <ArrowLongRightIcon width={16} />
             </Link>
           )}
-          <div className="col-span-1 grid sm:grid-cols-2 gap-4 md:pl-2">
+          <div className="col-span-1 grid sm:grid-cols-2 gap-4 md:ml-2 bg-accent rounded-lg p-4">
             {groups.slice(0, 4).map((group) => (
               <article key={group.id} className="col-span-1 h-fit">
                 <GroupCard
