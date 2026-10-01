@@ -3,18 +3,24 @@ import { Tag } from "@portaljs/ckan";
 import { Group } from "@portaljs/ckan";
 import { getTimeAgo } from "@/lib/utils";
 import useTranslation from "next-translate/useTranslation";
+import { RiGroupLine } from "react-icons/ri";
 
 export default function GroupInfo({ group }: { group: Group }) {
   const { t } = useTranslation("common");
   return (
     <div className="flex flex-col">
-      <Image
-        width={54}
-        height={56}
-        src={group.image_display_url}
-        alt={`${group.name}-collection`}
-        className="object-fit"
-      />
+      {group.name?.includes("col--") ? (
+        // All col·lectius share the same icon
+        <RiGroupLine size={54} className="text-accent" aria-hidden={true} />
+      ) : (
+        <Image
+          width={54}
+          height={56}
+          src={group.image_display_url}
+          alt={`${group.name}-collection`}
+          className="object-fit"
+        />
+      )}
       <div className="flex flex-col gap-y-3 mt-8">
         <span className="font-medium text-gray-500 inline">
           <svg

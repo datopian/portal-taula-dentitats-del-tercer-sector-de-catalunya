@@ -1,6 +1,6 @@
 {
   "dataset": "Conjunt de dades",
-  "datasets": "Conjunts de dades",
+  "datasets": "Dades",
   "group": "Àmbit",
   "groups": "Àmbits",
   "organization": "Entitat",
@@ -8,7 +8,8 @@
   "visualization": "Visualització",
   "visualizations": "Visualitzacions",
   "search": "Cerca",
-  "searchDatasets": "Cerca conjunts de dades",
+  "searchDatasets": "Cerca dades",
+  "searchPlaceholder": "Què estàs buscant?",
   "seeAllGroups": "Veure la col·lecció",
   "lastUpdated": "Darrera actualització",
   "created" : "Creat",
@@ -16,7 +17,7 @@
   "hide": "Amaga",
   "filters": "Filtres",
   "sortBy": "Ordena per",
-  "refineBy": "Refina per",
+  "refineBy": "Filtra per",
   "relevance": "Rellevància",
   "titleAsc": "Títol (A-Z)",
   "titleDesc": "Títol (Z-A)",
@@ -24,24 +25,32 @@
   "clearAll": "Esborra-ho tot",
   "home": {
     "hero": {
-      "title1": "Dades obertes per enfortir el",
+      "title1": "Dades Obertes per enfortir el",
       "title2": "Tercer Sector Social",
-      "description": "Un espai per trobar, compartir i utilitzar dades obertes d’interès en el dia a dia de l’acció social a Catalunya."
+      "description": "Un nou espai per trobar, compartir i utilitzar dades de l’àmbit social disponibles per a tothom."
     },
     "findData": "Troba dades",
     "findDataDescription": "Troba, comparteix, utilitza i extreu coneixement de les dades.",
     "addData": "Afegeix dades",
-    "addDataDescription": "Publica el teu conjunt de dades al Portal.",
+    "addDataDescription": "Publica les teves dades al Portal.",
     "requestData": "Sol·licita dades",
     "requestDataDescription": "Envia’ns una sol·licitud de les dades que no has trobat.",
-    "popularDatasets": "Conjunts de dades populars",
+    "popularDatasets": "Dades populars",
     "highlights": "Destacats"
   },
   "footer": {
-    "about": "EL PROJECTE",
-    "links": "Enllaços d’interès",
-    "getStarted": "AJUDA",
-    "socials": "Estigues al dia de les novetats"
+    "socials": "Xarxes socials",
+    "support": "Amb el suport de:"
+  },
+  "project": "El projecte",
+  "siteName": {
+    "line1": "Espai de Dades Obertes",
+    "line2": "del Tercer Sector Social"
+  },
+  "addDataBanner": {
+    "title": "Vols afegir dades?",
+    "description": "Ajuda’ns a fer créixer l’Espai de Dades Obertes del Tercer Sector Social!",
+    "cta": "Contacta amb nosaltres"
   },
   "homepage" : "Inici",
   "clearFilters": "Esborra els filtres",
@@ -53,8 +62,8 @@
   "format": "Format",
   "showMore": "Mostra més",
   "showLess": "Mostra menys",
-  "noDatasetsFound": "No s'han trobat conjunts de dades",
-  "noDatasetsFoundDescription": "Sembla que cap conjunt de dades coincideix amb els criteris de cerca actuals. Prova d'ajustar els filtres o d'esborrar-los tots per veure més conjunts de dades.",
+  "noDatasetsFound": "No s'han trobat dades",
+  "noDatasetsFoundDescription": "Sembla que cap dada coincideix amb els criteris de cerca actuals. Prova d'ajustar els filtres o d'esborrar-los tots per veure més resultats.",
   "noDescriptionAvailable" : "No hi ha cap descripció disponible",
   "activityStream": "Flux d'activitat",
   "resources": "Recursos",
@@ -69,7 +78,7 @@
   "access" : "Consulta",
   "author": "Autor",
   "authorEmail": "Correu electrònic de l'autor",
-  "datasetDate": "Data del conjunt de dades",
+  "datasetDate": "Data de publicació",
   "version": "Versió",
   "size": "Mida",
   "page": "Pàgina",

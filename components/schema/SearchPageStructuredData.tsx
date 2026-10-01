@@ -4,7 +4,7 @@ import Script from "next/script";
 
 export function SearchPageStructuredData() {
   const title = "Cerca"
-  const description = "Cerca conjunts de dades disponibles a " + siteTitle
+  const description = "Cerca dades disponibles a " + siteTitle
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DataCatalog",

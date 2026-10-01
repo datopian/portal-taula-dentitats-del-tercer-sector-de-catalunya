@@ -9,6 +9,7 @@
   "visualizations": "Visualizations",
   "search": "Search",
   "searchDatasets": "Search datasets",
+  "searchPlaceholder": "What are you looking for?",
   "seeAllGroups": "View collection",
   "lastUpdated": "Last updated",
   "created" : "Created",
@@ -38,10 +39,18 @@
     "highlights": "Highlights"
   },
   "footer": {
-    "about": "About",
-    "links": "Useful Links",
-    "getStarted": "Get Started",
-    "socials": "Stay up to date with the news"
+    "socials": "Social networks",
+    "support": "With the support of:"
+  },
+  "project": "The project",
+  "siteName": {
+    "line1": "Open Data Space",
+    "line2": "of the Third Social Sector"
+  },
+  "addDataBanner": {
+    "title": "Do you want to add data?",
+    "description": "Help us grow the Third Social Sector Open Data Space!",
+    "cta": "Contact us"
   },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",

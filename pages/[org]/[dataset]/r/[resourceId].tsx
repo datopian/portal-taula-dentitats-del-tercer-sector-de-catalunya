@@ -93,7 +93,7 @@ export default function ResourcePage({
             className="flex items-center  text-sm"
           >
             <RiArrowLeftLine className="text-[32px]" />
-            <span className="sr-only">Go back</span>
+            <span className="sr-only">Torna enrere</span>
           </Link>
           <div
             className="bg-cover bg-center bg-no-repeat flex flex-col"

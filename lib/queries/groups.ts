@@ -4,6 +4,7 @@ import {
   privateToPublicGroupName,
   privateToPublicOrgName,
   publicToPrivateGroupName,
+  moveAltresGroupsLast,
 } from "./utils";
 import CkanRequest, { CkanResponse } from "@portaljs/ckan-api-client-js";
 
@@ -19,9 +20,11 @@ export const getAllGroups = async ({
   if (!mainOrg) {
     const organizations = await fetchAllGroups();
 
-    return organizations.map((o) => {
-      return { ...o, _name: o.name };
-    });
+    return moveAltresGroupsLast(
+      organizations.map((o) => {
+        return { ...o, _name: o.name };
+      })
+    );
   }
 
   const groupsTree = await CkanRequest.get<
@@ -51,7 +54,7 @@ export const getAllGroups = async ({
     return { ...c, name: publicName };
   });
 
-  return children;
+  return moveAltresGroupsLast(children);
 };
 
 export const getGroup = async ({

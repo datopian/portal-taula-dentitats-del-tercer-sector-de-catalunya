@@ -49,7 +49,7 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
         </h4>
         <p className="font-semibold">
           {dataset.metadata_created
-            ? new Intl.DateTimeFormat("en-GB", {
+            ? new Intl.DateTimeFormat("ca", {
                 year: "numeric",
                 month: "short",
                 day: "2-digit",

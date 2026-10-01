@@ -40,7 +40,7 @@ export default function SearchDataForm() {
         placeholder={t("search", {}, { fallback: "Search..." })}
         className="w-full border border-gray-200 rounded-md p-1.5"
         onChange={(e) => debouncedQueryData(e.target.value)}
-        aria-label="Global filter"
+        aria-label="Filtre global"
       />
     </div>
   );

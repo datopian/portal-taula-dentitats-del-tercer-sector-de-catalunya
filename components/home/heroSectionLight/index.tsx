@@ -1,7 +1,14 @@
 import SearchForm from "./SearchForm";
 
 
-import { RiBarChartLine, RiFileCopy2Line, RiFunctionLine, RiTeamLine } from "react-icons/ri";
+import {
+  RiBarChartLine,
+  RiFileCopy2Line,
+  RiFunctionLine,
+  RiGovernmentLine,
+  RiGroupLine,
+  RiHandHeartLine,
+} from "react-icons/ri";
 import { Stat } from "../heroSection/Stats";
 import useTranslation from 'next-translate/useTranslation'
 
@@ -9,7 +16,7 @@ export default function HeroSectionLight({
   stats,
 }: {
   stats: {
-    orgCount: number;
+    orgs: { name: string; title: string; datasetCount: number }[];
     groupCount: number;
     collectiusCount: number;
     datasetCount: number;
@@ -54,17 +61,20 @@ export default function HeroSectionLight({
               label={t("groups")}
             />
             <Stat
-              Icon={RiFunctionLine}
+              Icon={RiGroupLine}
               href="/collectius"
               count={stats.collectiusCount}
               label={"Col·lectius"}
             />
-            <Stat
-              Icon={RiTeamLine}
-              href="/entitats"
-              count={stats.orgCount}
-              label={t("organizations")}
-          />
+            {stats.orgs.map((org, i) => (
+              <Stat
+                key={org.name}
+                Icon={i === 0 ? RiHandHeartLine : RiGovernmentLine}
+                href={`/@${org.name}`}
+                count={org.datasetCount}
+                label={org.title}
+              />
+            ))}
           </div>
         </div>
       </div>
