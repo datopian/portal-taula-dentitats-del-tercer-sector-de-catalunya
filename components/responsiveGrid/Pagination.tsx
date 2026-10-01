@@ -6,7 +6,7 @@ export default function TablePagination() {
   const {t} = useTranslation("common");
   return (
     <nav
-      aria-label="Pagination"
+      aria-label={t("pagination")}
       className="flex items-center justify-between bg-white  py-3 w-full"
       role="navigation"
     >
@@ -20,7 +20,7 @@ export default function TablePagination() {
         <a
           onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
           className="cursor-pointer relative inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
-          aria-label="Previous page"
+          aria-label="Pàgina anterior"
         >
           {t("previous")}
         </a>
@@ -29,7 +29,7 @@ export default function TablePagination() {
             setCurrentPage((prev) => Math.min(prev + 1, totalPages))
           }
           className="cursor-pointer relative ml-3 inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0"
-          aria-label="Next page"
+          aria-label="Pàgina següent"
         >
           {t("next")}
         </a>

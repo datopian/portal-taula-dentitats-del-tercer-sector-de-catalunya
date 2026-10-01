@@ -32,13 +32,13 @@ export default function LighterThemeHeader() {
     <header className="bg-transparent ">
       <nav
         className={`mx-auto py-4 flex custom-container items-center justify-between  ${theme.styles.containerWide}`}
-        aria-label="Global"
+        aria-label="Navegació principal"
       >
         <div className="flex items-center gap-x-12">
-          <span className="sr-only">Portal</span>
+          <span className="sr-only">Inici</span>
           {portalLogo ? (
             <Link href="/">
-              <Image src={portalLogo} alt="logo" height={75} width={230} />
+              <Image src={portalLogo} alt="Taula d’entitats del Tercer Sector Social de Catalunya" height={75} width={230} />
             </Link>
           ) : (
             <PortalDefaultLogo />
@@ -95,7 +95,7 @@ export default function LighterThemeHeader() {
             className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 bg-white"
             onClick={() => setMobileMenuOpen(true)}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">Obre el menú principal</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
@@ -114,7 +114,7 @@ export default function LighterThemeHeader() {
                 src="/images/logos/logo.svg"
                 width={55}
                 height={55}
-                alt="Portal"
+                alt="Inici"
               />
             </Link>
             <button
@@ -122,7 +122,7 @@ export default function LighterThemeHeader() {
               className="-m-2.5 rounded-md p-2.5 text-[var(--text-base)]"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="sr-only">Close menu</span>
+              <span className="sr-only">Tanca el menú</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>

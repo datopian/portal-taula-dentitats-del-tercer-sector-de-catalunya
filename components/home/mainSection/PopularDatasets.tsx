@@ -71,7 +71,7 @@ function DatasetLink({ title, metadata_modified }: DatasetLinkProps) {
         </svg>
         {t("lastUpdated")}:{" "}
         {metadata_modified
-          ? new Intl.DateTimeFormat("en-GB", {
+          ? new Intl.DateTimeFormat("ca", {
               year: "numeric",
               month: "long",
               day: "numeric",

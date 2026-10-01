@@ -133,7 +133,7 @@ const LighterThemeFooter: React.FC = () => {
           target={"_blank"}
           rel="noopener noreferrer"
         >
-          <span className="text-sm">Built with</span>
+          <span className="text-sm">Fet amb</span>
           <span className="font-extrabold text-[#1f2937] text-xl sm:text-lg font-roboto ">
             🌀 PortalJS
           </span>

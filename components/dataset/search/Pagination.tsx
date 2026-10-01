@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { useSearchState } from "./SearchContext";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Pagination({
   subsetOfPages,
@@ -10,6 +11,7 @@ export default function Pagination({
   setSubsetOfPages: Dispatch<SetStateAction<number>>;
   count: number;
 }) {
+  const { t } = useTranslation("common");
   const { options, setOptions } = useSearchState();
 
   const max = 10;
@@ -35,7 +37,7 @@ export default function Pagination({
               fill="#AAAAAA"
             />
           </svg>
-          <span className="text-[#757575] text-[18px]">Prev</span>
+          <span className="text-[#757575] text-[18px]">{t("previous")}</span>
         </button>
       )}
       {Array.from(Array(Math.ceil(count / max)).keys()).map((x) => (
@@ -68,7 +70,7 @@ export default function Pagination({
           className="font-semibold flex items-center gap-2"
           onClick={() => setSubsetOfPages(subsetOfPages + max)}
         >
-          <span className="text-[18px] text-[#313131]">Next</span>
+          <span className="text-[18px] text-[#313131]">{t("next")}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -18,7 +18,7 @@ const LigtherTheme = ({
         href="#main-content"
         className="absolute left-0 top-0 bg-accent text-white py-2 px-4 z-50 transform -translate-y-full focus:translate-y-0 transition"
       >
-        Skip to main content
+        Salta al contingut principal
       </a>
       <div className={` ${styles.LightTheme} font-inter relative`}>
         {Header && <Header />}
