@@ -43,6 +43,10 @@
     "support": "With the support of:"
   },
   "project": "The project",
+  "siteName": {
+    "line1": "Open Data Space",
+    "line2": "of the Third Social Sector"
+  },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",

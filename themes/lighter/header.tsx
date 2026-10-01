@@ -1,4 +1,3 @@
-import PortalDefaultLogo from "@/components/_shared/PortalDefaultLogo";
 import { useTheme } from "@/components/theme/theme-provider";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/20/solid";
@@ -28,67 +27,64 @@ export default function LighterThemeHeader() {
     };
   }, [router.events]);
 
+  const navItems = [
+    { href: "/que-es", label: t("project") },
+    { href: "/cerca", label: t("datasets") },
+    { href: "/entitats", label: t("organizations") },
+    { href: "/ambits", label: t("groups") },
+    { href: "/collectius", label: "Col·lectius" },
+  ];
+
+  const siteName = (
+    <Link
+      href="/"
+      className="flex flex-col font-black leading-tight text-[15px] sm:text-[17px] shrink-0"
+    >
+      <span>{t("siteName.line1")}</span>
+      <span className="text-accent">{t("siteName.line2")}</span>
+    </Link>
+  );
+
+  const taulaLogo = (
+    <Link
+      href="https://www.tercersector.cat"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="shrink-0"
+    >
+      <Image
+        src={portalLogo}
+        alt="Taula d’entitats del Tercer Sector Social de Catalunya"
+        height={40}
+        width={123}
+      />
+    </Link>
+  );
+
   return (
     <header className="bg-transparent ">
       <nav
-        className={`mx-auto py-4 flex custom-container items-center justify-between  ${theme.styles.containerWide}`}
+        className={`mx-auto py-4 flex custom-container items-center justify-between gap-x-6 ${theme.styles.containerWide}`}
         aria-label="Navegació principal"
       >
-        <div className="flex items-center gap-x-12">
-          <span className="sr-only">Inici</span>
-          {portalLogo ? (
-            <Link href="/">
-              <Image src={portalLogo} alt="Taula d’entitats del Tercer Sector Social de Catalunya" height={75} width={230} />
-            </Link>
-          ) : (
-            <PortalDefaultLogo />
-          )}
+        {siteName}
 
-          <div className="hidden lg:flex lg:gap-x-12">
-            <div className="flex gap-x-8 align-center">
-              <Link
-                href="/que-es"
-                className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/que-es" ? "text-accent" : ""
-                }`}
-              >
-                {t("project")}
-              </Link>
-              <Link
-                href="/cerca"
-                className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/cerca" ? "text-accent" : ""
-                }`}
-              >
-                {t("datasets")}
-              </Link>
-              <Link
-                href="/entitats"
-                className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/entitats" ? "text-accent" : ""
-                }`}
-              >
-                {t("organizations")}
-              </Link>
-              <Link
-                href="/ambits"
-                className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/ambits" ? "text-accent" : ""
-                }`}
-              >
-                {t("groups")}
-              </Link>
-              <Link
-                href="/collectius"
-                className={`font-semibold my-auto uppercase ${
-                  router.pathname === "/collectius" ? "text-accent" : ""
-                }`}
-              >
-                Col·lectius
-              </Link>
-            </div>
-          </div>
+        <div className="hidden lg:flex items-center gap-x-6 xl:gap-x-8 mr-auto ml-6 xl:ml-10">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`font-semibold text-sm xl:text-base uppercase whitespace-nowrap ${
+                router.pathname === item.href ? "text-accent" : ""
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
+
+        <div className="hidden md:block ml-auto lg:ml-0">{taulaLogo}</div>
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -109,14 +105,7 @@ export default function LighterThemeHeader() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-4 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link href="/" className="-m-1.5 p-1.5 inline-block md:hidden">
-              <Image
-                src="/images/logos/logo.svg"
-                width={55}
-                height={55}
-                alt="Inici"
-              />
-            </Link>
+            {siteName}
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-[var(--text-base)]"
@@ -129,22 +118,17 @@ export default function LighterThemeHeader() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6 flex flex-col">
-                <Link href="/que-es" className="font-semibold my-auto">
-                  {t("project")}
-                </Link>
-                <Link href="/cerca" className="font-semibold my-auto">
-                  {t("datasets")}
-                </Link>
-                <Link href="/entitats" className="font-semibold my-auto">
-                  {t("organizations")}
-                </Link>
-                <Link href="/ambits" className="font-semibold my-auto">
-                  {t("groups")}
-                </Link>
-                <Link href="/collectius" className="font-semibold my-auto">
-                  Col·lectius
-                </Link>
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="font-semibold my-auto"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
+              <div className="py-6">{taulaLogo}</div>
             </div>
           </div>
         </Dialog.Panel>
