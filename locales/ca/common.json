@@ -41,7 +41,8 @@
   "footer": {
     "about": "EL PROJECTE",
     "getStarted": "AJUDA",
-    "socials": "Xarxes socials"
+    "socials": "Xarxes socials",
+    "support": "Amb el suport de:"
   },
   "homepage" : "Inici",
   "clearFilters": "Esborra els filtres",

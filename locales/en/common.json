@@ -41,7 +41,8 @@
   "footer": {
     "about": "About",
     "getStarted": "Get Started",
-    "socials": "Social networks"
+    "socials": "Social networks",
+    "support": "With the support of:"
   },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
