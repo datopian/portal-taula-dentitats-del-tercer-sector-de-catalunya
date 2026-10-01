@@ -5,6 +5,7 @@ import { Group } from "@portaljs/ckan";
 import { useTheme } from "../theme/theme-provider";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import useTranslation from "next-translate/useTranslation";
+import { RiGroupLine } from "react-icons/ri";
 
 type GroupCardProps = Pick<
   Group,
@@ -25,18 +26,23 @@ export default function GroupCard({
       href={`/${isCollectiu ? "collectius" : "ambits"}/${name}`}
       className={`bg-white hover:bg-accent-50 group border-b-[4px] border-white hover:border-accent p-8 col-span-3 rounded-lg block h-full text-accent  ${theme.styles.shadowSm}`}
     >
-      <Image
-        src={
-          image_display_url &&
-          url &&
-          (getConfig().publicRuntimeConfig.DOMAINS ?? []).includes(url.hostname)
-            ? image_display_url
-            : "/images/logos/datasets.png"
-        }
-        alt={`${name}-collection`}
-        width="54"
-        height="54"
-      ></Image>
+      {isCollectiu ? (
+        // All col·lectius share the same icon
+        <RiGroupLine size={54} aria-hidden={true} />
+      ) : (
+        <Image
+          src={
+            image_display_url &&
+            url &&
+            (getConfig().publicRuntimeConfig.DOMAINS ?? []).includes(url.hostname)
+              ? image_display_url
+              : "/images/logos/datasets.png"
+          }
+          alt={`${name}-collection`}
+          width="54"
+          height="54"
+        ></Image>
+      )}
       <div className={`text-black`}>
         <h3 className="font-inter font-semibold text-lg mt-4 group-hover:text-accent">
           {display_name}
