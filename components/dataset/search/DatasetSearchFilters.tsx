@@ -14,6 +14,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { classNames } from "primereact/utils";
 import useTranslation from "next-translate/useTranslation";
+import { moveAltresGroupsLast } from "@/lib/queries/utils";
 
 export default function DatasetSearchFilters() {
   const [showFilters, setShowFilters] = useState(true);
@@ -31,9 +32,10 @@ export default function DatasetSearchFilters() {
 
   const { t } = useTranslation("common");
 
-  const ambits = searchFacets.groups?.items.filter(i => !i.name.includes("col--"))
+  const groupItems = moveAltresGroupsLast(searchFacets.groups?.items ?? [])
+  const ambits = groupItems.filter(i => !i.name.includes("col--"))
   const selectedAmbits = options.groups.filter(i => !i.includes("col--"))
-  const collectius = searchFacets.groups?.items.filter(i => i.name.includes("col--"))
+  const collectius = groupItems.filter(i => i.name.includes("col--"))
   const selectedCollectius = options.groups.filter(i => i.includes("col--"))
 
   return (

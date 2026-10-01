@@ -84,3 +84,15 @@ export const privateToPublicOrgName = (privateName: string) => {
   }
   return publicName;
 };
+
+// "Altres" groups (àmbit "altres" and col·lectiu "col--altres") are catch-all
+// categories and must always be listed last, regardless of the base order
+const isAltresGroup = (name: string) =>
+  name === "altres" || name.endsWith("--altres");
+
+export const moveAltresGroupsLast = <T extends { name: string }>(
+  groups: T[]
+) => [
+  ...groups.filter((g) => !isAltresGroup(g.name)),
+  ...groups.filter((g) => isAltresGroup(g.name)),
+];
