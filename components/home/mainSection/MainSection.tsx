@@ -70,7 +70,7 @@ export default function MainSection({
           )}
           <div className="col-span-1 grid sm:grid-cols-2 gap-4 md:ml-2 bg-accent rounded-lg p-4">
             {groups.slice(0, 4).map((group) => (
-              <article key={group.id} className="col-span-1 h-fit">
+              <article key={group.id} className="col-span-1 h-full">
                 <GroupCard
                   description={group.description}
                   display_name={group.display_name}

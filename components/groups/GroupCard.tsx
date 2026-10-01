@@ -28,7 +28,7 @@ export default function GroupCard({
   return (
     <Link
       href={`/${isCollectiu ? "collectius" : "ambits"}/${name}`}
-      className={`bg-white hover:bg-accent-50 group border-b-[4px] border-white hover:border-accent p-8 col-span-3 rounded-lg block h-full text-accent  ${theme.styles.shadowSm}`}
+      className={`bg-white hover:bg-accent-50 group border-b-[4px] border-white hover:border-accent p-8 col-span-3 rounded-lg flex flex-col h-full text-accent  ${theme.styles.shadowSm}`}
     >
       {isCollectiu ? (
         // All col·lectius share the same icon
@@ -53,7 +53,7 @@ export default function GroupCard({
         </p>
       </div>
       <span
-        className={` font-inter font-medium text-sm flex items-center gap-2`}
+        className={`mt-auto font-inter font-medium text-sm flex items-center gap-2`}
       >
       Veure
         <ArrowRightIcon width={16} />
