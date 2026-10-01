@@ -33,11 +33,6 @@ const LighterThemeFooter: React.FC = () => {
         target: "_blank",
       },
     ],
-    useful: [
-      { name: "Entitats de la Taula", href: "/entitats" },
-      { name: "Col·lectius", href: "/collectius" },
-      { name: "Àmbits", href: "/ambits" },
-    ],
     getStarted: [
       {
         name: "Contacte",
@@ -103,24 +98,6 @@ const LighterThemeFooter: React.FC = () => {
             </h2>
             <ul className="space-y-4 text-sm list-none">
               {navigation.about.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-roboto font-normal hover:text-accent transition-all"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-              {t("footer.links")}
-            </h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.useful.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
