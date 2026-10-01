@@ -47,6 +47,14 @@ export default function LighterThemeHeader() {
           <div className="hidden lg:flex lg:gap-x-12">
             <div className="flex gap-x-8 align-center">
               <Link
+                href="/que-es"
+                className={`font-semibold my-auto uppercase ${
+                  router.pathname === "/que-es" ? "text-accent" : ""
+                }`}
+              >
+                {t("project")}
+              </Link>
+              <Link
                 href="/cerca"
                 className={`font-semibold my-auto uppercase ${
                   router.pathname === "/cerca" ? "text-accent" : ""
@@ -121,6 +129,9 @@ export default function LighterThemeHeader() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6 flex flex-col">
+                <Link href="/que-es" className="font-semibold my-auto">
+                  {t("project")}
+                </Link>
                 <Link href="/cerca" className="font-semibold my-auto">
                   {t("datasets")}
                 </Link>

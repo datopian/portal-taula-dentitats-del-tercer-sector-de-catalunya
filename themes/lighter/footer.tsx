@@ -24,10 +24,6 @@ const LighterThemeFooter: React.FC = () => {
   const navigation = {
     about: [
       {
-        name: "Què és l’Espai de Dades",
-        href: "/about",
-      },
-      {
         name: "Sobre la Taula del Tercer Sector",
         href: "https://www.tercersector.cat/qui-som/la-taula-del-tercer-sector",
         target: "_blank",
