@@ -35,7 +35,7 @@ const LighterThemeFooter: React.FC = () => {
     ],
     getStarted: [
       {
-        name: "Contacte",
+        name: "Contacta amb nosaltres",
         href: "/contacte",
       },
       {
