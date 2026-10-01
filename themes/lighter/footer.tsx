@@ -22,14 +22,12 @@ const LighterThemeFooter: React.FC = () => {
   const { theme } = useTheme();
   const { t } = useTranslation("common");
   const navigation = {
-    about: [
+    links: [
       {
         name: "Sobre la Taula del Tercer Sector",
         href: "https://www.tercersector.cat/qui-som/la-taula-del-tercer-sector",
         target: "_blank",
       },
-    ],
-    getStarted: [
       {
         name: "Contacta amb nosaltres",
         href: "/contacte",
@@ -37,7 +35,7 @@ const LighterThemeFooter: React.FC = () => {
       {
         name: "Afegeix dades",
         href: "https://cloud.portaljs.com/auth/signin",
-      }
+      },
     ],
     social: [
       {
@@ -87,42 +85,21 @@ const LighterThemeFooter: React.FC = () => {
       <div
         className={`custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap`}
       >
-        <div className="justify-between w-full text-center md:text-left lg:flex">
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-              {t("footer.about")}
-            </h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.about.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-roboto font-normal hover:text-accent transition-all"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-              {t("footer.getStarted")}
-            </h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.getStarted.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-roboto font-normal hover:text-accent transition-all"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="w-full md:w-1/2 text-center md:text-left">
+          <ul className="space-y-4 text-sm list-none">
+            {navigation.links.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  target={item.target}
+                  rel={item.target ? "noreferrer" : undefined}
+                  className="font-roboto font-normal hover:text-accent transition-all"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
           <h2 className="sr-only">{t("footer.socials")}</h2>
