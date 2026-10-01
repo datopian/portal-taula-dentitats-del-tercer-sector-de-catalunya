@@ -5,7 +5,7 @@ import { Group } from "@portaljs/ckan";
 import { useTheme } from "../theme/theme-provider";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import useTranslation from "next-translate/useTranslation";
-import { RiGroupLine } from "react-icons/ri";
+import { RiFunctionLine, RiGroupLine } from "react-icons/ri";
 
 type GroupCardProps = Pick<
   Group,
@@ -21,6 +21,10 @@ export default function GroupCard({
   const { theme } = useTheme();
   const url = image_display_url ? new URL(image_display_url) : undefined;
   const isCollectiu = name?.includes("col--");
+  const hasImage =
+    !!image_display_url &&
+    !!url &&
+    (getConfig().publicRuntimeConfig.DOMAINS ?? []).includes(url.hostname);
   return (
     <Link
       href={`/${isCollectiu ? "collectius" : "ambits"}/${name}`}
@@ -29,19 +33,16 @@ export default function GroupCard({
       {isCollectiu ? (
         // All col·lectius share the same icon
         <RiGroupLine size={54} aria-hidden={true} />
-      ) : (
+      ) : hasImage ? (
         <Image
-          src={
-            image_display_url &&
-            url &&
-            (getConfig().publicRuntimeConfig.DOMAINS ?? []).includes(url.hostname)
-              ? image_display_url
-              : "/images/logos/datasets.png"
-          }
+          src={image_display_url}
           alt={`${name}-collection`}
           width="54"
           height="54"
         ></Image>
+      ) : (
+        // Neutral default until an icon is uploaded for the àmbit in CKAN
+        <RiFunctionLine size={54} aria-hidden={true} />
       )}
       <div className={`text-black`}>
         <h3 className="font-inter font-semibold text-lg mt-4 group-hover:text-accent">
