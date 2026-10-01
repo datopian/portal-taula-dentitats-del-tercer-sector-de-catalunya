@@ -97,9 +97,9 @@ const LighterThemeFooter: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
+        <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-right">
           <h2 className="sr-only">{t("footer.socials")}</h2>
-          <div className="flex mt-5 space-x-5 justify-center md:justify-start">
+          <div className="flex mt-8 md:mt-0 space-x-5 justify-center md:justify-end">
             {navigation.social.map((item) => (
               <a
                 key={item.name}
