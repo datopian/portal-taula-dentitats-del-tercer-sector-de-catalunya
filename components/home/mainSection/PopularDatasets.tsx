@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useTheme } from "@/components/theme/theme-provider";
-import { getDatasetName } from "@/lib/utils";
+import { formatDateCa, getDatasetName } from "@/lib/utils";
 import { Dataset } from "@/schemas/dataset.interface";
 import useTranslation from "next-translate/useTranslation";
 
@@ -71,11 +71,7 @@ function DatasetLink({ title, metadata_modified }: DatasetLinkProps) {
         </svg>
         {t("lastUpdated")}:{" "}
         {metadata_modified
-          ? new Intl.DateTimeFormat("ca", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }).format(new Date(metadata_modified))
+          ? formatDateCa(metadata_modified)
           : ""}
       </span>
     </div>

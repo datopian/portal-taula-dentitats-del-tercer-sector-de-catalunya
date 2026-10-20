@@ -32,6 +32,38 @@ export function getTimeAgo(timestamp: string, locale: string = "ca") {
   return format(date, locale);
 }
 
+// Catalan dates built by hand instead of Intl.DateTimeFormat("ca"): Node and
+// browsers ship different ICU data ("del 2026" vs "de 2026"), which breaks
+// hydration. Read in UTC so server and browser agree on the day too.
+const CA_MONTHS = [
+  "gener", "febrer", "març", "abril", "maig", "juny",
+  "juliol", "agost", "setembre", "octubre", "novembre", "desembre",
+];
+const CA_MONTHS_SHORT = [
+  "gen.", "febr.", "març", "abr.", "maig", "juny",
+  "jul.", "ag.", "set.", "oct.", "nov.", "des.",
+];
+
+export function formatDateCa(timestamp: string, short = false) {
+  const trimmed = timestamp.trim();
+  const hasTZ = /Z$|[+-]\d{2}:\d{2}$/.test(trimmed);
+  const date = new Date(hasTZ ? trimmed : `${trimmed}Z`);
+  if (isNaN(date.getTime())) {
+    return timestamp;
+  }
+
+  const day = date.getUTCDate();
+  const year = date.getUTCFullYear();
+  const month = date.getUTCMonth();
+  if (short) {
+    return `${String(day).padStart(2, "0")} ${CA_MONTHS_SHORT[month]} ${year}`;
+  }
+  const name = CA_MONTHS[month];
+  // "d’abril", "d’agost", "d’octubre"; "de gener", "de març"...
+  const of = /^[aeiou]/.test(name) ? "d’" : "de ";
+  return `${day} ${of}${name} de ${year}`;
+}
+
 export function capitalizeFirstLetter(str: string) {
   if (str.length === 0) {
     return str;
