@@ -90,7 +90,11 @@ export default function OrgPage({ org }): JSX.Element {
       <OrganizationIndividualPageStructuredData org={org} />
       {org && (
         <Layout>
-          <HeroSection title={org.title} cols="6" />
+          <HeroSection
+            title={org.title}
+            cols="6"
+            description={org.description?.replace(/<\/?[^>]+(>|$)/g, "")}
+          />
           <OrgNavCrumbs
             org={{
               name: org?.name,

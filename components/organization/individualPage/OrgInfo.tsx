@@ -64,11 +64,6 @@ export default function OrgInfo({ org }: { org: Organization }) {
           {t("created")}: {org.created && getTimeAgo(org.created)}
         </span>
       </div>
-      <div className="py-4 my-4 border-y">
-        <p className="text-sm font-normal text-stone-500 line-clamp-4">
-          {org.description?.replace(/<\/?[^>]+(>|$)/g, "") || t("noDescriptionAvailable")}
-        </p>
-      </div>
       <div className="flex flex-wrap gap-1">
         {org.tags?.map((tag: Tag) => (
           <span

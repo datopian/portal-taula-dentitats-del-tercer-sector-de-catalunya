@@ -52,6 +52,11 @@
     "description": "Ajuda’ns a fer créixer l’Espai de Dades Obertes del Tercer Sector Social!",
     "cta": "Contacta amb nosaltres"
   },
+  "intro": {
+    "datasets": "Consulta dades agrupades i organitzades, generalment en columnes i arxius descarregables, que permeten poder-les usar i treballar-hi còmodament. Aquí trobaràs informació de diferents àmbits i col·lectius i en diferents formats. Què estàs buscant?",
+    "groups": "Consulta informació sobre més de 30 àmbits diferents de l’àmbit social. Aquesta informació ha estat classificada, analitzada i acurada per a entendre les diferents realitats socials. Què estàs buscant?",
+    "collectius": "Consulta informació relacionada amb diferents col·lectius de persones. Aquesta informació ha estat classificada, analitzada i acurada per a entendre les diferents realitats socials. Què estàs buscant?"
+  },
   "homepage" : "Inici",
   "clearFilters": "Esborra els filtres",
   "searchTypeInPlaceholder": "Escriu una paraula clau...",

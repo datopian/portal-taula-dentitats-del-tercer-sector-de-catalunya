@@ -1,3 +1,4 @@
+import useTranslation from "next-translate/useTranslation";
 import MiniSearch from "minisearch";
 import ListOfGroups from "../../components/groups/ListOfGroups";
 import Layout from "../../components/_shared/Layout";
@@ -41,12 +42,14 @@ function Main({
   groups: Array<Group>;
 }) {
   const [searchString, setSearchString] = useState("");
+  const { t } = useTranslation("common");
   return (
     <Layout>
       <SearchHero
         title="Àmbits"
         searchValue={searchString}
         onChange={setSearchString}
+        description={t("intro.groups")}
       />
       <main className="custom-container py-8">
         <ListOfGroups

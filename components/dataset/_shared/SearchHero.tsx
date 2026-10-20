@@ -6,8 +6,10 @@ export default function SearchHero({
   title,
   searchValue,
   onChange,
+  description,
 }: {
   title: string;
+  description?: string;
   searchValue: string;
   onChange: Dispatch<SetStateAction<string>>;
 }) {
@@ -26,6 +28,11 @@ export default function SearchHero({
             <div className="col-span-1">
               <h1 className="text-[55px] font-black ">{title}</h1>
             </div>
+            {description && (
+              <p className="col-span-full mt-4 text-[16px] md:text-[18px] text-[var(--text-gray)] lg:max-w-[80%]">
+                {description}
+              </p>
+            )}
           </div>
         </div>
       </section>

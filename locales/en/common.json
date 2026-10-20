@@ -52,6 +52,11 @@
     "description": "Help us grow the Third Social Sector Open Data Space!",
     "cta": "Contact us"
   },
+  "intro": {
+    "datasets": "Browse grouped and organised data, usually in columns and downloadable files, so you can use and work with it easily. Here you will find information on different areas and groups, in different formats. What are you looking for?",
+    "groups": "Browse information on more than 30 different areas of the social sector. This information has been classified, analysed and curated to understand different social realities. What are you looking for?",
+    "collectius": "Browse information related to different groups of people. This information has been classified, analysed and curated to understand different social realities. What are you looking for?"
+  },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",
