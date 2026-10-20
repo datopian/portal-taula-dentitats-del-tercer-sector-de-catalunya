@@ -78,12 +78,12 @@ export default function LighterThemeHeader() {
       >
         {siteName}
 
-        <div className="hidden xl:flex items-center gap-x-8 ml-auto">
+        <div className="hidden lg:flex items-center gap-x-4 xl:gap-x-8 ml-auto">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`font-semibold text-sm xl:text-base uppercase whitespace-nowrap ${
+              className={`font-semibold text-[13px] xl:text-base uppercase whitespace-nowrap ${
                 isActive(item.href) ? "text-accent" : ""
               }`}
             >
@@ -92,9 +92,9 @@ export default function LighterThemeHeader() {
           ))}
         </div>
 
-        <div className="hidden md:block shrink-0 ml-auto xl:ml-6">{taulaLogo}</div>
+        <div className="hidden md:block shrink-0 ml-auto lg:ml-4 xl:ml-6">{taulaLogo}</div>
 
-        <div className="flex xl:hidden">
+        <div className="flex lg:hidden">
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 bg-white"
@@ -107,7 +107,7 @@ export default function LighterThemeHeader() {
       </nav>
       <Dialog
         as="div"
-        className="xl:hidden"
+        className="lg:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
