@@ -31,10 +31,11 @@ function ListItems() {
       <div className="flex justify-between flex-col md:flex-row md:items-center flex-wrap gap-3">
         <div className="flex gap-2">
           <h2 className="text-[23px] leading-[28px] font-bold  ">
-            {resultsCountLabel(
-              searchResults?.count ?? 0,
-              options.type === "visualization" ? "visualizationsCount" : "datasetsCount"
-            )}
+            {searchResults?.count !== undefined &&
+              resultsCountLabel(
+                searchResults.count,
+                options.type === "visualization" ? "visualizationsCount" : "datasetsCount"
+              )}
           </h2>
         </div>
         <div className="flex gap-2 cursor-pointer">
