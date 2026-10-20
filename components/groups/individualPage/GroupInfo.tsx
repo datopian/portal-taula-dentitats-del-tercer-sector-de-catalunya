@@ -3,16 +3,24 @@ import { Tag } from "@portaljs/ckan";
 import { Group } from "@portaljs/ckan";
 import { getTimeAgo } from "@/lib/utils";
 import useTranslation from "next-translate/useTranslation";
-import { RiGroupLine } from "react-icons/ri";
+import { RiFunctionLine, RiGroupLine } from "react-icons/ri";
+import getConfig from "next/config";
 
 export default function GroupInfo({ group }: { group: Group }) {
   const { t } = useTranslation("common");
+  const url = group.image_display_url
+    ? new URL(group.image_display_url)
+    : undefined;
+  // Same rule as GroupCard: only render uploaded images from allowed hosts
+  const hasImage =
+    !!url &&
+    (getConfig().publicRuntimeConfig.DOMAINS ?? []).includes(url.hostname);
   return (
     <div className="flex flex-col">
       {group.name?.includes("col--") ? (
         // All col·lectius share the same icon
         <RiGroupLine size={54} className="text-accent" aria-hidden={true} />
-      ) : (
+      ) : hasImage ? (
         <Image
           width={54}
           height={56}
@@ -20,6 +28,9 @@ export default function GroupInfo({ group }: { group: Group }) {
           alt={`${group.name}-collection`}
           className="object-fit"
         />
+      ) : (
+        // Neutral default until an icon is uploaded for the àmbit in CKAN
+        <RiFunctionLine size={54} className="text-accent" aria-hidden={true} />
       )}
       <div className="flex flex-col gap-y-3 mt-8">
         <span className="font-medium text-gray-500 inline">
