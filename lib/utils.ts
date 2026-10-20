@@ -38,3 +38,12 @@ export function capitalizeFirstLetter(str: string) {
   }
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+// Display label for a resource format. CKAN stores "Link" for external
+// resources; show it in Catalan (DAT-05) without changing the stored value.
+const FORMAT_LABELS: Record<string, string> = { LINK: "Enllaç" };
+
+export function formatLabel(format?: string) {
+  if (!format) return format;
+  return FORMAT_LABELS[format.toUpperCase()] ?? format;
+}

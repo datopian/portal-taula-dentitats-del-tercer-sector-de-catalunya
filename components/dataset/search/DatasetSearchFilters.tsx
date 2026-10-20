@@ -15,6 +15,7 @@ import {
 import { classNames } from "primereact/utils";
 import useTranslation from "next-translate/useTranslation";
 import { moveAltresGroupsLast } from "@/lib/queries/utils";
+import { formatLabel } from "@/lib/utils";
 
 export default function DatasetSearchFilters() {
   const [showFilters, setShowFilters] = useState(true);
@@ -263,7 +264,7 @@ export default function DatasetSearchFilters() {
                     <MultiCheckbox
                       name={"resFormat"}
                       value={format.name}
-                      label={format.display_name}
+                      label={formatLabel(format.display_name)}
                       key={format.name}
                       count={format.count}
                     />

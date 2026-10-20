@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {  Resource, Tag } from "@portaljs/ckan";
 import { ArrowDownTrayIcon } from "@heroicons/react/20/solid";
-import { getTimeAgo } from "@/lib/utils";
+import { formatLabel, getTimeAgo } from "@/lib/utils";
 import { Dataset } from "@/schemas/dataset.interface";
 import { RiExternalLinkLine } from "react-icons/ri";
 import useTranslation from "next-translate/useTranslation";
@@ -76,7 +76,7 @@ export default function DatasetInfo({
                 d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-             {t("formats")}: {uniqueFormat(dataset.resources).join(", ")}
+             {t("formats")}: {uniqueFormat(dataset.resources).map(formatLabel).join(", ")}
           </span>
         )}
         <span className="font-medium text-gray-500 inline">
@@ -168,7 +168,7 @@ export default function DatasetInfo({
             target="_blank"
             rel="noopener noreferrer"
           >
-            Creative Commons Attribution 4.0
+            Creative Commons Reconeixement 4.0
           </a>
           <a
             href="https://opendefinition.org/od/2.1/en/"
