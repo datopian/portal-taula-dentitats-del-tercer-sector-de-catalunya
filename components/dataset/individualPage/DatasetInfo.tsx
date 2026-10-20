@@ -178,7 +178,7 @@ export default function DatasetInfo({
           >
             {/* Text badge: the external Open Definition image is no longer served */}
             <span className="border border-accent text-accent rounded px-1 text-[10px] font-semibold uppercase leading-4">
-              Open Data
+              Dades obertes
             </span>
           </a>
         </span>
