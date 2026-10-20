@@ -116,11 +116,7 @@ export default function DatasetInfo({
           {dataset.metadata_modified && getTimeAgo(dataset.metadata_modified)}
         </span>
       </div>
-      <div className="py-4 my-4 border-y">
-        <p className="text-sm font-normal text-stone-500 line-clamp-4">
-          {dataset.notes?.replace(/<\/?[^>]+(>|$)/g, "") || "No description"}
-        </p>
-      </div>
+      <div className="my-4 border-t" />
       <div className="flex flex-wrap gap-1">
         {dataset.tags?.map((tag: Tag) => (
           <span

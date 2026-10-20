@@ -72,6 +72,7 @@
     "one": "{{count}} Visualization",
     "other": "{{count}} Visualizations"
   },
+  "description": "Description",
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",
