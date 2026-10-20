@@ -61,6 +61,17 @@
     "thirdSector": "Tercer sector",
     "otherOrganizations": "Altres organismes"
   },
+  "datasetsLabel": "Conjunts de dades",
+  "datasetsCount": {
+    "zero": "Cap conjunt de dades",
+    "one": "{{count}} Conjunt de dades",
+    "other": "{{count}} Conjunts de dades"
+  },
+  "visualizationsCount": {
+    "zero": "Cap visualització",
+    "one": "{{count}} Visualització",
+    "other": "{{count}} Visualitzacions"
+  },
   "homepage" : "Inici",
   "clearFilters": "Esborra els filtres",
   "searchTypeInPlaceholder": "Escriu una paraula clau...",

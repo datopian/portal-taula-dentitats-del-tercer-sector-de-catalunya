@@ -61,6 +61,17 @@
     "thirdSector": "Third sector",
     "otherOrganizations": "Other organizations"
   },
+  "datasetsLabel": "Datasets",
+  "datasetsCount": {
+    "zero": "No datasets",
+    "one": "{{count}} Dataset",
+    "other": "{{count}} Datasets"
+  },
+  "visualizationsCount": {
+    "zero": "No visualizations",
+    "one": "{{count}} Visualization",
+    "other": "{{count}} Visualizations"
+  },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",
