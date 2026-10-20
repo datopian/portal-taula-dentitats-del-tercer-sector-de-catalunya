@@ -1,4 +1,4 @@
-import { CKAN } from "@portaljs/ckan";
+import { CKAN, Dataset as CkanDataset } from "@portaljs/ckan";
 import {
   privateToPublicDatasetName,
   privateToPublicOrgName,
@@ -144,6 +144,7 @@ export const getAllDatasetsOf = async ({
     sort: "title_string asc",
   });
 
+  // Same shape as the packages returned by organization_show / group_show
   return datasets.map((dataset) => ({
     ...dataset,
     name: privateToPublicDatasetName(dataset.name),
@@ -151,5 +152,5 @@ export const getAllDatasetsOf = async ({
       ...dataset.organization,
       name: privateToPublicOrgName(dataset.organization.name),
     },
-  }));
+  })) as unknown as CkanDataset[];
 };
