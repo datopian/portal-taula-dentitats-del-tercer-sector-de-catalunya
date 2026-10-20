@@ -27,13 +27,22 @@ export default function LighterThemeHeader() {
     };
   }, [router.events]);
 
+  // Same entries as the home page sidebar, plus "El projecte"
   const navItems = [
     { href: "/que-es", label: t("project") },
     { href: "/cerca", label: t("datasets") },
-    { href: "/entitats", label: t("organizations") },
     { href: "/ambits", label: t("groups") },
     { href: "/collectius", label: "Col·lectius" },
+    {
+      href: "/@taula-dentitats-del-tercer-sector-de-catalunya",
+      label: t("nav.thirdSector"),
+    },
+    { href: "/@altres-organismes", label: t("nav.otherOrganizations") },
   ];
+
+  const currentPath = router.asPath.split(/[?#]/)[0];
+  const isActive = (href: string) =>
+    currentPath === href || currentPath.startsWith(`${href}/`);
 
   const siteName = (
     <Link
@@ -69,13 +78,13 @@ export default function LighterThemeHeader() {
       >
         {siteName}
 
-        <div className="hidden lg:flex items-center gap-x-6 xl:gap-x-8 ml-auto">
+        <div className="hidden xl:flex items-center gap-x-8 ml-auto">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               className={`font-semibold text-sm xl:text-base uppercase whitespace-nowrap ${
-                router.pathname === item.href ? "text-accent" : ""
+                isActive(item.href) ? "text-accent" : ""
               }`}
             >
               {item.label}
@@ -83,9 +92,9 @@ export default function LighterThemeHeader() {
           ))}
         </div>
 
-        <div className="hidden md:block ml-auto lg:ml-4 xl:ml-6">{taulaLogo}</div>
+        <div className="hidden md:block shrink-0 ml-auto xl:ml-6">{taulaLogo}</div>
 
-        <div className="flex lg:hidden">
+        <div className="flex xl:hidden">
           <button
             type="button"
             className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 bg-white"
@@ -98,7 +107,7 @@ export default function LighterThemeHeader() {
       </nav>
       <Dialog
         as="div"
-        className="lg:hidden"
+        className="xl:hidden"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >

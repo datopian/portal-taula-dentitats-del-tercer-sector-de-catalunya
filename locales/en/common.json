@@ -57,6 +57,10 @@
     "groups": "Browse information on more than 30 different areas of the social sector. This information has been classified, analysed and curated to understand different social realities. What are you looking for?",
     "collectius": "Browse information related to different groups of people. This information has been classified, analysed and curated to understand different social realities. What are you looking for?"
   },
+  "nav": {
+    "thirdSector": "Third sector",
+    "otherOrganizations": "Other organizations"
+  },
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",

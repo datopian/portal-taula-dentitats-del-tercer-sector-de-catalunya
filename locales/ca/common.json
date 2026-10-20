@@ -57,6 +57,10 @@
     "groups": "Consulta informació sobre més de 30 àmbits diferents de l’àmbit social. Aquesta informació ha estat classificada, analitzada i acurada per a entendre les diferents realitats socials. Què estàs buscant?",
     "collectius": "Consulta informació relacionada amb diferents col·lectius de persones. Aquesta informació ha estat classificada, analitzada i acurada per a entendre les diferents realitats socials. Què estàs buscant?"
   },
+  "nav": {
+    "thirdSector": "Tercer sector",
+    "otherOrganizations": "Altres organismes"
+  },
   "homepage" : "Inici",
   "clearFilters": "Esborra els filtres",
   "searchTypeInPlaceholder": "Escriu una paraula clau...",
