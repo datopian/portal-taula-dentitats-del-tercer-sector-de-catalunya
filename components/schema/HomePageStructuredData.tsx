@@ -28,7 +28,7 @@ export function HomePageStructuredData() {
         url={url}
         potentialActions={[
           {
-            target: `${url}/cerca?q={search_term_string}`,
+            target: `${url}/cerca?query={search_term_string}`,
             queryInput: "required name=search_term_string",
           },
         ]}
