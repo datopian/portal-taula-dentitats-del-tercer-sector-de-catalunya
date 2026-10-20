@@ -176,12 +176,10 @@ export default function DatasetInfo({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="https://opendata-ajuntament.barcelona.cat/data/base/images/od_80x15_blue.png"
-              alt="Open Definition"
-              width="80"
-              height="15"
-            />
+            {/* Text badge: the external Open Definition image is no longer served */}
+            <span className="border border-accent text-accent rounded px-1 text-[10px] font-semibold uppercase leading-4">
+              Open Data
+            </span>
           </a>
         </span>
       </div>
