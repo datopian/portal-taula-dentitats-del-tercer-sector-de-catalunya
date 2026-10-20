@@ -67,14 +67,13 @@ export default function DatasetPage({ dataset }): JSX.Element {
           {
             id: "resources",
             content: (
-              <>
-                <ResourcesList
-                  resources={dataset?.resources}
-                  orgName={dataset.organization ? dataset.organization.name : ""}
-                  datasetName={dataset.name}
-                />
+              <ResourcesList
+                resources={dataset?.resources}
+                orgName={dataset.organization ? dataset.organization.name : ""}
+                datasetName={dataset.name}
+              >
                 <DatasetDescription notes={dataset.notes} />
-              </>
+              </ResourcesList>
             ),
             title: t("resources"),
           },

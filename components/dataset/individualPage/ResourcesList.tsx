@@ -1,5 +1,6 @@
 import { Resource } from "@/schemas/resource.interface";
 import Link from "next/link";
+import { ReactNode } from "react";
 import { RiDownload2Fill, RiEyeLine } from "react-icons/ri";
 import ResourcesBadges from "../_shared/ResourcesBadges";
 import useTranslation from "next-translate/useTranslation";
@@ -8,16 +9,19 @@ interface ResourcesListProps {
   resources: Array<Resource>;
   orgName: string;
   datasetName: string;
+  // Rendered right under the resources (e.g. the dataset description)
+  children?: ReactNode;
 }
 export default function ResourcesList({
   resources,
   orgName,
   datasetName,
+  children,
 }: ResourcesListProps) {
   const { t } = useTranslation("common");
 
   return (
-    <div className="py-8 w-full max-h-[600px] flex flex-col gap-4 ">
+    <div className="py-8 w-full flex flex-col gap-4 ">
       {resources.map((resource: Resource) => {
         const buttonLabel =
           (["HTML", "Link"].includes(resource.format) || !resource.format) &&
@@ -69,6 +73,7 @@ export default function ResourcesList({
           </div>
         );
       })}
+      {children && <div className="px-2">{children}</div>}
     </div>
   );
 }
