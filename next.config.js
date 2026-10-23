@@ -62,6 +62,17 @@ const nextConfig = {
         destination: "/que-es",
         permanent: true,
       },
+      // The "externa" organization was renamed to "altres-organismes" (ORG-01)
+      {
+        source: "/@externa",
+        destination: "/@altres-organismes",
+        permanent: true,
+      },
+      {
+        source: "/@externa/:path*",
+        destination: "/@altres-organismes/:path*",
+        permanent: true,
+      },
     ];
   },
 };

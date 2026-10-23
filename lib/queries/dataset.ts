@@ -1,4 +1,4 @@
-import { CKAN } from "@portaljs/ckan";
+import { CKAN, Dataset as CkanDataset } from "@portaljs/ckan";
 import {
   privateToPublicDatasetName,
   privateToPublicOrgName,
@@ -115,4 +115,42 @@ export const getDataset = async ({ name }: { name: string }) => {
       name: privateToPublicOrgName(dataset.organization.name),
     },
   };
+};
+
+// All datasets of an organization or group. `organization_show` / `group_show`
+// with `include_datasets` only return the first 10, and fetching each dataset
+// separately is slow, so use a single package_search (which includes resources).
+// The search index stores tenant-prefixed names, so organizations are matched
+// by id and groups by their prefixed name.
+export const getAllDatasetsOf = async ({
+  orgId,
+  groupName,
+}: {
+  orgId?: string;
+  groupName?: string;
+}) => {
+  const tenant = (DMS ?? "").split("/@")[1];
+  const fq = orgId
+    ? `owner_org:"${orgId}"`
+    : `groups:"${tenant ? `${tenant}-group--${groupName}` : groupName}"`;
+
+  const { datasets } = await searchDatasets({
+    offset: 0,
+    limit: 1000,
+    tags: [],
+    orgs: [],
+    groups: [],
+    fq,
+    sort: "title_string asc",
+  });
+
+  // Same shape as the packages returned by organization_show / group_show
+  return datasets.map((dataset) => ({
+    ...dataset,
+    name: privateToPublicDatasetName(dataset.name),
+    organization: {
+      ...dataset.organization,
+      name: privateToPublicOrgName(dataset.organization.name),
+    },
+  })) as unknown as CkanDataset[];
 };

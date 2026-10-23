@@ -16,7 +16,7 @@ export default function ActivityStream({ activities }: ActivityStreamProps) {
               <div className="w-13 rounded-full">
                 <img
                   src={activity.user_data.image_display_url}
-                  alt="Profile picture of user"
+                  alt="Foto de perfil de l’usuari"
                 />
               </div>
             ) : (

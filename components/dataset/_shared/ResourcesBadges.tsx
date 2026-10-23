@@ -7,6 +7,7 @@ import {
 } from "./FormatsColors";
 
 import Color from "color";
+import { formatLabel } from "@/lib/utils";
 
 export default function ResourcesBadges({
   resources,
@@ -43,7 +44,7 @@ export default function ResourcesBadges({
               background: Color(color).mix(Color("#ffffff"), 0.85).hex(),
             }}
           >
-            {res.format || "--"}
+            {formatLabel(res.format) || "--"}
           </span>
         );
       })}

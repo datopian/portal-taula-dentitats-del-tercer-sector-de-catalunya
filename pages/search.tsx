@@ -68,7 +68,11 @@ function SearchPageContent() {
   return (
     <Layout>
       <div className="grid grid-rows-searchpage-hero">
-        <HeroSection title={t("search")} titleAccent={t(`${options.type}s`)} />
+        <HeroSection
+          title={t("search")}
+          titleAccent={t(`${options.type}s`)}
+          description={options.type === "dataset" ? t("intro.datasets") : ""}
+        />
 
         <section className={`grid row-start-3 row-span-2 col-span-full pt-4 `}>
           <div className={`custom-container bg-white ${styles.shadowMd}`}>

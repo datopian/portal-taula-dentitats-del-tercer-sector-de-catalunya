@@ -1,5 +1,6 @@
 import { Dataset } from "@portaljs/ckan";
 import useTranslation from "next-translate/useTranslation";
+import { formatDateCa } from "@/lib/utils";
 
 export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
   const {t} = useTranslation("common");
@@ -49,11 +50,7 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
         </h4>
         <p className="font-semibold">
           {dataset.metadata_created
-            ? new Intl.DateTimeFormat("en-GB", {
-                year: "numeric",
-                month: "short",
-                day: "2-digit",
-              }).format(new Date(dataset.metadata_created))
+            ? formatDateCa(dataset.metadata_created, true)
             : "N/A"}
         </p>
       </div>

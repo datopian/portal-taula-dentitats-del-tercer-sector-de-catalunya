@@ -1,11 +1,13 @@
 import Layout from "@/components/_shared/Layout";
 import { NextSeo } from "next-seo";
 import { siteTitle } from "@/next-seo.config";
+import HeroSection from "@/components/_shared/HeroSection";
 
 export default function ContactePage() {
   return (
     <Layout>
-      <NextSeo title={`Contacte | ${siteTitle}`} />
+      <NextSeo title={`Contacta amb nosaltres | ${siteTitle}`} />
+      <HeroSection title="Contacta amb" titleAccent="nosaltres" />
       <main className="custom-container py-8">
         <div className="flex justify-center">
           <iframe

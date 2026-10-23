@@ -17,7 +17,8 @@ export default function ListOfGroups({
   //We also only hide the element instead of recreating
   //Because thats faster especially to the display image
   return (
-    <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    // AMB-02 / COL-02: white cards on a blue background
+    <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 bg-accent rounded-lg p-4 md:p-8">
       {groups.map((group) => (
         <div
           className={`col-span-1 ${

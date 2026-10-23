@@ -2,6 +2,12 @@ export default function HeroSection({
   title = "Search",
   titleAccent = "",
   cols = "1",
+  description = "",
+}: {
+  title?: string;
+  titleAccent?: string;
+  cols?: string;
+  description?: string;
 }) {
   return (
     <section className={`row-start-1 row-span-3 col-span-full`}>
@@ -16,6 +22,11 @@ export default function HeroSection({
             <h1 className="text-[24px] md:text-[50px] font-black lg:max-w-[80%]">
               {title} <span className="text-accent">{titleAccent}</span>
             </h1>
+            {description && (
+              <p className="mt-4 text-[16px] md:text-[18px] text-[var(--text-gray)] lg:max-w-[80%]">
+                {description}
+              </p>
+            )}
           </div>
         </div>
       </div>

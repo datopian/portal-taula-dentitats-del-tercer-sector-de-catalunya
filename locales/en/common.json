@@ -9,6 +9,7 @@
   "visualizations": "Visualizations",
   "search": "Search",
   "searchDatasets": "Search datasets",
+  "searchPlaceholder": "What are you looking for?",
   "seeAllGroups": "View collection",
   "lastUpdated": "Last updated",
   "created" : "Created",
@@ -38,11 +39,40 @@
     "highlights": "Highlights"
   },
   "footer": {
-    "about": "About",
-    "links": "Useful Links",
-    "getStarted": "Get Started",
-    "socials": "Stay up to date with the news"
+    "socials": "Social networks",
+    "support": "With the support of:"
   },
+  "project": "The project",
+  "siteName": {
+    "line1": "Open Data Space",
+    "line2": "of the Third Social Sector"
+  },
+  "addDataBanner": {
+    "title": "Do you want to add data?",
+    "description": "Help us grow the Third Social Sector Open Data Space!",
+    "cta": "Contact us"
+  },
+  "intro": {
+    "datasets": "Browse grouped and organised data, usually in columns and downloadable files, so you can use and work with it easily. Here you will find information on different areas and groups, in different formats. What are you looking for?",
+    "groups": "Browse information on more than 30 different areas of the social sector. This information has been classified, analysed and curated to understand different social realities. What are you looking for?",
+    "collectius": "Browse information related to different groups of people. This information has been classified, analysed and curated to understand different social realities. What are you looking for?"
+  },
+  "nav": {
+    "thirdSector": "Third sector",
+    "otherOrganizations": "Other organizations"
+  },
+  "datasetsLabel": "Datasets",
+  "datasetsCount": {
+    "zero": "No datasets",
+    "one": "{{count}} Dataset",
+    "other": "{{count}} Datasets"
+  },
+  "visualizationsCount": {
+    "zero": "No visualizations",
+    "one": "{{count}} Visualization",
+    "other": "{{count}} Visualizations"
+  },
+  "description": "Description",
   "homepage" : "Home",
   "clearFilters": "Clear Filters",
   "searchTypeInPlaceholder": "Type in keyword...",
