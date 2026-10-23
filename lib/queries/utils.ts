@@ -96,3 +96,37 @@ export const moveAltresGroupsLast = <T extends { name: string }>(
   ...groups.filter((g) => !isAltresGroup(g.name)),
   ...groups.filter((g) => isAltresGroup(g.name)),
 ];
+
+// Order of the àmbits and col·lectius in the search filters and on their
+// pages (AMB-05). Change it here:
+//   "alphabetical" → A–Z by name
+//   "count"        → most datasets first (A–Z when tied)
+// "Altres" is always listed last.
+export const GROUPS_ORDER = "alphabetical" as "alphabetical" | "count";
+
+// Accents and case don't affect the order ("Àmbit" sorts with "Ambit"). Plain
+// string comparison instead of localeCompare so server and browser agree.
+const sortKey = (s: string) =>
+  s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+export const sortGroups = <
+  T extends {
+    name: string;
+    display_name?: string;
+    title?: string;
+    count?: number;
+    package_count?: number;
+  }
+>(
+  groups: T[]
+) => {
+  const label = (g: T) => sortKey(g.display_name || g.title || g.name);
+  const count = (g: T) => g.count ?? g.package_count ?? 0;
+  const sorted = [...groups].sort((a, b) => {
+    if (GROUPS_ORDER === "count" && count(a) !== count(b)) {
+      return count(b) - count(a);
+    }
+    return label(a) < label(b) ? -1 : label(a) > label(b) ? 1 : 0;
+  });
+  return moveAltresGroupsLast(sorted);
+};

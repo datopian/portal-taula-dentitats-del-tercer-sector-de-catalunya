@@ -4,7 +4,7 @@ import {
   privateToPublicGroupName,
   privateToPublicOrgName,
   publicToPrivateGroupName,
-  moveAltresGroupsLast,
+  sortGroups,
 } from "./utils";
 import CkanRequest, { CkanResponse } from "@portaljs/ckan-api-client-js";
 
@@ -20,7 +20,7 @@ export const getAllGroups = async ({
   if (!mainOrg) {
     const organizations = await fetchAllGroups();
 
-    return moveAltresGroupsLast(
+    return sortGroups(
       organizations.map((o) => {
         return { ...o, _name: o.name };
       })
@@ -54,7 +54,7 @@ export const getAllGroups = async ({
     return { ...c, name: publicName };
   });
 
-  return moveAltresGroupsLast(children);
+  return sortGroups(children);
 };
 
 export const getGroup = async ({
