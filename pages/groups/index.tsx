@@ -11,7 +11,10 @@ import { GroupPageStructuredData } from "@/components/schema/GroupPageStructured
 export async function getServerSideProps() {
   const groups = await getAllGroups({ detailed: true });
 
-  const ambits = groups.filter(g => !g.name.includes("col--"))
+  // Àmbits without datasets are hidden
+  const ambits = groups.filter(
+    (g) => !g.name.includes("col--") && g.package_count > 0
+  );
   
   return {
     props: {
