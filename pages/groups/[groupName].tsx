@@ -1,10 +1,8 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import DatasetList from "../../components/_shared/DatasetList";
-import ActivityStream from "../../components/_shared/ActivityStream";
 import Layout from "../../components/_shared/Layout";
 import Tabs from "../../components/_shared/Tabs";
-import { CKAN } from "@portaljs/ckan";
 import styles from "@/styles/DatasetInfo.module.scss";
 import GroupNavCrumbs from "../../components/groups/individualPage/GroupNavCrumbs";
 import GroupInfo from "../../components/groups/individualPage/GroupInfo";
@@ -15,8 +13,6 @@ import { GroupIndividualPageStructuredData } from "@/components/schema/GroupIndi
 import useTranslation from "next-translate/useTranslation";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const DMS = process.env.NEXT_PUBLIC_DMS;
-  const ckan = new CKAN(DMS);
   const groupName = context.params?.groupName;
   if (!groupName) {
     return {
@@ -31,13 +27,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     ...group,
     packages: await getAllDatasetsOf({ groupName: group.name }),
   };
-  const activityStream = await ckan.getGroupActivityStream(group._name);
   if (!group) {
     return {
       notFound: true,
     };
   }
-  group = { ...group, activity_stream: activityStream };
   return {
     props: {
       group,
@@ -56,15 +50,6 @@ export default function GroupPage({ group }): JSX.Element {
         ""
       ),
       title: t("datasets"),
-    },
-    {
-      id: "activity-stream",
-      content: (
-        <ActivityStream
-          activities={group?.activity_stream ? group.activity_stream : []}
-        />
-      ),
-      title: t("activityStream")
     },
   ];
 

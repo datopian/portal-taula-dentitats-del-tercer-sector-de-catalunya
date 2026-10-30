@@ -15,17 +15,11 @@ export async function getServerSideProps() {
     orgs: [],
     type: "dataset"
   });
-  const visualizations = await searchDatasets({
-    offset: 0,
-    limit: 0,
-    tags: [],
-    groups: [],
-    orgs: [],
-    type: "visualization"
-  });
   const groups = await getAllGroups({ detailed: true });
-  const ambits = groups.filter(g => !g.name.includes("col--"))
-  const collectius = groups.filter(g => g.name.includes("col--"))
+  // Same as the Àmbits and Col·lectius pages: only groups with datasets
+  const withDatasets = groups.filter((g) => g.package_count > 0);
+  const ambits = withDatasets.filter((g) => !g.name.includes("col--"));
+  const collectius = withDatasets.filter((g) => g.name.includes("col--"));
   const orgs = await getAllOrganizations({ detailed: true });
   // One entry per organization ("Tercer sector" and "Altres organismes"),
   // with "Altres organismes" always last. Count datasets only (not
@@ -58,7 +52,6 @@ export async function getServerSideProps() {
     groupCount: ambits.length,
     collectiusCount: collectius.length,
     orgs: orgStats,
-    visualizationCount: visualizations.count
   };
   return {
     props: {

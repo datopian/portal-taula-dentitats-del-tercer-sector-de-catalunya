@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Dataset } from "@portaljs/ckan";
 import ResourcesBadges from "../_shared/ResourcesBadges";
 import {
+  RiArticleLine,
   RiMapPinTimeLine,
   RiOrganizationChart,
   RiPriceTagLine,
@@ -10,6 +11,7 @@ import { getDatasetName, getTimeAgo } from "@/lib/utils";
 import { useTheme } from "@/components/theme/theme-provider";
 import { TagIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 export default function DatasetItem({
   dataset,
@@ -23,6 +25,7 @@ export default function DatasetItem({
   } = useTheme();
 
   const { locale } = useRouter();
+  const { t } = useTranslation("common");
 
   return (
     <Link
@@ -43,6 +46,14 @@ export default function DatasetItem({
             <RiOrganizationChart className="text-accent" />
             <span className=" text-gray-500">{dataset.organization.title}</span>
           </div>
+          {dataset.author && (
+            <div className="flex items-center gap-2 ">
+              <RiArticleLine className="text-accent" />
+              <span className=" text-gray-500">
+                {t("author")}: {dataset.author}
+              </span>
+            </div>
+          )}
           <div className="flex items-center gap-2 ">
             <RiMapPinTimeLine className="text-accent" />
             <span className=" text-gray-500">

@@ -2,7 +2,6 @@ import SearchForm from "./SearchForm";
 
 
 import {
-  RiBarChartLine,
   RiFileCopy2Line,
   RiFunctionLine,
   RiGovernmentLine,
@@ -20,7 +19,6 @@ export default function HeroSectionLight({
     groupCount: number;
     collectiusCount: number;
     datasetCount: number;
-    visualizationCount: number;
   };
 }) {
   const { t } = useTranslation('common')
@@ -48,12 +46,6 @@ export default function HeroSectionLight({
               count={stats.datasetCount}
               label={t("datasets")}
             />
-            {!!stats.visualizationCount && <Stat
-              Icon={RiBarChartLine}
-              href="/cerca?type=visualization"
-              count={stats.visualizationCount}
-              label={t("visualizations")}
-            />}
             <Stat
               Icon={RiFunctionLine}
               href="/ambits"

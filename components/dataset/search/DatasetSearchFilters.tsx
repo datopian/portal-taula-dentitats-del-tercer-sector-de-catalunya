@@ -14,7 +14,7 @@ import {
 } from "@heroicons/react/20/solid";
 import { classNames } from "primereact/utils";
 import useTranslation from "next-translate/useTranslation";
-import { sortGroups } from "@/lib/queries/utils";
+import { sortByLabel, sortGroups } from "@/lib/queries/utils";
 import { formatLabel } from "@/lib/utils";
 
 export default function DatasetSearchFilters() {
@@ -191,7 +191,7 @@ export default function DatasetSearchFilters() {
           >
             <div>
               <div className="max-h-[400px] overflow-y-auto">
-                {searchFacets?.tags?.items.map((tag: PackageFacetOptions) => (
+                {sortByLabel(searchFacets?.tags?.items ?? []).map((tag: PackageFacetOptions) => (
                   <MultiCheckbox
                     name={"tags"}
                     value={tag.name}
