@@ -100,6 +100,18 @@
   "authorEmail": "Source Email",
   "datasetDate": "Dataset Date",
   "version":  "Version",
+  "coverage": "Coverage",
+  "frequency": "Update frequency",
+  "frequencies": {
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "semiannual": "Semiannual",
+    "annual": "Annual",
+    "irregular": "Irregular",
+    "never": "Not updated"
+  },
   "size": "Size",
   "page": "Page",
   "previous": "Previous", 

@@ -101,6 +101,18 @@
   "authorEmail": "Correu electrònic de la font",
   "datasetDate": "Data de publicació",
   "version": "Versió",
+  "coverage": "Cobertura",
+  "frequency": "Freqüència d'actualització",
+  "frequencies": {
+    "daily": "Diària",
+    "weekly": "Setmanal",
+    "monthly": "Mensual",
+    "quarterly": "Trimestral",
+    "semiannual": "Semestral",
+    "annual": "Anual",
+    "irregular": "Irregular",
+    "never": "No s'actualitza"
+  },
   "size": "Mida",
   "page": "Pàgina",
   "previous": "Anterior", 

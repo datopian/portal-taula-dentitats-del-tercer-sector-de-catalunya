@@ -3,6 +3,7 @@ import { Dataset } from "@portaljs/ckan";
 import ResourcesBadges from "../_shared/ResourcesBadges";
 import {
   RiArticleLine,
+  RiCalendarLine,
   RiMapPinTimeLine,
   RiOrganizationChart,
   RiPriceTagLine,
@@ -17,7 +18,8 @@ export default function DatasetItem({
   dataset,
   showOrg = true,
 }: {
-  dataset: Dataset;
+  // coverage comes from the PortalJS Cloud dataset schema
+  dataset: Dataset & { coverage?: string };
   showOrg?: boolean;
 }) {
   const {
@@ -51,6 +53,14 @@ export default function DatasetItem({
               <RiArticleLine className="text-accent" />
               <span className=" text-gray-500">
                 {t("author")}: {dataset.author}
+              </span>
+            </div>
+          )}
+          {dataset.coverage && (
+            <div className="flex items-center gap-2 ">
+              <RiCalendarLine className="text-accent" />
+              <span className=" text-gray-500">
+                {t("coverage")}: {dataset.coverage}
               </span>
             </div>
           )}
