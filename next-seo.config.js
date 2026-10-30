@@ -3,7 +3,7 @@
 export const siteTitle = "Espai de Dades";
 export const title = "Espai de Dades";
 export const description =
-  "Un espai per trobar, compartir i utilitzar dades obertes d’interès en el dia a dia de l’acció social.";
+  "Un nou espai per trobar, compartir i utilitzar dades de l’àmbit social disponibles per a tothom.";
 
 export const url = "https://espaidedades.tercersector.cat";
 export const imageUrl = `${url}/images/portaljs-frontend.png`;
@@ -17,7 +17,7 @@ export default {
     siteTitle,
     description,
     type: "website",
-    locale: "en_US",
+    locale: "ca_ES",
     url,
     site_name: siteTitle,
     images: [
@@ -31,14 +31,14 @@ export default {
     ],
   },
   twitter: {
-    handle: "@datopian",
-    site: "@PortalJS_",
+    handle: "@taula3sector",
+    site: "@taula3sector",
     cardType: "summary_large_image",
   },
   additionalMetaTags: [
     {
       name: "keywords",
-      content: "PortalJS, open data, datasets, data portal, Portal, datopian, frontend template",
+      content: "dades obertes, tercer sector social, Catalunya, Taula del Tercer Sector, acció social, PortalJS",
     },
     {
       name: "author",
@@ -54,7 +54,7 @@ export default {
     },
     {
       property: "og:locale",
-      content: "en_US",
+      content: "ca_ES",
     },
   ],
   additionalLinkTags: [

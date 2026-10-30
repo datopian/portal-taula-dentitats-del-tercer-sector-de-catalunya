@@ -22,13 +22,20 @@ function ListItems() {
   const [subsetOfPages, setSubsetOfPages] = useState(0);
   const { t } = useTranslation("common");
 
+  // "Cap conjunt de dades" / "1 Conjunt de dades" / "139 Conjunts de dades"
+  const resultsCountLabel = (count: number, key: string) =>
+    t(`${key}.${count === 0 ? "zero" : count === 1 ? "one" : "other"}`, { count });
+
   return (
     <>
       <div className="flex justify-between flex-col md:flex-row md:items-center flex-wrap gap-3">
         <div className="flex gap-2">
-          <h2 className="text-[23px] leading-[28px] capitalize font-bold  ">
-            {searchResults?.count}{" "}
-            {options.type === "visualization" ? t("visualizations") : t("datasets")}
+          <h2 className="text-[23px] leading-[28px] font-bold  ">
+            {searchResults?.count !== undefined &&
+              resultsCountLabel(
+                searchResults.count,
+                options.type === "visualization" ? "visualizationsCount" : "datasetsCount"
+              )}
           </h2>
         </div>
         <div className="flex gap-2 cursor-pointer">

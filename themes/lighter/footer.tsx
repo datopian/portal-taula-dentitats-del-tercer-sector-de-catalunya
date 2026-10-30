@@ -22,31 +22,16 @@ const LighterThemeFooter: React.FC = () => {
   const { theme } = useTheme();
   const { t } = useTranslation("common");
   const navigation = {
-    about: [
-      {
-        name: "Què és l’Espai de Dades",
-        href: "/about",
-      },
+    links: [
       {
         name: "Sobre la Taula del Tercer Sector",
         href: "https://www.tercersector.cat/qui-som/la-taula-del-tercer-sector",
         target: "_blank",
       },
-    ],
-    useful: [
-      { name: "Entitats de la Taula", href: "/entitats" },
-      { name: "Col·lectius", href: "/collectius" },
-      { name: "Àmbits", href: "/ambits" },
-    ],
-    getStarted: [
       {
-        name: "Contacte",
+        name: "Contacta amb nosaltres",
         href: "/contacte",
       },
-      {
-        name: "Afegeix dades",
-        href: "https://cloud.portaljs.com/auth/signin",
-      }
     ],
     social: [
       {
@@ -92,70 +77,29 @@ const LighterThemeFooter: React.FC = () => {
     process.env.NEXT_PUBLIC_PORTAL_LOGO ?? "/images/logos/taula.svg";
 
   return (
-    <footer className="bg-accent-50  mt-[155px]">
+    <footer className="bg-accent-50 mt-16">
       <div
         className={`custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap`}
       >
-        <div className="justify-between w-full text-center md:text-left lg:flex">
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-              {t("footer.about")}
-            </h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.about.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-roboto font-normal hover:text-accent transition-all"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-              {t("footer.links")}
-            </h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.useful.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-roboto font-normal hover:text-accent transition-all"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="w-full lg:w-1/3 md:w-1/2">
-            <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-              {t("footer.getStarted")}
-            </h2>
-            <ul className="space-y-4 text-sm list-none">
-              {navigation.getStarted.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="font-roboto font-normal hover:text-accent transition-all"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="w-full md:w-1/2 text-center md:text-left">
+          <ul className="space-y-4 text-sm list-none">
+            {navigation.links.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  target={item.target}
+                  rel={item.target ? "noreferrer" : undefined}
+                  className="font-roboto font-normal hover:text-accent transition-all"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-left">
-          <h2 className="mt-4 mb-4 font-roboto font-black uppercase">
-            {t("footer.socials")}
-          </h2>
-          <div className="flex mt-5 space-x-5 justify-center md:justify-start">
+        <div className="w-full md:w-1/2 flex flex-col justify-between text-center md:text-right">
+          <h2 className="sr-only">{t("footer.socials")}</h2>
+          <div className="flex mt-8 md:mt-0 space-x-5 justify-center md:justify-end">
             {navigation.social.map((item) => (
               <a
                 key={item.name}
@@ -185,13 +129,14 @@ const LighterThemeFooter: React.FC = () => {
           target={"_blank"}
           rel="noopener noreferrer"
         >
-          <span className="text-sm">Built with</span>
+          <span className="text-sm">Fet amb</span>
           <span className="font-extrabold text-[#1f2937] text-xl sm:text-lg font-roboto ">
             🌀 PortalJS
           </span>
         </Link>
 
-        <div className="md:ml-auto mt-4 md:mt-0">
+        <div className="md:ml-auto mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-3">
+          <span className="text-sm">{t("footer.support")}</span>
           <Link
             href={"https://www.barcelona.cat/ca"}
             target="_blank"
@@ -199,7 +144,7 @@ const LighterThemeFooter: React.FC = () => {
             className="flex flex-col md:flex-row items-center gap-1"
           >
             <Image
-              alt="Barcelona"
+              alt="Ajuntament de Barcelona"
               width={180}
               height={50}
               src={"/images/logos/barcelona.jpg"}

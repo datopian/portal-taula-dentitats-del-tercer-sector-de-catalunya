@@ -9,7 +9,7 @@ import styles from "@/styles/DatasetInfo.module.scss";
 import GroupNavCrumbs from "../../components/groups/individualPage/GroupNavCrumbs";
 import GroupInfo from "../../components/groups/individualPage/GroupInfo";
 import { getGroup } from "@/lib/queries/groups";
-import { getDataset } from "@/lib/queries/dataset";
+import { getAllDatasetsOf } from "@/lib/queries/dataset";
 import HeroSection from "@/components/_shared/HeroSection";
 import { GroupIndividualPageStructuredData } from "@/components/schema/GroupIndividualPageStructuredData";
 import useTranslation from "next-translate/useTranslation";
@@ -25,14 +25,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
   let group = await getGroup({
     name: groupName as string,
-    include_datasets: true,
+    include_datasets: false,
   });
-  if (group.packages) {
-    const packagesWithResources = await Promise.all(
-      group.packages.map(async (dataset) => getDataset({ name: dataset.name }))
-    );
-    group = { ...group, packages: packagesWithResources };
-  }
+  group = {
+    ...group,
+    packages: await getAllDatasetsOf({ groupName: group.name }),
+  };
   const activityStream = await ckan.getGroupActivityStream(group._name);
   if (!group) {
     return {

@@ -1,3 +1,4 @@
+import DatasetDescription from "@/components/dataset/individualPage/DatasetDescription";
 import { GetServerSideProps } from "next";
 import DatasetInfo from "@/components/dataset/individualPage/DatasetInfo";
 import DatasetOverview from "@/components/dataset/individualPage/DatasetOverview";
@@ -70,7 +71,9 @@ export default function DatasetPage({ dataset }): JSX.Element {
                 resources={dataset?.resources}
                 orgName={dataset.organization ? dataset.organization.name : ""}
                 datasetName={dataset.name}
-              />
+              >
+                <DatasetDescription notes={dataset.notes} />
+              </ResourcesList>
             ),
             title: t("resources"),
           },
@@ -78,7 +81,14 @@ export default function DatasetPage({ dataset }): JSX.Element {
       : []),
     {
       id: "information",
-      content: <DatasetOverview dataset={dataset} />,
+      content: (
+        <>
+          {dataset.type == "visualization" && (
+            <DatasetDescription notes={dataset.notes} />
+          )}
+          <DatasetOverview dataset={dataset} />
+        </>
+      ),
       title: t("info"),
     },
     {

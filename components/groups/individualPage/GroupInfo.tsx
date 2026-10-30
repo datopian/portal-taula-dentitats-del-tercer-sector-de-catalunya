@@ -3,18 +3,35 @@ import { Tag } from "@portaljs/ckan";
 import { Group } from "@portaljs/ckan";
 import { getTimeAgo } from "@/lib/utils";
 import useTranslation from "next-translate/useTranslation";
+import { RiFunctionLine, RiGroupLine } from "react-icons/ri";
+import getConfig from "next/config";
 
 export default function GroupInfo({ group }: { group: Group }) {
   const { t } = useTranslation("common");
+  const url = group.image_display_url
+    ? new URL(group.image_display_url)
+    : undefined;
+  // Same rule as GroupCard: only render uploaded images from allowed hosts
+  const hasImage =
+    !!url &&
+    (getConfig().publicRuntimeConfig.DOMAINS ?? []).includes(url.hostname);
   return (
     <div className="flex flex-col">
-      <Image
-        width={54}
-        height={56}
-        src={group.image_display_url}
-        alt={`${group.name}-collection`}
-        className="object-fit"
-      />
+      {group.name?.includes("col--") ? (
+        // All col·lectius share the same icon
+        <RiGroupLine size={54} className="text-accent" aria-hidden={true} />
+      ) : hasImage ? (
+        <Image
+          width={54}
+          height={56}
+          src={group.image_display_url}
+          alt={`${group.name}-collection`}
+          className="object-fit"
+        />
+      ) : (
+        // Neutral default until an icon is uploaded for the àmbit in CKAN
+        <RiFunctionLine size={54} className="text-accent" aria-hidden={true} />
+      )}
       <div className="flex flex-col gap-y-3 mt-8">
         <span className="font-medium text-gray-500 inline">
           <svg
@@ -31,7 +48,7 @@ export default function GroupInfo({ group }: { group: Group }) {
               d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776"
             />
           </svg>
-          {t("datasets")}: {group.packages ? group.packages.length : 0}
+          {t("datasetsLabel")}: {group.package_count ?? group.packages?.length ?? 0}
         </span>
         <span className="font-medium text-gray-500 inline">
           <svg

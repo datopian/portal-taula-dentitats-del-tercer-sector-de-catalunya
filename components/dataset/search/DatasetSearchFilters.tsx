@@ -14,12 +14,12 @@ import {
 } from "@heroicons/react/20/solid";
 import { classNames } from "primereact/utils";
 import useTranslation from "next-translate/useTranslation";
+import { sortGroups } from "@/lib/queries/utils";
+import { formatLabel } from "@/lib/utils";
 
 export default function DatasetSearchFilters() {
   const [showFilters, setShowFilters] = useState(true);
   const [seeMoreOrgs, setSeeMoreOrgs] = useState(false);
-  const [seeMoreAmbits, setSeeMoreAmbits] = useState(false);
-  const [seeMoreCollectius, setSeeMoreCollectius] = useState(false);
   const {
     searchFacets,
     options,
@@ -31,9 +31,10 @@ export default function DatasetSearchFilters() {
 
   const { t } = useTranslation("common");
 
-  const ambits = searchFacets.groups?.items.filter(i => !i.name.includes("col--"))
+  const groupItems = sortGroups(searchFacets.groups?.items ?? [])
+  const ambits = groupItems.filter(i => !i.name.includes("col--"))
   const selectedAmbits = options.groups.filter(i => !i.includes("col--"))
-  const collectius = searchFacets.groups?.items.filter(i => i.name.includes("col--"))
+  const collectius = groupItems.filter(i => i.name.includes("col--"))
   const selectedCollectius = options.groups.filter(i => i.includes("col--"))
 
   return (
@@ -130,34 +131,16 @@ export default function DatasetSearchFilters() {
           >
             <div>
               <div className="max-h-[400px] overflow-y-auto">
-                {ambits
-                  ?.slice(
-                    0,
-                    seeMoreAmbits
-                      ? ambits.length
-                      : maxPerView
-                  )
-                  .map((group: PackageFacetOptions) => {
-                    return (
-                      <MultiCheckbox
-                        name={"groups"}
-                        value={group.name}
-                        label={group.display_name}
-                        count={group.count}
-                        key={group.name}
-                      />
-                    );
-                  })}
+                {ambits.map((group: PackageFacetOptions) => (
+                  <MultiCheckbox
+                    name={"groups"}
+                    value={group.name}
+                    label={group.display_name}
+                    count={group.count}
+                    key={group.name}
+                  />
+                ))}
               </div>
-              {ambits.length > maxPerView && (
-                <button
-                  onClick={() => setSeeMoreAmbits(prev => !prev)}
-                  type="button"
-                  className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
-                >
-                  {seeMoreAmbits ? t("showLess") : t("showMore")}
-                </button>
-              )}
             </div>
           </FacetCard>
         )}
@@ -178,34 +161,16 @@ export default function DatasetSearchFilters() {
           >
             <div>
               <div className="max-h-[400px] overflow-y-auto">
-                {collectius
-                  ?.slice(
-                    0,
-                    seeMoreCollectius
-                      ? collectius.length
-                      : maxPerView
-                  )
-                  .map((group: PackageFacetOptions) => {
-                    return (
-                      <MultiCheckbox
-                        name={"groups"}
-                        value={group.name}
-                        label={group.display_name}
-                        count={group.count}
-                        key={group.name}
-                      />
-                    );
-                  })}
+                {collectius.map((group: PackageFacetOptions) => (
+                  <MultiCheckbox
+                    name={"groups"}
+                    value={group.name}
+                    label={group.display_name}
+                    count={group.count}
+                    key={group.name}
+                  />
+                ))}
               </div>
-              {collectius.length > maxPerView && (
-                <button
-                  onClick={() => setSeeMoreCollectius(prev => !prev)}
-                  type="button"
-                  className="bg-[var(--dark)] hover:bg-black text-white py-[10px] px-[12px] rounded-[4px] mt-2 transition font-[600] text-[12px] leading-[15px]"
-                >
-                  {seeMoreCollectius ? t("showLess") : t("showMore")}
-                </button>
-              )}
             </div>
           </FacetCard>
         )}
@@ -261,7 +226,7 @@ export default function DatasetSearchFilters() {
                     <MultiCheckbox
                       name={"resFormat"}
                       value={format.name}
-                      label={format.display_name}
+                      label={formatLabel(format.display_name)}
                       key={format.name}
                       count={format.count}
                     />

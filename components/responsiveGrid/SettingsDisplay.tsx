@@ -68,7 +68,7 @@ export function SettingsDisplayPanel() {
     isSettingsDropdownOpen && (
       <div
         className="  text-gray-700 text-sm flex flex-col gap-8"
-        aria-label="Column visibility options"
+        aria-label="Opcions de visibilitat de les columnes"
       >
         <div>
           <div className="px-4 mb-4">
@@ -125,7 +125,7 @@ export function SettingsDisplayPanel() {
                 }}
               >
                 {checkAll && <CheckIcon width={16} />}
-                <span className="sr-only">Check All</span>
+                <span className="sr-only">{t("checkAll")}</span>
               </label>
               <span
                 onClick={() => handleCheckAll()}
