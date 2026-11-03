@@ -2,7 +2,14 @@ import { Dataset } from "@portaljs/ckan";
 import useTranslation from "next-translate/useTranslation";
 import { formatDateCa } from "@/lib/utils";
 
-export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
+// Fields from the PortalJS Cloud dataset schema not in the @portaljs/ckan type
+type DatasetWithCloudFields = Dataset & { coverage?: string; frequency?: string };
+
+export default function DatasetOverview({
+  dataset,
+}: {
+  dataset: DatasetWithCloudFields;
+}) {
   const {t} = useTranslation("common");
 
   const ambits = dataset.groups.filter(g => !g.name.includes("col--"))
@@ -44,6 +51,24 @@ export default function DatasetOverview({ dataset }: { dataset: Dataset }) {
             : "N/A"}
         </p>
       </div>
+      {dataset.coverage && (
+        <div className="pb-5">
+          <h4 className="pb-1 text-xs label-txt tracking-wider">
+            {t("coverage")}
+          </h4>
+          <p className="font-semibold">{dataset.coverage}</p>
+        </div>
+      )}
+      {dataset.frequency && (
+        <div className="pb-5">
+          <h4 className="pb-1 text-xs label-txt tracking-wider">
+            {t("frequency")}
+          </h4>
+          <p className="font-semibold">
+            {t(`frequencies.${dataset.frequency}`, {}, { fallback: dataset.frequency })}
+          </p>
+        </div>
+      )}
       <div className="  pb-5">
         <h4 className="pb-1 text-xs label-txt tracking-wider">
           {t("datasetDate")}
