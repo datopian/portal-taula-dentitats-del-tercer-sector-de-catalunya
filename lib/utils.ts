@@ -64,6 +64,19 @@ export function formatDateCa(timestamp: string, short = false) {
   return `${day} ${of}${name} de ${year}`;
 }
 
+// Resource type set in PortalJS Cloud as a custom field. The key is matched
+// loosely ("resource_type", "Resource_type", "Resource type"...) since it's
+// typed by hand.
+export function getResourceType(resource: object): string | undefined {
+  for (const [key, value] of Object.entries(resource)) {
+    const normalized = key.trim().toLowerCase().replace(/[\s-]+/g, "_");
+    if (normalized === "resource_type" && typeof value === "string" && value.trim()) {
+      return value.trim();
+    }
+  }
+  return undefined;
+}
+
 export function capitalizeFirstLetter(str: string) {
   if (str.length === 0) {
     return str;

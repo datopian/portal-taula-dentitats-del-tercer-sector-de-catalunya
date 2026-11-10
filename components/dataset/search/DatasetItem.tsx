@@ -1,21 +1,26 @@
 import Link from "next/link";
 import { Dataset } from "@portaljs/ckan";
 import ResourcesBadges from "../_shared/ResourcesBadges";
+import ResourceTypeBadge from "../_shared/ResourceTypeBadge";
 import {
+  RiArticleLine,
+  RiCalendarLine,
   RiMapPinTimeLine,
   RiOrganizationChart,
   RiPriceTagLine,
 } from "react-icons/ri";
-import { getDatasetName, getTimeAgo } from "@/lib/utils";
+import { getDatasetName, getResourceType, getTimeAgo } from "@/lib/utils";
 import { useTheme } from "@/components/theme/theme-provider";
 import { TagIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 
 export default function DatasetItem({
   dataset,
   showOrg = true,
 }: {
-  dataset: Dataset;
+  // coverage comes from the PortalJS Cloud dataset schema
+  dataset: Dataset & { coverage?: string };
   showOrg?: boolean;
 }) {
   const {
@@ -23,6 +28,7 @@ export default function DatasetItem({
   } = useTheme();
 
   const { locale } = useRouter();
+  const { t } = useTranslation("common");
 
   return (
     <Link
@@ -43,6 +49,22 @@ export default function DatasetItem({
             <RiOrganizationChart className="text-accent" />
             <span className=" text-gray-500">{dataset.organization.title}</span>
           </div>
+          {dataset.author && (
+            <div className="flex items-center gap-2 ">
+              <RiArticleLine className="text-accent" />
+              <span className=" text-gray-500">
+                {t("author")}: {dataset.author}
+              </span>
+            </div>
+          )}
+          {dataset.coverage && (
+            <div className="flex items-center gap-2 ">
+              <RiCalendarLine className="text-accent" />
+              <span className=" text-gray-500">
+                {t("coverage")}: {dataset.coverage}
+              </span>
+            </div>
+          )}
           <div className="flex items-center gap-2 ">
             <RiMapPinTimeLine className="text-accent" />
             <span className=" text-gray-500">
@@ -59,7 +81,12 @@ export default function DatasetItem({
             </div>
           )}
         </div>
-        <div className="mt-2">
+        <div className="mt-2 flex flex-wrap items-center gap-1">
+          {[...new Set(dataset.resources.map(getResourceType).filter(Boolean))].map(
+            (type) => (
+              <ResourceTypeBadge key={type} type={type} />
+            )
+          )}
           <ResourcesBadges resources={dataset.resources} />
         </div>
       </div>

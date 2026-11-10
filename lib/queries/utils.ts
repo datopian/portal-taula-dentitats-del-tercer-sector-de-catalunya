@@ -109,24 +109,29 @@ export const GROUPS_ORDER = "alphabetical" as "alphabetical" | "count";
 const sortKey = (s: string) =>
   s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
+type Labelled = { name: string; display_name?: string; title?: string };
+
+const compareLabels = (a: Labelled, b: Labelled) => {
+  const la = sortKey(a.display_name || a.title || a.name);
+  const lb = sortKey(b.display_name || b.title || b.name);
+  return la < lb ? -1 : la > lb ? 1 : 0;
+};
+
+// A–Z by label (e.g. the Etiquetes filter)
+export const sortByLabel = <T extends Labelled>(items: T[]) =>
+  [...items].sort(compareLabels);
+
 export const sortGroups = <
-  T extends {
-    name: string;
-    display_name?: string;
-    title?: string;
-    count?: number;
-    package_count?: number;
-  }
+  T extends Labelled & { count?: number; package_count?: number }
 >(
   groups: T[]
 ) => {
-  const label = (g: T) => sortKey(g.display_name || g.title || g.name);
   const count = (g: T) => g.count ?? g.package_count ?? 0;
   const sorted = [...groups].sort((a, b) => {
     if (GROUPS_ORDER === "count" && count(a) !== count(b)) {
       return count(b) - count(a);
     }
-    return label(a) < label(b) ? -1 : label(a) > label(b) ? 1 : 0;
+    return compareLabels(a, b);
   });
   return moveAltresGroupsLast(sorted);
 };

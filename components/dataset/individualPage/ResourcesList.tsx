@@ -3,6 +3,8 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { RiDownload2Fill, RiEyeLine } from "react-icons/ri";
 import ResourcesBadges from "../_shared/ResourcesBadges";
+import ResourceTypeBadge from "../_shared/ResourceTypeBadge";
+import { getResourceType } from "@/lib/utils";
 import useTranslation from "next-translate/useTranslation";
 
 interface ResourcesListProps {
@@ -28,6 +30,7 @@ export default function ResourcesList({
           !resource.url.startsWith("https://blob.datopian")
             ? t("access")
             : t("download");
+        const resourceType = getResourceType(resource);
 
         return (
           <div
@@ -42,7 +45,8 @@ export default function ResourcesList({
                 <p className="text-sm font-normal text-stone-500 line-clamp-4">
                   {resource.description || "No description"}
                 </p>
-                <div className="mt-2">
+                <div className="mt-2 flex flex-wrap items-center gap-1">
+                  {resourceType && <ResourceTypeBadge type={resourceType} />}
                   <ResourcesBadges resources={[resource]} />
                 </div>
               </div>
