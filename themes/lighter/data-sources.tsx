@@ -5,7 +5,7 @@ import dataSources from "@/content/data-sources.json";
 // content/data-sources.json (logos go in public/images/data-sources/).
 const DataSources: React.FC = () => (
   <section
-    className="custom-container mx-auto pt-12 pb-10 border-b border-gray-200"
+    className="custom-container mx-auto pt-12 pb-10 border-b border-gray-200 text-center"
     aria-labelledby="data-sources-title"
   >
     <h2 id="data-sources-title" className="text-xl md:text-2xl font-black">
@@ -16,7 +16,7 @@ const DataSources: React.FC = () => (
         <h3 className="text-xs font-semibold uppercase tracking-wider text-[var(--text-gray)]">
           {group.title}
         </h3>
-        <ul className="mt-4 flex flex-wrap items-center gap-x-10 gap-y-6">
+        <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
           {group.organizations.map((org) => (
             <li key={org.name}>
               <a
@@ -24,14 +24,14 @@ const DataSources: React.FC = () => (
                 target="_blank"
                 rel="noopener noreferrer"
                 title={org.name}
-                className="group block"
+                className="block"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={org.logo}
                   alt={org.name}
                   loading="lazy"
-                  className="h-10 md:h-12 w-auto max-w-[180px] object-contain mix-blend-multiply grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 group-focus-visible:grayscale-0 group-focus-visible:opacity-100 transition"
+                  className="h-10 md:h-12 w-auto max-w-[180px] object-contain mix-blend-multiply"
                 />
               </a>
             </li>
