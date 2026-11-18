@@ -1,0 +1,55 @@
+{
+  "title": "D’on venen les dades",
+  "groups": [
+    {
+      "title": "Fonts públiques de dades",
+      "organizations": [
+        {
+          "name": "Generalitat de Catalunya",
+          "url": "https://web.gencat.cat/",
+          "logo": "/images/data-sources/generalitat.png"
+        },
+        {
+          "name": "Institut d’Estadística de Catalunya (Idescat)",
+          "url": "https://www.idescat.cat/",
+          "logo": "/images/data-sources/idescat.jpg"
+        },
+        {
+          "name": "Institut Metròpoli",
+          "url": "https://www.institutmetropoli.cat/ca/",
+          "logo": "/images/data-sources/institut-metropoli.png"
+        },
+        {
+          "name": "Instituto Nacional de Estadística (INE)",
+          "url": "https://www.ine.es/",
+          "logo": "/images/data-sources/ine.svg"
+        },
+        {
+          "name": "Consell de Treball, Econòmic i Social de Catalunya (CTESC)",
+          "url": "https://ctesc.gencat.cat/",
+          "logo": "/images/data-sources/ctesc.png"
+        }
+      ]
+    },
+    {
+      "title": "Dades d’entitats i universitats",
+      "organizations": [
+        {
+          "name": "Taula d’entitats del Tercer Sector Social de Catalunya",
+          "url": "https://www.tercersector.cat/",
+          "logo": "/images/data-sources/taula.jpg"
+        },
+        {
+          "name": "Observatori contra l’LGTBI-fòbia de Catalunya",
+          "url": "https://lobservatori.cat/ca/inici/",
+          "logo": "/images/data-sources/observatori.png"
+        },
+        {
+          "name": "Universitat Oberta de Catalunya (UOC)",
+          "url": "https://www.uoc.edu/",
+          "logo": "/images/data-sources/uoc.svg"
+        }
+      ]
+    }
+  ]
+}

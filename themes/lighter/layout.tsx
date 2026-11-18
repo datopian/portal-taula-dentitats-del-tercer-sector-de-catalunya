@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from "react";
 import styles from "./styles.module.scss";
 import AddDataBanner from "./add-data-banner";
+import DataSources from "./data-sources";
 
 const LigtherTheme = ({
   Header,
@@ -30,6 +31,7 @@ const LigtherTheme = ({
           </main>
         </div>
         <AddDataBanner />
+        <DataSources />
         {Footer && <Footer />}
       </div>
     </>
