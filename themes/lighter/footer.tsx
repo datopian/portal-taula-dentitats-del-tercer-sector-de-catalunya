@@ -3,6 +3,7 @@ import { useTheme } from "@/components/theme/theme-provider";
 import useTranslation from "next-translate/useTranslation";
 import Image from "next/image";
 import Link from "next/link";
+import DataSources from "./data-sources";
 import {
   RiFacebookFill,
   RiFlickrFill,
@@ -78,6 +79,7 @@ const LighterThemeFooter: React.FC = () => {
 
   return (
     <footer className="bg-accent-50 mt-16">
+      <DataSources />
       <div
         className={`custom-container flex flex-col flex-wrap py-10 mx-auto md:items-center lg:items-start md:flex-row md:flex-nowrap`}
       >
