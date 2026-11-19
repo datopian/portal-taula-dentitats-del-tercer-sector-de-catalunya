@@ -139,19 +139,35 @@ const LighterThemeFooter: React.FC = () => {
 
         <div className="md:ml-auto mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-3">
           <span className="text-sm">{t("footer.support")}</span>
-          <Link
-            href={"https://www.barcelona.cat/ca"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col md:flex-row items-center gap-1"
-          >
-            <Image
-              alt="Ajuntament de Barcelona"
-              width={180}
-              height={50}
-              src={"/images/logos/barcelona.jpg"}
-            />
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href={"https://www.barcelona.cat/ca"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col md:flex-row items-center gap-1"
+            >
+              <Image
+                alt="Ajuntament de Barcelona"
+                width={234}
+                height={48}
+                className="h-auto w-[180px]"
+                src="/images/logos/logo-ajbcn.svg"
+              />
+            </Link>
+            <Link
+              href="https://www.gencat.cat/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                alt="Generalitat de Catalunya"
+                width={180}
+                height={45}
+                className="h-auto"
+                src="/images/data-sources/generalitat.png"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
