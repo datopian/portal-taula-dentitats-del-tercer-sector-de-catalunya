@@ -37,7 +37,7 @@
         {
           "name": "Taula d’entitats del Tercer Sector Social de Catalunya",
           "url": "https://www.tercersector.cat/",
-          "logo": "/images/data-sources/taula.jpg"
+          "logo": "https://www.tercersector.cat/themes/taula3/images/LogoTaulaODS_L.svg"
         },
         {
           "name": "Observatori contra l’LGTBI-fòbia de Catalunya",
