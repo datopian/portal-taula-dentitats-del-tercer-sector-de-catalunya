@@ -12,7 +12,7 @@
         {
           "name": "Institut d’Estadística de Catalunya (Idescat)",
           "url": "https://www.idescat.cat/",
-          "logo": "/images/data-sources/idescat.jpg"
+          "logo": "https://www.ine.es/menus/_b/img/LogoINE.svg"
         },
         {
           "name": "Institut Metròpoli",
