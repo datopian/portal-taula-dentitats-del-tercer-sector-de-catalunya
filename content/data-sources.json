@@ -22,7 +22,7 @@
         {
           "name": "Instituto Nacional de Estadística (INE)",
           "url": "https://www.ine.es/",
-          "logo": "/images/data-sources/ine.svg"
+          "logo": "https://www.ine.es/menus/_b/img/LogoINE.svg"
         },
         {
           "name": "Consell de Treball, Econòmic i Social de Catalunya (CTESC)",
