@@ -148,9 +148,10 @@ const LighterThemeFooter: React.FC = () => {
             >
               <Image
                 alt="Ajuntament de Barcelona"
-                width={180}
-                height={50}
-                src={"/images/logos/barcelona.jpg"}
+                width={234}
+                height={48}
+                className="h-auto w-[180px]"
+                src="/images/logos/logo-ajbcn.svg"
               />
             </Link>
             <Link
