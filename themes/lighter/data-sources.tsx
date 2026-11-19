@@ -31,7 +31,7 @@ const DataSources: React.FC = () => (
                   src={org.logo}
                   alt={org.name}
                   loading="lazy"
-                  className="h-10 md:h-12 w-auto max-w-[180px] object-contain mix-blend-multiply"
+                  className="h-10 md:h-12 w-auto max-w-[180px] object-contain mix-blend-multiply [filter:grayscale(1)_brightness(.8)_contrast(2.5)]"
                 />
               </a>
             </li>
